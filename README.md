@@ -2,7 +2,7 @@
 Cross-Platform C++ OpenGL 3D Multi-threaded Game Engine with script support
 
 ## Required packages for compilation
-- EterniaLibrary (See EterniaLogic/EterniaLibrary)
+- EterniaLibrary (See https://github.com/EterniaLogic/EterniaLibrary)
 - OpenGL of some kind
 - GLEW
 - FreeGLUT
