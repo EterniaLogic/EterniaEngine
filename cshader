@@ -1,0 +1,56 @@
+#!/bin/bash
+rm ./Engine 2> /dev/null
+
+#Encapsulate Shaders in shaders_
+cd shaders_
+# clear src/Shaders.hpp
+> ../src/Shaders.h
+
+# initialize file with namespace header
+echo "// Auto-generated cshader from '../shaders_/'" >> ../src/Shaders.h
+echo "#ifndef SHADERSx_H_" >> ../src/Shaders.h
+echo "#define SHADERSx_H_" >> ../src/Shaders.h
+echo "" >> ../src/Shaders.h
+echo "" >> ../src/Shaders.h
+echo "namespace GEN_Shaders{" >> ../src/Shaders.h
+
+for filex in *.glsl
+do
+    ffile=${filex%.glsl}
+	
+	#FILESIZE=$(stat -c%s "$ffile.glsl")
+	#echo "      static const int size_$ffile = $FILESIZE;" >> ../src/Shaders.h
+	
+	TEXT=""
+	while read p; do
+      #echo "            \"$p\n\", " >> ../src/Shaders.h
+      TEXT="$TEXT $p\n"
+    done < $filex
+	
+    echo "      static const char * $ffile[] = { \"$TEXT\" };" >> ../src/Shaders.h
+    
+
+    #echo "      };" >> ../src/Shaders.h
+    echo "" >> ../src/Shaders.h
+done
+
+
+echo "};" >> ../src/Shaders.h
+echo "" >> ../src/Shaders.h
+echo "#endif" >> ../src/Shaders.h
+
+
+# compile!
+cd ..
+#cmake .
+#make -j 16
+
+#echo "installing!"
+#sudo make install
+
+#echo "compiling..."
+#g++ -pipe -std=c++0x -pedantic -g3 -O0 -DDEBUG $(find src -name "*.c") $(find src -name "*.cpp") $(find src -name "*.hpp") main.h main.cpp -o ./Engine \
+#    -lGL -lGLEW -lboost_chrono -lboost_system -lboost_thread-mt -lglut -lGLU -lopenal -lalut \
+#    -lEternia
+    #2> error.log
+#echo "compile done"
