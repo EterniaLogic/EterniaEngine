@@ -15,7 +15,9 @@
 
 #include <malloc.h>
 
-#include "../Helper/AnimatedObject.h"
+#include <Eternia/Design/IAnimated.h>
+
+using namespace Math;
 
 // Sprites are pictures that can be animated.
 // Animations are progressed with the animation thread.
@@ -29,7 +31,7 @@ S2D_LEFTTOP, S2D_CENTERTOP, S2D_RIGHTTOP,
 S2D_LEFTCENTER, S2D_CENTER, S2D_RIGHTCENTER,
 S2D_LEFTBOTTOM, S2D_CENTERBOTTOM, S2D_RIGHTBOTTOM};
 
-class Sprite2D : public AnimatedObject{
+class Sprite2D : public IAnimated{
 private:
     bool loaded; // is this loaded? If not, will not be drawn.
     bool bound; // is current image bound? (Enforces bindImage)
@@ -57,7 +59,7 @@ public:
 
     vertex location; // Z is used for layering.
 
-    // From AnimatedObject
+    // From IAnimated
     void animateTick(long timeMillis); // used with images that have multiple frames
 
     // Dimensions

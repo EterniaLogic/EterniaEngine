@@ -1,39 +1,37 @@
+#include "LanguageBase.h"
+
 #include "Lua.h"
 
-// https://www.lua.org/pil/24.1.html
-Lua::Lua(CharString _loc){
-    loc = _loc;
-    start();
-    
-//    luaL_openlibs(L);
+LanguageBase::LanguageBase(){
+
 }
 
-Lua::~Lua(){
-    lua_close(L);
+LanguageBase::~LanguageBase(){
+
 }
 
 
 
 // API language implementation functions.
-void Lua::onLoad(){
+void LanguageBase::onLoad(){
 
 }
 
-void Lua::onEnable(){
+void LanguageBase::onEnable(){
 
 }
 
-void Lua::onDisable(){
+void LanguageBase::onDisable(){
 
 }
 
 // C/C++/Go modules cannot be directly unloaded.
-void Lua::onUnload(){
+void LanguageBase::onUnload(){
 
 }
 
 // reload configs
-void Lua::onReload(){
+void LanguageBase::onReload(){
 
 }
 
@@ -41,85 +39,69 @@ void Lua::onReload(){
 
 // Synchronized functions run in the render thread
 // [Client-Side SYNC] specific function that enables openGL contexts
-void Lua::onGuiDraw(){
+void LanguageBase::onGuiDraw(){
 
 }
 
 // [Client-Side SYNC] Draw 3D things
-void Lua::onRenderDraw(){
+void LanguageBase::onRenderDraw(){
 
 }
 
 // [Client-Side SYNC] draw a specific shader
-void Lua::onShader(){
+void LanguageBase::onShader(){
 
 }
 
 // Node-Side (Nodes are sub-servers)
 // Node processing
-void Lua::onNodeTick(){
+void LanguageBase::onNodeTick(){
 
 }
 
 // Shared
-void Lua::onNetworkTick(){
+void LanguageBase::onNetworkTick(){
 
 }
 
 // Server-side (or cross tracking)
 // time between ticks given to script engines
-void Lua::onTick(double time){
+void LanguageBase::onTick(double time){
 
 }
 
 // send an event to the scripts
-Event Lua::onEvent(Event event){
+Event LanguageBase::onEvent(Event event){
 
 }
 
 
 // internal systems (Compiled languages still need an API)
 // add a class for use by scripts
-void Lua::addClass(int size){
+void LanguageBase::addClass(int size){
 
 }
 
 // add a function for use by scripts
-void Lua::addFunction(void* func, char* funcname, int params){
-    luaL_register(L, "", func);
+void LanguageBase::addFunction(void* func, char* funcname, int params){
+
 }
 
 // compileable languages can be dynamically compiled, others will just run a check
-void Lua::compile(){}
+void LanguageBase::compile(){}
 
 // any type of script
 // stop the script engine (Unloads script, attempts to unload DLL)
-void Lua::stop(){
-    lua_close(L);
-}
+void LanguageBase::stop(){}
 
 // start the script engine (Loads the script, preps modules)
-void Lua::start(){
-#if LUA_VERSION_NUM < 502
-    L = lua_open(); 
-    
-#elif LUA_VERSION_NUM == 502
-	L=luaL_newstate();
-#endif
-	luaopen_base(L);
-    luaopen_table(L);
-    luaopen_io(L);      
-    luaopen_string(L);
-    luaopen_math(L);
-}
+void LanguageBase::start(){}
 
 // runs Stop() then Start()
-void Lua::restart(){
+void LanguageBase::restart(){
     stop();
     start();
 }
 
 // clear garbage (For specific languages, such as java and C#)
-void Lua::gc(){
-    //lua_gc(L, LUA_GCCOLLECT, 0);
-}
+void LanguageBase::gc(){}

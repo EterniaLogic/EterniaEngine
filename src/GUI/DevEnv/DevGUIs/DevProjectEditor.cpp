@@ -4,7 +4,7 @@ DevProjectEditor::DevProjectEditor(){
     setName(CharString("Project Editor",14));
 
     // Add Items
-    TreeNode *node1 = new TreeNode();
+    GTreeNode *node1 = new GTreeNode();
     node1->name = CharString("Project",7);
     node1->expanded=true;
     node1->icon.openImage(CharString("test_sprite.gif"),false);
@@ -12,10 +12,10 @@ DevProjectEditor::DevProjectEditor(){
     node1->icon.animateTick(1001);
     node1->selected=true;
 
-    TreeNode *node2 = new TreeNode();
+    GTreeNode *node2 = new GTreeNode();
     node2->name = CharString("Scripts",7);
 
-    TreeNode *node3 = new TreeNode();
+    GTreeNode *node3 = new GTreeNode();
     node2->name = CharString("Models",6);
 
 

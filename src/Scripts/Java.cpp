@@ -2,9 +2,15 @@
 
 #ifdef USE_JAVA
 
-JavaS::JavaS(){
-    //
+JavaS::JavaS(CharString file, CharString name, CharString language, CharString version){
+    this->file = file;
+    this->name = name;
+    this->language = language;
+    this->version = version;
+    permscope = P_MOD;
+    modcwdloc = "./data/mods/";
 }
+
     
 // stop the JVM
 void JavaS::stop(){
@@ -111,7 +117,7 @@ void JavaS::addClass(int size){
 }
 
 // add a function for use by scripts
-void JavaS::addFunction(void* func, int params){
+void JavaS::addFunction(void* func, char* funcname, int params){
 
 }
 

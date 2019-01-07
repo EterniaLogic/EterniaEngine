@@ -1,0 +1,18 @@
+[submodule "lib/openal-soft"]
+	path = lib/openal-soft
+	url = https://github.com/kcat/openal-soft
+[submodule "lib/freeglut"]
+	path = lib/freeglut
+	url = https://github.com/dcnieho/FreeGLUT
+[submodule "lib/ImageMagick"]
+	path = lib/ImageMagick
+	url = https://github.com/ImageMagick/ImageMagick
+[submodule "lib/lua"]
+	path = lib/lua
+	url = https://github.com/lua/lua
+[submodule "lib/zlib"]
+	path = lib/zlib
+	url = https://github.com/madler/zlib
+[submodule "lib/ALUT"]
+	path = lib/ALUT
+	url = https://github.com/blackberry/ALUT

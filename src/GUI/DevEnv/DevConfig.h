@@ -1,7 +1,9 @@
 #ifndef DEVCONFIG_H_
 #define DEVCONFIG_H_
 
-#include <Eternia/Math/struct/vertex.h>
+#include <Eternia/include.h>
+
+using namespace Math;
 
 // The Dev config is just a file full of colorization options.
 //  May be exported to user-specific values

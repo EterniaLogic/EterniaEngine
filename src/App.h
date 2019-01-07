@@ -2,7 +2,7 @@
 #define App_h_
 
 
-#define DEV // Developer science/editor enviroment, otherwise normal Engine direct-startup.
+//#define DEV // Developer science/editor enviroment, otherwise normal Engine direct-startup.
 
 
 
@@ -60,26 +60,20 @@
 #include <boost/shared_ptr.hpp>*/
 
 
-//#include "EterniaLib/src/Data/HashMap.hpp"
-#include <Eternia/Data/HashMap.hpp>
-//#include <Eternia/Data/HashTable.hpp>
-#include <Eternia/Data/LinkedList.hpp>
-#include <Eternia/Data/Queue.h>
+#include <Eternia/Data/includes.h>
 #include <Eternia/constants.h>
-#include <Eternia/Data/Logger/Logger.h>
-#include <Eternia/Data/TimeProfiler.h>
+#include <Eternia/Parsing/Config.h>
+#include <Eternia/Design/Events/KeyHandleEvent.h>
+#include <Eternia/Design/Events/MouseHandleEvent.h>
 
 // 3D Modeling system Autodesk FBX
 //#include <fbxsdk.h>
 
 #include "Model/Model.h"
 #include "Sound/SoundManager.h"
-#include "Config/Config.h"
 //#include "Events/Event.h"
-#include "Events/KeyHandleEvent.h"
-#include "Events/MouseHandleEvent.h"
 
-#include <Eternia/Data/Events/EventHandler.h>
+
 
 
 #include "GUI/gui.h"

@@ -7,6 +7,8 @@
 
 #include "SoundBufferData.h"
 
+using namespace Math;
+
 // The sound listener attaches to a camera object in OpenGL.
 
 class SoundSource {

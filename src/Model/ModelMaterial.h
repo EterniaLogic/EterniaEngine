@@ -14,7 +14,8 @@
 #include <Eternia/Math/struct/vertex.h>
 #include <Eternia/Data/CharString.h>
 #include <Eternia/Data/LinkedList.hpp>
-#include <Eternia/Data/LinkedListT.h>
+#include <Eternia/Data/FileFormat/MTL.h>
+#include <Eternia/Design/Model/IMaterial.h>
 #include <Eternia/Parsing/SimpleParser.h>
 
 #include <stdlib.h>
@@ -25,35 +26,26 @@
 #include <malloc.h>
 #include <math.h>
 
-#define NULL_VERTEX1 vertex(9.0e99,9.0e99,9.0e99)
-
 //#include <fbxsdk.h>
 #include "glsl.h"
 #include <list>
 #include "../Helper/AnimatedObject.h"
 #include "../Sprite2D/Sprite2D.h"
 
-//using namespace Magick++;
+using namespace Math;
 
-class ModelMaterial : public AnimatedObject {
+
+class ModelMaterial : public AnimatedObject, public IMaterial {
     public:
         ModelMaterial();
-        static LinkedList<ModelMaterial>* loadFromMtl(CharString materialFile); // partnered with .obj
         void draw(); // pre-draw this material before the model is loaded.
         
         
         // Animate ALL the map images, called by Model::animateTick
         void animateTick(long timeMillis);
 
-        CharString name;
 
-        // direct values
-        vertex AmbientColor, DiffuseColor, SpecularColor, EmitColor, ModelColor;
-
-        double Shininess, Alpha;
-        short Illumination; // illumination model
-
-        // 2D cubic Maps
+        // 2D cubic Maps (loaded from ColorMap_loc, etc.)
         Sprite2D ColorMap, DiffuseMap, SpecularMap, EmitMap, AlphaMap, BumpMap, ShinyMap, MirrorMap;
 };
 

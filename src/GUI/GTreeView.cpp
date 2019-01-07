@@ -11,7 +11,7 @@ GTreeView::GTreeView(){
 GTreeView::~GTreeView() {}
 
 
-void GTreeView::_drawTree(TreeNode* node, int xoffset){
+void GTreeView::_drawTree(GTreeNode* node, int xoffset){
     if(node == 0x0) return;
     int xoffset2 = xoffset;
 

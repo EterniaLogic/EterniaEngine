@@ -1,39 +1,38 @@
-#include "Lua.h"
+#include "PythonS.h"
 
-// https://www.lua.org/pil/24.1.html
-Lua::Lua(CharString _loc){
+
+PythonS::PythonS(CharString _loc){
     loc = _loc;
     start();
     
-//    luaL_openlibs(L);
 }
 
-Lua::~Lua(){
-    lua_close(L);
+PythonS::~PythonS(){
+    stop();
 }
 
 
 
 // API language implementation functions.
-void Lua::onLoad(){
+void PythonS::onLoad(){
 
 }
 
-void Lua::onEnable(){
+void PythonS::onEnable(){
 
 }
 
-void Lua::onDisable(){
+void PythonS::onDisable(){
 
 }
 
 // C/C++/Go modules cannot be directly unloaded.
-void Lua::onUnload(){
+void PythonS::onUnload(){
 
 }
 
 // reload configs
-void Lua::onReload(){
+void PythonS::onReload(){
 
 }
 
@@ -41,85 +40,75 @@ void Lua::onReload(){
 
 // Synchronized functions run in the render thread
 // [Client-Side SYNC] specific function that enables openGL contexts
-void Lua::onGuiDraw(){
+void PythonS::onGuiDraw(){
 
 }
 
 // [Client-Side SYNC] Draw 3D things
-void Lua::onRenderDraw(){
+void PythonS::onRenderDraw(){
 
 }
 
 // [Client-Side SYNC] draw a specific shader
-void Lua::onShader(){
+void PythonS::onShader(){
 
 }
 
 // Node-Side (Nodes are sub-servers)
 // Node processing
-void Lua::onNodeTick(){
+void PythonS::onNodeTick(){
 
 }
 
 // Shared
-void Lua::onNetworkTick(){
+void PythonS::onNetworkTick(){
 
 }
 
 // Server-side (or cross tracking)
 // time between ticks given to script engines
-void Lua::onTick(double time){
+void PythonS::onTick(double time){
 
 }
 
 // send an event to the scripts
-Event Lua::onEvent(Event event){
+Event PythonS::onEvent(Event event){
 
 }
 
 
 // internal systems (Compiled languages still need an API)
 // add a class for use by scripts
-void Lua::addClass(int size){
+void PythonS::addClass(int size){
 
 }
 
 // add a function for use by scripts
-void Lua::addFunction(void* func, char* funcname, int params){
-    luaL_register(L, "", func);
+void PythonS::addFunction(void* func, char* funcname, int params){
+
 }
 
 // compileable languages can be dynamically compiled, others will just run a check
-void Lua::compile(){}
+void PythonS::compile(){}
 
 // any type of script
 // stop the script engine (Unloads script, attempts to unload DLL)
-void Lua::stop(){
-    lua_close(L);
+void PythonS::stop(){
+    //Py_Finalize();
 }
 
 // start the script engine (Loads the script, preps modules)
-void Lua::start(){
-#if LUA_VERSION_NUM < 502
-    L = lua_open(); 
-    
-#elif LUA_VERSION_NUM == 502
-	L=luaL_newstate();
-#endif
-	luaopen_base(L);
-    luaopen_table(L);
-    luaopen_io(L);      
-    luaopen_string(L);
-    luaopen_math(L);
+void PythonS::start(){
+    //Py_Initialize();
 }
 
 // runs Stop() then Start()
-void Lua::restart(){
+void PythonS::restart(){
     stop();
     start();
 }
 
 // clear garbage (For specific languages, such as java and C#)
-void Lua::gc(){
-    //lua_gc(L, LUA_GCCOLLECT, 0);
+void PythonS::gc(){
+    
 }

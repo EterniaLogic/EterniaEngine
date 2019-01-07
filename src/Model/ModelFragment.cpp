@@ -5,11 +5,6 @@ ModelFragment::ModelFragment(){
     vertexbuffer = -1;
 }
 
-void ModelFragment::addVertex(vertex* v) {
-    //debugLogm("Add Model " << this << " Vertex: (" << v.x << ", "<< v.y <<"," << v.z<<")");
-    this->verticies.add(v);
-}
-
 
 void ModelFragment::draw() {
     // Draw the model to the OpenGL Interface.
@@ -64,22 +59,22 @@ void ModelFragment::draw() {
 
         // Draw verticies
         // loop through Vertex3ds
-        LinkedNode<vertex>* current = verticies.top();
-        LinkedNode<vertex>* currentn = normals.top();
-        LinkedNode<vertex>* currentt = textureCoordinates.top();
+        LinkedNode<Math::vertex>* current = verticies.top();
+        LinkedNode<Math::vertex>* currentn = normals.top();
+        LinkedNode<Math::vertex>* currentt = textureCoordinates.top();
 
         debugLogm("Start Model Render: " << this);
         while(current != 0x0) {
             if(current->data != 0x0) {
-                vertex* v = (vertex*)current->data;
+                Math::vertex* v = (Math::vertex*)current->data;
                 debugLogm("Model Vector: " << v << " Vertex: (" << v->x << ", "<< v->y <<"," << v->z<<")");
-                // draw vertexs with their perspective offsets
+                // draw Math::vertexs with their perspective offsets
                 glVertex3f(v->x, v->y, v->z);
 
-                if(currentt != 0x0) glTexCoord2f(((vertex*)currentt->data)->x,((vertex*)currentt->data)->y);
+                if(currentt != 0x0) glTexCoord2f(((Math::vertex*)currentt->data)->x,((Math::vertex*)currentt->data)->y);
                 if(currentn != 0x0) 
                     if(currentn->data != 0x0) 
-                        glNormal3f(((vertex*)currentn->data)->x,((vertex*)currentn->data)->y,((vertex*)currentn->data)->z);
+                        glNormal3f(((Math::vertex*)currentn->data)->x,((Math::vertex*)currentn->data)->y,((Math::vertex*)currentn->data)->z);
 
                 debugLogm("End Vector: " << v);
             }
@@ -104,15 +99,15 @@ void ModelFragment::bufferModel() {
     pvertex = (GLfloat*)calloc(verticies.size()*8,sizeof(GLfloat));
 
     // fill "indices" as needed
-    LinkedNode<vertex>* current = verticies.top();
-    LinkedNode<vertex>* currentn = normals.top();
-    LinkedNode<vertex>* currentt = textureCoordinates.top();
+    LinkedNode<Math::vertex>* current = verticies.top();
+    LinkedNode<Math::vertex>* currentn = normals.top();
+    LinkedNode<Math::vertex>* currentt = textureCoordinates.top();
     int i=0, j=0, k=0;
-    vertex* v;
+    Math::vertex* v;
     while(current != 0x0) {
         if(current->data != 0x0) {
-            v = (vertex*)current->data;
-            // draw vertexs with their perspective offsets
+            v = (Math::vertex*)current->data;
+            // draw Math::vertexs with their perspective offsets
 
             indices[i] = i;
 
@@ -122,13 +117,13 @@ void ModelFragment::bufferModel() {
             pvertex[j+2] = v->z;
 
             // normals
-            if(currentn != 0x0) pvertex[j+3] = ((vertex*)currentn->data)->x;
-            if(currentn != 0x0) pvertex[j+4] = ((vertex*)currentn->data)->y;
-            if(currentn != 0x0) pvertex[j+5] = ((vertex*)currentn->data)->z;
+            if(currentn != 0x0) pvertex[j+3] = ((Math::vertex*)currentn->data)->x;
+            if(currentn != 0x0) pvertex[j+4] = ((Math::vertex*)currentn->data)->y;
+            if(currentn != 0x0) pvertex[j+5] = ((Math::vertex*)currentn->data)->z;
 
             // texture
-            if(currentt != 0x0) pvertex[j+6] = ((vertex*)currentt->data)->x;
-            if(currentt != 0x0) pvertex[j+7] = ((vertex*)currentt->data)->y;
+            if(currentt != 0x0) pvertex[j+6] = ((Math::vertex*)currentt->data)->x;
+            if(currentt != 0x0) pvertex[j+7] = ((Math::vertex*)currentt->data)->y;
 
 
             j+=8;
@@ -153,16 +148,4 @@ void ModelFragment::bufferModel() {
     glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(GLuint)*vbosize, indices);
 
     buffered=true;
-}
-
-void ModelFragment::setOffset(vertex offset) {
-    this->offset = offset;
-}
-
-void ModelFragment::setMaterial(ModelMaterial* material) {
-    this->material = material;
-}
-
-void ModelFragment::setScale(vertex scale) {
-    this->scale = scale;
 }

@@ -1,27 +1,18 @@
-#ifndef Java_H_
-#define Java_H_
+#ifndef LANGBASE_H_
+#define LANGBASE_H_
 
-//#define USE_JAVA
-#ifdef USE_JAVA
-
-// Run Java classes.
-//  No direct limitations besides API limits.
-#include <jni.h>
-#include "LanguageBase.h"
+#include "API/API.h"
+#include "ScriptProvider.h"
 #include <Eternia/API/APIMod.h>
 
-class JavaS : public APIMod{
-    JavaVM *jvm;
-    JNIEnv *env;
-    JavaVMInitArgs vm_args; /* JDK/JRE 6 VM initialization arguments */
-
+class LanguageBase{
 public:
-    JavaS(CharString file, CharString name, CharString language, CharString version);
+    LanguageBase();
+    virtual ~LanguageBase();
     
-    
-    
-    
-    
+    CharString loc; // location for scripts
+
+
     // API language implementation functions.
     void onLoad();
     void onEnable();
@@ -59,5 +50,4 @@ public:
     void gc();    // clear garbage (For specific languages, such as java and C#)
 };
 
-#endif
 #endif

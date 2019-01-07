@@ -6,7 +6,7 @@
 #include "DrawArea.h"
 #include "../Sprite2D/Sprite2D.h"
 
-class TreeNode {
+class GTreeNode {
     public:
         CharString name;
         Sprite2D icon;
@@ -15,8 +15,8 @@ class TreeNode {
         
         bool expanded;
         bool selected;
-        TreeNode *Child;
-        TreeNode *Sibling, *PrevSibling;
+        GTreeNode *Child;
+        GTreeNode *Sibling, *PrevSibling;
 };
 
 // this defines a generic window
@@ -28,11 +28,11 @@ class GTreeView : public GObject {
         void draw(); // draws this window and all of it's decorations.
         void update();
 
-        TreeNode* tree; // tree is public so others can edit it.
+        GTreeNode* tree; // tree is public so others can edit it.
     private:
         void handleMouse(MouseHandleEvent*);
         void handleKeyboard(KeyHandleEvent*);
-        void _drawTree(TreeNode*, int offset);
+        void _drawTree(GTreeNode*, int offset);
         int treelevel;
 };
 

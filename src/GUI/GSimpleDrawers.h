@@ -4,6 +4,8 @@
 #include "GLCommon.h"
 #include <Eternia/Data/CharString.h>
 
+using namespace Math;
+
 enum GRAD_DIR{GD_NONE, GD_LEFT,GD_RIGHT, GD_UP, GD_DOWN};
 
 // Set a static color

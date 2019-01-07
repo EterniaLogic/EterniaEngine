@@ -61,22 +61,3 @@ void Model::bufferModel() {
         fragments.frozen[i]->bufferModel();
     }
 }
-
-void Model::addFragment(ModelFragment* frag){
-    fragments.add(frag);
-}
-
-void Model::setOffset(vertex offset) {
-    fragments.freeze();
-    for(int i=0; i<fragments.frozenlen; i++) {
-        fragments.frozen[i]->setOffset(offset);
-    }
-}
-
-void Model::setScale(vertex scale) {
-    fragments.freeze();
-    for(int i=0; i<fragments.frozenlen; i++) {
-        fragments.frozen[i]->setScale(scale);
-
-    }
-}

@@ -6,7 +6,11 @@
 #include <Eternia/Math/struct/vertex.h>
 #include <Eternia/Data/CharString.h>
 #include <Eternia/Data/LinkedList.hpp>
-#include <Eternia/Data/LinkedListT.h>
+#include <Eternia/Data/FileFormat/OBJ.h>
+#include <Eternia/Design/Model/IModel.h>
+#include <Eternia/Design/Model/IMaterial.h>
+#include <Eternia/Design/Model/IModelPart.h>
+#include <Eternia/Data/FileFormat/MTL.h>
 #include <Eternia/Parsing/SimpleParser.h>
 
 #include <stdlib.h>
@@ -48,13 +52,10 @@
 // Not to mention that we are already using it for the entire library.
 // This also enables us to use the linear algebra sector with ease.
 
-class Model : public VertexObject, public AnimatedObject {
+class Model : public IModel {
         friend class ModelMaterial;
 
     private:
-        LinkedList<ModelFragment> fragments; // fragments of this model. Can be used to move individual parts.
-        CharString loadedloc; // model loaded from this location
-        // Verticies are loaded into this.
 
         cwc::glShaderManager SM;
         cwc::glShader *shader;
@@ -63,7 +64,7 @@ class Model : public VertexObject, public AnimatedObject {
         Model();
         virtual ~Model();
 
-        // From AnimatedObject
+        // From IModel -> IAnimated
         void animateTick(long timeMillis);
         
         
@@ -72,7 +73,7 @@ class Model : public VertexObject, public AnimatedObject {
         Model* cloneModelPtr(); // clone this model, verticies, materials are directly pointed to the original (good for less memory)
 
         void loadFromFile(CharString* loc); // Load model from file. Auto-detect filetype.
-        void loadFromObj(char* objFile); // STATIC OBJECTS open up a Obj file and load the materials relative to it. (Moderate raw file)
+        void loadFromObj(CharString objFile); // STATIC OBJECTS open up a Obj file and load the materials relative to it. (Moderate raw file)
         void loadFromFbx(char* fbxFile); // ANIMATED CHARS open up FBX (Autodesk maya)
 
         void Animator(); // Animates FBX models (Used in end-line Animation thread)
@@ -80,9 +81,6 @@ class Model : public VertexObject, public AnimatedObject {
         void bufferModel(); // Buffer this model in the graphics card
 
         void Draw(); // draws Model directly to the openGL engine
-        void addFragment(ModelFragment* frag);
-        void setOffset(vertex offset);
-        void setScale(vertex scale);
 };
 
 

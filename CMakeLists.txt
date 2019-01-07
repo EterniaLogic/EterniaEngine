@@ -81,14 +81,33 @@ include_directories("dep/FBX/include")
 #TARGET_LINK_LIBRARIES("dep/FBX/lib/gcc4/x64/release/libfbxsdk.a")
 
 #EterniaLib
-include_directories("../EterniaLib/include")
-add_definitions(${EterniaLibrary_DEFINITIONS})
-#link_directories("../EterniaLib/libEternia.a")
-#add_subdirectory("../EterniaLib/" "../EterniaLib/")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaLib/include")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaLib/lib")
+message("ETERNIA LOCAL LOC: " "${CMAKE_CURRENT_SOURCE_DIR}/../EterniaLib/include")
+#add_definitions(${EterniaLibrary_DEFINITIONS})
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaGameLogic/include")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaGameLogic/lib")
+#add_definitions(${EterniaGameLogic_DEFINITIONS})
+
 
 ADD_EXECUTABLE(${program} ${CC_src2})
-target_link_libraries(${program} Eternia)
+target_link_libraries(${program} "libEternia.a" "libEterniaGameLogic.a")
 #ExternalProject_Add(PATH=${CMAKE_CURRENT_BINARY_DIR}/EterniaLib)
+
+
+
+
+add_subdirectory(lib/openal-soft)
+add_subdirectory(lib/ALUT)
+add_subdirectory(lib/freeglut/freeglut/freeglut)
+
+add_subdirectory(lib/zlib)
+
+add_subdirectory(lib/lua)
+
+
+
 
 ######################################
 ####### Mainstream Libraries #########
@@ -208,20 +227,6 @@ find_package(ZLIB REQUIRED) # zlib
 ####find_package(Eternia REQUIRED) # << Eternia Library
 FIND_PACKAGE(Threads REQUIRED)
 
-# Scripting
-FIND_PACKAGE(Lua51 REQUIRED)
-FIND_PACKAGE(Java REQUIRED)
-FIND_PACKAGE(JNI REQUIRED)
-#FIND_PACKAGE(JVM REQUIRED)
-FIND_PACKAGE(PythonLibs REQUIRED)
-
-#Visuals
-FIND_PACKAGE(ImageMagick REQUIRED)
-FIND_PACKAGE(ImageMagick COMPONENTS Magick++)
-FIND_PACKAGE(ImageMagick COMPONENTS MagickCore)
-FIND_PACKAGE(ImageMagick COMPONENTS convert)
-FIND_PACKAGE(ImageMagick COMPONENTS Magick++ convert)
-
 
 #include_directories(${OpenAL_INCLUDE_DIRS})
 #link_directories(${OpenAL_LIBRARY_DIRS})
@@ -267,6 +272,28 @@ include_directories(${ZLIB_INCLUDE_DIRS})
 link_directories(${ZLIB_LIBRARY_DIRS})
 add_definitions(${ZLIB_DEFINITIONS})
 
+
+
+
+
+# Scripting
+FIND_PACKAGE(Lua51 REQUIRED)
+FIND_PACKAGE(Java REQUIRED)
+FIND_PACKAGE(JNI REQUIRED)
+#FIND_PACKAGE(JVM REQUIRED)
+FIND_PACKAGE(PythonLibs REQUIRED)
+FIND_PACKAGE(PythonInterp REQUIRED)
+
+#Visuals
+FIND_PACKAGE(ImageMagick REQUIRED)
+FIND_PACKAGE(ImageMagick COMPONENTS Magick++)
+FIND_PACKAGE(ImageMagick COMPONENTS MagickCore)
+FIND_PACKAGE(ImageMagick COMPONENTS convert)
+FIND_PACKAGE(ImageMagick COMPONENTS Magick++ convert)
+
+
+
+
 include_directories(${LUA_INCLUDE_DIR})
 link_directories(${LUA_LIBRARIES})
 add_definitions(${LUA_DEFINITIONS})
@@ -274,6 +301,10 @@ add_definitions(${LUA_DEFINITIONS})
 include_directories(${JAVA_INCLUDE_DIRS})
 link_directories(${JAVA_LIBRARY_DIRS})
 add_definitions(${JAVA_DEFINITIONS})
+
+include_directories(${PYTHON_INCLUDE_DIR})
+link_directories(${PYTHON_LIBRARY})
+add_definitions(${PYTHON_DEFINITIONS})
 
 
 message("Lua: ${LUA_LIBRARY}")
@@ -283,6 +314,10 @@ message("GL: ${OPENGL_LIBRARY}")
 message("GLEW: ${GLEW_LIBRARY}")
 message("OpenAL: ${OPENAL_LIBRARY}")
 message("ALUT: ${ALUT_LIBRARY}")
+
+
+message("Python Lib: ${PYTHON_LIBRARIES}")
+message("Python inc: ${PYTHON_INCLUDE_DIR}")
 
 #include_directories(${JNI_INCLUDE_DIRS})
 #link_directories(${JNI_LIBRARY_DIRS})

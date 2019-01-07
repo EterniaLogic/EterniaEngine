@@ -5,6 +5,8 @@
 #include <AL/alut.h>
 #include <Eternia/Math/struct/vertex.h>
 
+using namespace Math;
+
 // The sound listener attaches to a camera object in OpenGL.
 
 class SoundListener {

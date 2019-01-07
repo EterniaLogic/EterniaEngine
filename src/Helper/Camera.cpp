@@ -25,9 +25,9 @@ void Camera::perspectiveView() {
 
     // the Rotational Camera allows for players to change their camera direction
     if(rotationalCamera) {
-        eyePos->x = camera_range*cos(camera_angle->x);
-        eyePos->y = camera_range*sin(camera_angle->y);
-        eyePos->z = camera_range*sin(camera_angle->x);
+        eyePos->x = camera_range*Math::cos(camera_angle->x);
+        eyePos->y = camera_range*Math::sin(camera_angle->y);
+        eyePos->z = camera_range*Math::sin(camera_angle->x);
     }
 
     // look at the ref Position

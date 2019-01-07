@@ -1924,6 +1924,33 @@ src/Scripts/Java.cpp.s:
 	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Java.cpp.s
 .PHONY : src/Scripts/Java.cpp.s
 
+src/Scripts/LanguageBase.o: src/Scripts/LanguageBase.cpp.o
+
+.PHONY : src/Scripts/LanguageBase.o
+
+# target to build an object file
+src/Scripts/LanguageBase.cpp.o:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/LanguageBase.cpp.o
+.PHONY : src/Scripts/LanguageBase.cpp.o
+
+src/Scripts/LanguageBase.i: src/Scripts/LanguageBase.cpp.i
+
+.PHONY : src/Scripts/LanguageBase.i
+
+# target to preprocess a source file
+src/Scripts/LanguageBase.cpp.i:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/LanguageBase.cpp.i
+.PHONY : src/Scripts/LanguageBase.cpp.i
+
+src/Scripts/LanguageBase.s: src/Scripts/LanguageBase.cpp.s
+
+.PHONY : src/Scripts/LanguageBase.s
+
+# target to generate assembly for a file
+src/Scripts/LanguageBase.cpp.s:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/LanguageBase.cpp.s
+.PHONY : src/Scripts/LanguageBase.cpp.s
+
 src/Scripts/Lua.o: src/Scripts/Lua.cpp.o
 
 .PHONY : src/Scripts/Lua.o
@@ -1950,6 +1977,60 @@ src/Scripts/Lua.s: src/Scripts/Lua.cpp.s
 src/Scripts/Lua.cpp.s:
 	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Lua.cpp.s
 .PHONY : src/Scripts/Lua.cpp.s
+
+src/Scripts/Python/pModel.o: src/Scripts/Python/pModel.cpp.o
+
+.PHONY : src/Scripts/Python/pModel.o
+
+# target to build an object file
+src/Scripts/Python/pModel.cpp.o:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.o
+.PHONY : src/Scripts/Python/pModel.cpp.o
+
+src/Scripts/Python/pModel.i: src/Scripts/Python/pModel.cpp.i
+
+.PHONY : src/Scripts/Python/pModel.i
+
+# target to preprocess a source file
+src/Scripts/Python/pModel.cpp.i:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.i
+.PHONY : src/Scripts/Python/pModel.cpp.i
+
+src/Scripts/Python/pModel.s: src/Scripts/Python/pModel.cpp.s
+
+.PHONY : src/Scripts/Python/pModel.s
+
+# target to generate assembly for a file
+src/Scripts/Python/pModel.cpp.s:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.s
+.PHONY : src/Scripts/Python/pModel.cpp.s
+
+src/Scripts/PythonS.o: src/Scripts/PythonS.cpp.o
+
+.PHONY : src/Scripts/PythonS.o
+
+# target to build an object file
+src/Scripts/PythonS.cpp.o:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.o
+.PHONY : src/Scripts/PythonS.cpp.o
+
+src/Scripts/PythonS.i: src/Scripts/PythonS.cpp.i
+
+.PHONY : src/Scripts/PythonS.i
+
+# target to preprocess a source file
+src/Scripts/PythonS.cpp.i:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.i
+.PHONY : src/Scripts/PythonS.cpp.i
+
+src/Scripts/PythonS.s: src/Scripts/PythonS.cpp.s
+
+.PHONY : src/Scripts/PythonS.s
+
+# target to generate assembly for a file
+src/Scripts/PythonS.cpp.s:
+	cd /media/Backups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.s
+.PHONY : src/Scripts/PythonS.cpp.s
 
 src/Sound/SoundBufferData.o: src/Sound/SoundBufferData.cpp.o
 
@@ -2348,9 +2429,18 @@ help:
 	@echo "... src/Scripts/Java.o"
 	@echo "... src/Scripts/Java.i"
 	@echo "... src/Scripts/Java.s"
+	@echo "... src/Scripts/LanguageBase.o"
+	@echo "... src/Scripts/LanguageBase.i"
+	@echo "... src/Scripts/LanguageBase.s"
 	@echo "... src/Scripts/Lua.o"
 	@echo "... src/Scripts/Lua.i"
 	@echo "... src/Scripts/Lua.s"
+	@echo "... src/Scripts/Python/pModel.o"
+	@echo "... src/Scripts/Python/pModel.i"
+	@echo "... src/Scripts/Python/pModel.s"
+	@echo "... src/Scripts/PythonS.o"
+	@echo "... src/Scripts/PythonS.i"
+	@echo "... src/Scripts/PythonS.s"
 	@echo "... src/Sound/SoundBufferData.o"
 	@echo "... src/Sound/SoundBufferData.i"
 	@echo "... src/Sound/SoundBufferData.s"

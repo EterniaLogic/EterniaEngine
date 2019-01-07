@@ -14,6 +14,7 @@ void DevModelEditor::draw(){
     // go through and draw the models
     camera.width = &parent->width;
     camera.height = &parent->height;
+    cout << "devmodeleditor draw" << endl;
 
     //glViewport(parent->globalx, parent->globaly+25, parent->width, parent->height-25);
     glViewport(globalx, parent->parent->height-parent->height-25, parent->width, parent->height-25);
@@ -48,8 +49,8 @@ void DevModelEditor::draw(){
 }
 
 void DevModelEditor::update(){
-    //camera.camera_angle->x += ((double)((1.0/180.0)*3.14156))/20.;
-    //camera.camera_angle->y += ((double)((1.0/180.0)*3.14156))/20.;
+    camera.camera_angle->x += ((double)((1.0/180.0)*3.14156))/20.;
+    camera.camera_angle->y += ((double)((1.0/180.0)*3.14156))/20.;
 }
 
 
@@ -82,7 +83,7 @@ void DevModelEditor::handleMouse(MouseHandleEvent* event){
 
     this->dragoffsetx = event->x;
     this->dragoffsety = event->y;
-    //cout << camera.camera_range << endl;
+    cout << camera.camera_range << endl;
 }
 
 void DevModelEditor::handleKeyboard(KeyHandleEvent* event){

@@ -10,10 +10,8 @@ extern "C"{
 }
 
 
-#include <Eternia/Data/CharString.h>
-
+#include <Eternia/include.h>
 #include "../Helper/ResourceLocation.h"
-#include "ScriptProvider.h"
 #include <Eternia/API/APIMod.h>
 // This enables the engine to run Lua scripts.
 //  If there are too many scripts, the engine may also pre-load them and run in multi-threaded mode.
@@ -23,17 +21,23 @@ extern "C"{
 class Lua : public APIMod{
     lua_State *L;
 public:
-    Lua();
+    Lua(CharString loc, CharString name, CharString language, CharString version); // location of main.lua
     virtual ~Lua();
     
-    void addScriptFile(ResourceLocation scriptloc); // opens file
-    void addScriptString(CharString script); // adds the string directly
-    
-    void run(int i); // run a Lua script by ID
     
     
     
-    // API language implementation functions.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        // API language implementation functions.
     void onLoad();
     void onEnable();
     void onDisable();
@@ -60,7 +64,7 @@ public:
     
     // internal systems (Compiled languages still need an API)
 	void addClass(int size); // add a class for use by scripts
-	void addFunction(void* func, int params); // add a function for use by scripts
+	void addFunction(void* func, char* funcname, int params); // add a function for use by scripts
 	void compile(); // compileable languages can be dynamically compiled, others will just run a check
     
     // any type of script

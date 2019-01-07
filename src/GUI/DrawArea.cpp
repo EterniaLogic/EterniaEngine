@@ -5,7 +5,7 @@ DrawArea::DrawArea() {
     //this->location = location;
     //this->size = size;
     this->alpha = 0;
-    this->loadSolidColor(COLOR_Grey);
+    this->loadSolidColor(Color::Grey);
     this->type=DA_SOLID;
 }
 

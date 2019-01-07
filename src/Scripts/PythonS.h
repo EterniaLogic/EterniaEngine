@@ -1,20 +1,23 @@
 #ifndef PYTHON_H_
 #define PYTHON_H_
 
+#include <Eternia/API/APIMod.h>
+//#include <python3.5m/Python.h>
+//#include <Python.h>
+
+#include <boost/python.hpp>
+
 class PythonS : public APIMod{
 
 public:
-    PythonS();
+    PythonS(CharString loc, CharString name, CharString language, CharString version);
     virtual ~PythonS();
     
-    void addScriptFile(ResourceLocation scriptloc); // opens file
-    void addScriptString(CharString script); // adds the string directly
-    
-    void run(int i); // run a Python script by ID
     
     
     
-    // API language implementation functions.
+    
+        // API language implementation functions.
     void onLoad();
     void onEnable();
     void onDisable();
@@ -41,7 +44,7 @@ public:
     
     // internal systems (Compiled languages still need an API)
 	void addClass(int size); // add a class for use by scripts
-	void addFunction(void* func, int params); // add a function for use by scripts
+	void addFunction(void* func, char* funcname, int params); // add a function for use by scripts
 	void compile(); // compileable languages can be dynamically compiled, others will just run a check
     
     // any type of script

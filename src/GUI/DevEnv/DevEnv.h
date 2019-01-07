@@ -9,6 +9,8 @@
 #include "DevGUIs/DevProjectEditor.h"
 #include "DevViews/DevModelEditor.h"
 
+using namespace Math;
+
 // After 10 years, finally working on the developer environment for the engine...
 // 2007->2017!
 

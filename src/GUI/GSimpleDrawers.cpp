@@ -1,13 +1,13 @@
 #include "GSimpleDrawers.h"
 
 // Set a static color
-void gDrawSolidColor(vertex Color, float alpha) {
-    glColor4f(Color.x,Color.y,Color.z,alpha);
+void gDrawSolidColor(vertex color, float alpha) {
+    glColor4f(color.x,color.y, color.z,alpha);
 }
 
 // Set a custom color
-void gDrawSolidColor_c(vertex *Color, float alpha) {
-    glColor4f(Color->x,Color->y,Color->z,alpha);
+void gDrawSolidColor_c(vertex *color, float alpha) {
+    glColor4f(color->x,color->y,color->z,alpha);
 }
 
 void gDrawSolidColor_d(float r, float g, float b, float alpha) {

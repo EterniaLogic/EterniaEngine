@@ -14,7 +14,9 @@
 #include <Eternia/Math/struct/vertex.h>
 #include <Eternia/Data/CharString.h>
 #include <Eternia/Data/LinkedList.hpp>
-#include <Eternia/Data/LinkedListT.h>
+#include <Eternia/Design/Model/IModelPart.h>
+//#include <Eternia/Design/Model/IModelPart.h>
+#include <Eternia/Data/FileFormat/MTL.h>
 #include <Eternia/Parsing/SimpleParser.h>
 
 #include <stdlib.h>
@@ -33,42 +35,14 @@
 //#include <fbxsdk.h>
 #include "glsl.h"
 
-class ModelFragment {
+class ModelFragment : public IModelPart { // OBJ.h holds most of the code for loading
         friend class Model;
-
-    private:
-        LinkedList<vertex> verticies, normals, textureCoordinates;
-        ModelMaterial* material;
-        CharString name, matname;
-
-
-        //FbxScene* lScene; // Manage basic Scene (We only have one model)
-
-        int animFrame; // frame that the animation is on
-        CharString animNum; // which animation is playing? (there can be many)
-
-        vertex offset, rotate_axis, scale;
-        float rotate_angle;
-
-        bool buffered; // using VBOs?
-        GLuint indexbuffer, vertexbuffer;
-        unsigned int vbosize;
-
-        GLuint *indices;
-        GLfloat *pvertex;
-
-    public:
-        ModelFragment();
-        void draw();
-
-
-        // stuff passed down from Model.h
-        void bufferModel(); // Buffer this model in the graphics card
-        void addVertex(vertex* v);
-        void setOffset(vertex offset);
-        void setScale(vertex scale);
-        void setMaterial(ModelMaterial* material);
-        int rendermode;
+public:
+    ModelFragment();
+    void draw();
+    void bufferModel(); // Buffer this model in the graphics card
+    
+    // Lots of borrowed stuff from OBJ.h
 };
 
 #endif
