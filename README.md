@@ -7,7 +7,7 @@ Cross-Platform C++ OpenGL 3D Multi-threaded Game Engine with script support
 - X11 (Linux only)
 
 
-## Included Packages under /Lib (using Github)
+## Included Packages under /Lib (using Github, helps for cross-compilation)
 - EterniaLibrary (See https://github.com/EterniaLogic/EterniaLibrary)
 - cpython
 - FFmpeg
