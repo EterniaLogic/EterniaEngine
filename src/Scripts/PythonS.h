@@ -5,7 +5,7 @@
 //#include <python3.5m/Python.h>
 //#include <Python.h>
 
-#include <boost/python.hpp>
+#include <Python.h>
 
 class PythonS : public APIMod{
 

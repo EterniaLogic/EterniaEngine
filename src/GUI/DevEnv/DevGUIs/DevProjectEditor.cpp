@@ -25,7 +25,7 @@ DevProjectEditor::DevProjectEditor(){
 
     view.tree = node1;
     addChild(&view);
-    view.setLocalPosition(0,0);
+    view.setPosition(0,0);
 }
 
 DevProjectEditor::~DevProjectEditor(){

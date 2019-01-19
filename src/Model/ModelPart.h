@@ -26,23 +26,24 @@
 #include <vector>
 #include <malloc.h>
 
-#ifndef Model_h
-    #include "Model.h"
-#else
-    class Model;
-#endif
+#include "Model.h"
+#include "../Sprite2D/Sprite2D.h"
+//#include "ModelMaterial.h"
 
 //#include <fbxsdk.h>
 #include "glsl.h"
 
-class ModelFragment : public IModelPart { // OBJ.h holds most of the code for loading
+class ModelPart : public IModelPart { // OBJ.h holds most of the code for loading
         friend class Model;
 public:
-    ModelFragment();
+    ModelPart();
     void draw();
+    void drawMaterial();
     void bufferModel(); // Buffer this model in the graphics card
     
     // Lots of borrowed stuff from OBJ.h
 };
 
+#else
+    class ModelPart;
 #endif

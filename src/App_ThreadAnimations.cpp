@@ -19,7 +19,7 @@ void App::animationThread() {
 
         appInstance->animationList.freeze();
         for(i=0; i<appInstance->animationList.frozenlen; i++) {
-            AnimatedObject *obj = appInstance->animationList.frozen[i];
+            IAnimated *obj = appInstance->animationList.frozen[i];
             if(obj != 0x0) {
                 debugLog("[Animation] Tick Object");
                 time = (1000000.0/ticks_per_sec) - (((clock()-last)*1000000.0)/CLOCKS_PER_SEC);

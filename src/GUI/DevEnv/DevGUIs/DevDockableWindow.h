@@ -3,12 +3,13 @@
 
 enum DEVGUI_DOCKLOC {DEVDOCK_NONE, DEVDOCK_CENTER, DEVDOCK_LEFT, DEVDOCK_BOTTOM, DEVDOCK_RIGHT};
 
-#include "../../GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "DevDockingTabArea.h"
+#include "../../GSimpleDrawers.h"
+#include "../../GLCommon.h"
 
 
-
-class DevDockableWindow : public GObject{
+class DevDockableWindow : public LayoutObject{
 protected:
     DEVGUI_DOCKLOC dockMode;
     DevDockingTabArea *dockwindow;

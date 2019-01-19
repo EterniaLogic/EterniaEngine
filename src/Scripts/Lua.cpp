@@ -1,11 +1,14 @@
 #include "Lua.h"
 
 // https://www.lua.org/pil/24.1.html
-Lua::Lua(CharString _loc){
-    loc = _loc;
+Lua::Lua(CharString file, CharString name, CharString language, CharString version){ // location of main.lua
+    this->file = file;
+    this->name = name;
+    this->language = language;
+    this->version = version;
+    permscope = P_MOD;
+    modcwdloc = "./data/mods/";
     start();
-    
-//    luaL_openlibs(L);
 }
 
 Lua::~Lua(){
@@ -85,8 +88,12 @@ void Lua::addClass(int size){
 }
 
 // add a function for use by scripts
-void Lua::addFunction(void* func, char* funcname, int params){
-    luaL_register(L, "", func);
+void Lua::addFunction(lua_CFunction func, char* funcname){
+#if LUA_VERSION_NUM < 502
+    luaL_register(L, funcname, func);
+#elif LUA_VERSION_NUM > 504
+	L=lua_register(L, funcname, func);
+#endif
 }
 
 // compileable languages can be dynamically compiled, others will just run a check
@@ -95,15 +102,15 @@ void Lua::compile(){}
 // any type of script
 // stop the script engine (Unloads script, attempts to unload DLL)
 void Lua::stop(){
-    lua_close(L);
+    //lua_close(L);
+    start();
 }
 
 // start the script engine (Loads the script, preps modules)
 void Lua::start(){
 #if LUA_VERSION_NUM < 502
-    L = lua_open(); 
-    
-#elif LUA_VERSION_NUM == 502
+    L=lua_open(); 
+#elif LUA_VERSION_NUM > 502
 	L=luaL_newstate();
 #endif
 	luaopen_base(L);

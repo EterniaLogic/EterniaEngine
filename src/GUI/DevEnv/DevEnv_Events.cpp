@@ -4,7 +4,7 @@
 // handles Mouse input;
 void DevEnv::handleMouse(MouseHandleEvent* event) {
     this->selected=false;
-    debugLoggobject("DevEnv Handle Mouse default");
+    debugLoggobject("DevEnv Handle Mouse default" << endl);
 }
 
 // Handles any keyboard function
@@ -13,7 +13,7 @@ void DevEnv::handleKeyboard(KeyHandleEvent* event) {
 }
 
 void DevEnv::update() {
-    debugLoggobject("DevEnv Handle update default");
+    debugLoggobject("DevEnv Handle update default" << endl);
     if(leftDockingArea.poswidthChanged || rightDockingArea.poswidthChanged || bottomDockingArea.poswidthChanged){
         // re-update positioning
         updateWindowSize(width, height);
@@ -21,7 +21,7 @@ void DevEnv::update() {
         // reset changed status.
         leftDockingArea.poswidthChanged = rightDockingArea.poswidthChanged = bottomDockingArea.poswidthChanged = false;
     }
-    debugLoggobject("DevEnv Handle update default END");
+    debugLoggobject("DevEnv Handle update default END" << endl);
 }
 
 // window has been resized. Update all elements for the environment.
@@ -52,10 +52,10 @@ void DevEnv::updateWindowSize(int width, int height){
     bottomDockingArea.width = centerWidth;
 
     // Calculate the positions for objects
-    leftDockingArea.setLocalPosition(0,25);
-    rightDockingArea.setLocalPosition(leftDockingArea.width+centerDockingArea.width,25);
-    centerDockingArea.setLocalPosition(leftDockingArea.width,25);
-    bottomDockingArea.setLocalPosition(leftDockingArea.width,25+centerDockingArea.height);
+    leftDockingArea.setPosition(0,25);
+    rightDockingArea.setPosition(leftDockingArea.width+centerDockingArea.width,25);
+    centerDockingArea.setPosition(leftDockingArea.width,25);
+    bottomDockingArea.setPosition(leftDockingArea.width,25+centerDockingArea.height);
 
     /*cout << "LEFT: "<< leftDockingArea.globalx << "," << leftDockingArea.globaly << " " << leftDockingArea.width << " x " << leftDockingArea.height << " =" << leftDockingArea.visible << endl;
     cout << "RIGHT: "<< rightDockingArea.globalx << "," << rightDockingArea.globaly << " " << rightDockingArea.width << " x " << rightDockingArea.height << " =" << rightDockingArea.visible << endl;

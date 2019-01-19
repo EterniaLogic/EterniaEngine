@@ -79,8 +79,8 @@
 #include "GUI/gui.h"
 #include "Helper/Camera.h"
 #include "Helper/Compressable.h"
-#include "Helper/Loader.h"
-//#include "Sprite2D/Sprite2D.h"
+#include "Helper/LoadItem.h"
+#include "Sprite2D/Sprite2D.h"
 
 
 #ifdef DEV
@@ -131,18 +131,18 @@ class App {
 
         // listener functions are stored here "void FUNC(MouseHandleEvent*)"
         //LinkedList<void (*)(MouseHandleEvent*)>* mouseListeners;
-        LinkedList<int> aiListeners;        // sounds to be played are thrown in here
-        LinkedList<int> mouseListeners;     // Mouse movement is captured and updates are sent here
-        LinkedList<int> keyListeners;       // keyboard changes are captured and sent here
-        LinkedList<int> drawListeners;      // object (models, pixel, ect) to be drawn are thrown in here
-        LinkedList<int> updateListeners;
-        LinkedList<int> soundListeners;     // sounds to be played are thrown in here
+        LinkedList<void*> aiListeners;        // sounds to be played are thrown in here
+        LinkedList<void*> mouseListeners;     // Mouse movement is captured and updates are sent here
+        LinkedList<void*> keyListeners;       // keyboard changes are captured and sent here
+        LinkedList<void*> drawListeners;      // object (models, pixel, ect) to be drawn are thrown in here
+        LinkedList<void*> updateListeners;
+        LinkedList<void*> soundListeners;     // sounds to be played are thrown in here
 
         // Physics collision, gravity, ect.
-        LinkedList<Model> physicsList;
-        LinkedList<Sprite2D> spriteList; // 2D Sprites list
-        LinkedList<AnimatedObject> animationList; // 2D Sprites list
-        LinkedList<Model> currentModelList; // list of models to draw (And animate if using an animation engine)
+        LinkedList<Model*> physicsList;
+        LinkedList<Sprite2D*> spriteList; // 2D Sprites list
+        LinkedList<IAnimated*> animationList; // 2D Sprites list
+        LinkedList<Model*> currentModelList; // list of models to draw (And animate if using an animation engine)
 
 
         // LinkedList<> PIPList, 2DList;

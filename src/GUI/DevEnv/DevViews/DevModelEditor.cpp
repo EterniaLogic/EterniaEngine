@@ -14,6 +14,8 @@ void DevModelEditor::draw(){
     // go through and draw the models
     camera.width = &parent->width;
     camera.height = &parent->height;
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
     cout << "devmodeleditor draw" << endl;
 
     //glViewport(parent->globalx, parent->globaly+25, parent->width, parent->height-25);
@@ -56,7 +58,7 @@ void DevModelEditor::update(){
 
 void DevModelEditor::handleMouse(MouseHandleEvent* event){
     if(event->event_type == MOUSE_DOWN){
-        debugLoggobject("DevModelEditor Handle Mouse default");
+        debugLoggobject("DevModelEditor Handle Mouse default" << endl);
         if(event->event_button == MIDDLE_BUTTON_UP){
             // zoom inwards
             camera.camera_range /= 1.2;

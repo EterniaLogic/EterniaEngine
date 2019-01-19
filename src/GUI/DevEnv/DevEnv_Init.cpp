@@ -51,10 +51,10 @@ void DevEnv::init(){
     menubar.addMenu(viewitem);
     menubar.addMenu(projectitem);
     
-    fileitem->setLocalPosition(10,5);
-    edititem->setLocalPosition(50,5);
-    viewitem->setLocalPosition(90,5);
-    projectitem->setLocalPosition(130,5);
+    fileitem->setPosition(10,5);
+    edititem->setPosition(50,5);
+    viewitem->setPosition(90,5);
+    projectitem->setPosition(130,5);
     
     
     DevProjectEditor *editor = new DevProjectEditor();

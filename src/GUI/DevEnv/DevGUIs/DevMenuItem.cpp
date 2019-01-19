@@ -14,7 +14,9 @@ DevMenuItem::~DevMenuItem(){
 }
 
 void DevMenuItem::draw(){
-
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
+    
     if(mouseOver){
         gDrawSolidColor_d(0.2f,0.2f,0.4f,1.f);
         gDrawRectangle(globalx,globaly,100,20);

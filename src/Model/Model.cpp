@@ -16,11 +16,11 @@ Model::Model() {
 
 Model::~Model() {}
 
-void Model::loadFromFile(CharString* loc) {
-    if(loc->endsWith(CharString(".obj",4))) {
-        loadFromObj(loc->get());
-    } else if(loc->endsWith(CharString(".fbx",4))) {
-        loadFromFbx(loc->get());
+void Model::loadFromFile(CharString loc) {
+    if(loc.endsWith(CharString(".obj",4))) {
+        loadFromObj(loc.get());
+    } else if(loc.endsWith(CharString(".fbx",4))) {
+        loadFromFbx(loc.get());
     }
 }
 
@@ -44,10 +44,10 @@ void Model::Draw() {
 
     //shader->begin();
 
-    fragments.freeze();
+    parts.freeze();
     //cout << "fragnum: " << fragments.frozenlen << fragments.size() << endl;
-    for(int i=0; i<fragments.frozenlen; i++) {
-        fragments.frozen[i]->draw();
+    for(int i=0; i<parts.frozenlen; i++) {
+        parts.frozen[i]->draw();
     }
 
     //shader->end();
@@ -56,8 +56,8 @@ void Model::Draw() {
 
 // Buffer the model
 void Model::bufferModel() {
-    fragments.freeze();
-    for(int i=0; i<fragments.frozenlen; i++) {
-        fragments.frozen[i]->bufferModel();
+    parts.freeze();
+    for(int i=0; i<parts.frozenlen; i++) {
+        parts.frozen[i]->bufferModel();
     }
 }

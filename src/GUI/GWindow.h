@@ -1,16 +1,18 @@
 #ifndef GWINDOW_H_
 #define GWINDOW_H_
 
-#include "GObject.h"
+//#include "GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "GLabel.h"
 #include "DrawArea.h"
-
+#include "GLCommon.h"
+#include "GSimpleDrawers.h"
 
 
 // this defines a generic window
-class GWindow : public GObject {
+class GWindow : public LayoutObject {
     public:
-        GWindow(vertex* location, vertex* size);
+        GWindow(vertex location, vertex size);
         virtual ~GWindow();
 
         void draw(); // draws this window and all of it's decorations.

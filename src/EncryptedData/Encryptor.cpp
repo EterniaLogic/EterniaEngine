@@ -128,7 +128,7 @@ namespace AasdlasegpoSKDFH {
             }
             long pointer; // this pointer is assigned, the data is placed at this location
             long dataLen; // length of the data
-            CharString *data, *key; // data is placed here only on up-load, never for reference
+            CharString data, key; // data is placed here only on up-load, never for reference
             EObjectType type;
             EncryptedBlock* block;
 
@@ -162,14 +162,14 @@ namespace AasdlasegpoSKDFH {
 // An encrypted structure helps manage the output file's data
     class EncryptedStructure {
         public:
-            EncryptedStructure(CharString* loc) {
+            EncryptedStructure(CharString loc) {
                 fs = new FileSystem();
                 location = loc;
-                dFile.open(loc->get(), ios::out | ios::in | ios::trunc);
+                dFile.open(loc.get(), ios::out | ios::in | ios::trunc);
                 blockTableLoc = 5;
             }
             FileSystem* fs; // generates a managed unix-like filesystem structure
-            CharString* location;
+            CharString location;
             fstream dFile;
             long blockTableLoc;
 
@@ -229,7 +229,7 @@ namespace AasdlasegpoSKDFH {
                     block->dataLen = BlockSize;
                     block->type = tpe;
                     block->name = CharString(tdata4);
-                    block->key = new CharString(tdata6);
+                    block->key = CharString(tdata6);
                     if(tpe == EOFuzzy)
                         fuzzyBlocks->add(block);
                     else blocks->add(block);
@@ -280,11 +280,11 @@ namespace AasdlasegpoSKDFH {
 
             // fuzzy blocks will change randomly every time an operation is
             //  performed. This helps prevent people from discovering data.
-            LinkedList<EObject>* fuzzyBlocks = new LinkedList<EObject>();
+            LinkedList<EObject*>* fuzzyBlocks = new LinkedList<EObject*>();
 
 
             // list of all of the known blocks
-            LinkedList<EObject>* blocks = new LinkedList<EObject>();
+            LinkedList<EObject*>* blocks = new LinkedList<EObject*>();
 
             long totalBlocks = 0;
     };
@@ -293,31 +293,31 @@ namespace AasdlasegpoSKDFH {
 using namespace AasdlasegpoSKDFH;
 
 // Encryptor init
-Encryptor::Encryptor(CharString* location) {
+Encryptor::Encryptor(CharString location) {
     key = (void*)new EncryptedStructure(location);
 }
 
 // add a file to the structure
-void Encryptor::addFile(CharString* loc, EFile* file) {
+void Encryptor::addFile(CharString loc, EFile* file) {
     // a file is just a block of data that can be modified
     EncryptedStructure* structure = (EncryptedStructure*)key;
 }
 
 // gets a file from the encrypted region
-EFile* Encryptor::getFile(CharString* loc) {
+EFile* Encryptor::getFile(CharString loc) {
     EncryptedStructure* structure = (EncryptedStructure*)key;
 
     return 0x0; // temp
 }
 
-void Encryptor::addFolder(CharString*, EFolder*) {
+void Encryptor::addFolder(CharString, EFolder*) {
 
 }
 
-void Encryptor::deleteFile(CharString* file, CharString deletekey) {
+void Encryptor::deleteFile(CharString file, CharString deletekey) {
 
 }
 
-void Encryptor::deleteFolder(CharString*,CharString deletekey) {
+void Encryptor::deleteFolder(CharString,CharString deletekey) {
 
 }

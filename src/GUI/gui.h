@@ -1,5 +1,5 @@
 #include "DrawArea.h"
-#include "GObject.h"
+//#include "GObject.h"
 #include "GWindow.h"
 #include "GLabel.h"
 #include "GSlider.h"

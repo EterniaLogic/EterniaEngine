@@ -10,16 +10,16 @@
 
 class Encryptor {
 public:
-	Encryptor(CharString* loc);
+	Encryptor(CharString loc);
 
 	// loc = virtual location
-	void addFile(CharString* loc, EFile* file); // automatic override
-	EFile* getFile(CharString* loc);
+	void addFile(CharString loc, EFile* file); // automatic override
+	EFile* getFile(CharString loc);
 
-	void addFolder(CharString* loc, EFolder* folder);
+	void addFolder(CharString loc, EFolder* folder);
 
-	void deleteFile(CharString* loc, CharString deletekey); // deletes file (requires a key)
-	void deleteFolder(CharString* loc, CharString deletekey); // deletes contents (requires a key)
+	void deleteFile(CharString loc, CharString deletekey); // deletes file (requires a key)
+	void deleteFolder(CharString loc, CharString deletekey); // deletes contents (requires a key)
 
 private:
 	int version;

@@ -1,16 +1,19 @@
 #ifndef DEVDOCKINGTABAREA_H_
 #define DEVDOCKINGTABAREA_H_
 
-#include "../../GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "../DevConfig.h"
 #include "../../GLabel.h"
+#include "../../GSimpleDrawers.h"
+#include "../../GLCommon.h"
 #include "DevDockableWindow.h"
 #include <Eternia/Data/LinkedList.hpp>
 // Standalone drawing parent. If not visible (AKA: no children), then don't draw.
 
+#define debugLoggobject(msg) cout << msg;
+//#define debugLoggobject(msg) //
 
-
-class DevDockingTabArea : public GObject{
+class DevDockingTabArea : public LayoutObject{
 private:
     DEVGUI_DOCKLOC area;
     
@@ -22,7 +25,7 @@ private:
     void handleKeyboard(KeyHandleEvent*);
     
     // Store docked GUI Elements that have draggable windows
-    LinkedList<DevDockableWindow> dockedWindows;
+    LinkedList<DevDockableWindow*> dockedWindows;
 public:
     DevDockingTabArea();
     virtual ~DevDockingTabArea();

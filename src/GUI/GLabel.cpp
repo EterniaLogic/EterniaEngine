@@ -20,8 +20,12 @@ const float l2pos[4] = {1,0.5,1,0};
 void GLabel::draw() {
     //cout << "Label X: " << globalx << " Y: " << globaly << " '" << text << "'" << endl;
     //glScalef(2, 2, 2);
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
+    
+    
     glLineWidth(3);
-    glColor4f(foreColor->x/255.0f,foreColor->y/255.0f,foreColor->z/255.0f, 1.0f);
+    glColor4f(foreColor.x/255.0f,foreColor.y/255.0f,foreColor.z/255.0f, 1.0f);
 
     // Set the XY Position of the text
     glRasterPos2i(globalx,globaly);

@@ -2,8 +2,9 @@
 
 
 
-void Model::loadFromObj(char* objFile) {
-    *this = OBJ::loadFromFile(objFile);
+void Model::loadFromObj(CharString objFile) {
+    IModel* m = OBJ::loadFromFile(objFile);
+    //*this = *m;
 }
 
 

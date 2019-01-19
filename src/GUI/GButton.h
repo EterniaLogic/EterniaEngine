@@ -1,9 +1,11 @@
 #ifndef GBUTTON_H
 #define GBUTTON_H
 
-#include "GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 
-class GButton : public GObject {
+#include "GLCommon.h"
+
+class GButton : public LayoutObject {
     public:
         GButton();
 

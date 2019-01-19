@@ -55,7 +55,7 @@ void App::renderRun() {
                 glShadeModel(GL_SMOOTH);
                 glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
                 // as defined in the LinkedList source for searching
-                LinkedNode<Model>* current = currentModelList.top();
+                LinkedNode<Model*>* current = currentModelList.top();
 
                 while(current != 0x0) {
                     if(current->data != 0x0) {
@@ -87,7 +87,7 @@ void App::renderRun() {
 
                 if(spriteList.size() > 0) {
                     // as defined in the LinkedList source for searching
-                    LinkedNode<Sprite2D>* current = spriteList.top();
+                    LinkedNode<Sprite2D*>* current = spriteList.top();
 
                     while(current != 0x0) {
                         if(current->data != 0x0) {
@@ -111,8 +111,8 @@ void App::renderRun() {
             if(drawGUI) {
                 camera->orthoView();
 
-                if(appInstance->drawListeners.top() != 0x0) {
-                    LinkedNode<int> * current = appInstance->drawListeners.top();
+                if(drawListeners.top() != 0x0) {
+                    LinkedNode<void*> * current = drawListeners.top();
                     while(current != 0x0) {
                         void (*func)() = (void (*)())current->data;
                         if(func != 0x0) {

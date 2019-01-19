@@ -1,13 +1,16 @@
 #ifndef DEVENV_
 #define DEVENV_
 
-#include "../GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 //#include "../../App.h"
 #include "DevConfig.h"
 #include "DevGUIs/DevMenuBar.h"
 #include "DevGUIs/DevDockingTabArea.h"
 #include "DevGUIs/DevProjectEditor.h"
 #include "DevViews/DevModelEditor.h"
+
+#define debugLoggobject(msg) cout << msg;
+//#define debugLoggobject(msg) //
 
 using namespace Math;
 
@@ -18,7 +21,7 @@ using namespace Math;
 // The Developer environment allows for manual 3D processing, file editing, ect.
 //  Parts of the dev environment include working on the multi-lingual API, Model shaders, ect.
 
-class DevEnv : public GObject{
+class DevEnv : public LayoutObject{
 private:
     void handleMouse(MouseHandleEvent*); // handle carrot positioning and selection of text.
     void handleKeyboard(KeyHandleEvent*); // handle normal keyboard events

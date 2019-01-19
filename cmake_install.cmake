@@ -44,12 +44,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Engine"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/media/NBackups/Dev/Cpp/EterniaEngine/bin/debug/Engine")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/media/NBackups/Dev/Cpp/EterniaEngine/Engine/Engine")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Engine" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Engine")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Engine"
-         OLD_RPATH "/media/NBackups/Dev/Cpp/EterniaEngine/Engine/../../EterniaLib/lib:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/../EterniaGameLogic/lib:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/freealut/lib:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/cpython:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/ImageMagick/MagickWand/.libs:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/ImageMagick/Magick++/lib/.libs:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/ImageMagick/MagickCore/.libs:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavcodec:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libswscale:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavutil:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavdevice:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavformat:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavfilter:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libswresample:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/zlib:/usr/lib/x86_64-linux-gnu/libpython3.6m.so:/usr/lib/jvm/default-java/lib:/usr/lib/jvm/default-java/lib/server:"
+         OLD_RPATH "/media/NBackups/Dev/Cpp/EterniaEngine/Engine/../EterniaGameLogic/lib:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/freealut/lib:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/cpython:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/ImageMagick/MagickWand/.libs:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/ImageMagick/Magick++/lib/.libs:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/ImageMagick/MagickCore/.libs:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavcodec:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libswscale:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavutil:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavdevice:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavformat:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libavfilter:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/FFmpeg/libswresample:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/lua:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/zlib:/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/EterniaLibrary/lib:/usr/lib/jvm/default-java/lib:/usr/lib/jvm/default-java/lib/server:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Engine")
@@ -91,6 +91,17 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/openal-soft/cmake_install.cmake")
   include("/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/zlib/cmake_install.cmake")
+  include("/media/NBackups/Dev/Cpp/EterniaEngine/Engine/lib/EterniaLibrary/cmake_install.cmake")
 
 endif()
 
+if(CMAKE_INSTALL_COMPONENT)
+  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
+else()
+  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
+endif()
+
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+file(WRITE "/media/NBackups/Dev/Cpp/EterniaEngine/Engine/${CMAKE_INSTALL_MANIFEST}"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")

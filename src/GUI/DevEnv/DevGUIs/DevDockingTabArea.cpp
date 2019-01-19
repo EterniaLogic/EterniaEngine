@@ -1,5 +1,7 @@
 #include "DevDockingTabArea.h"
 
+
+
 DevDockingTabArea::DevDockingTabArea(){
     poswidthChanged = false;
     canDrag = true;
@@ -14,6 +16,8 @@ DevDockingTabArea::~DevDockingTabArea(){
 // Draw top bars
 void DevDockingTabArea::draw(){
     // draw a full background, then add specific GUI elements
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
     int x = globalx;
     int y = globaly;
     int dragx = 0, dragy=0;
@@ -86,7 +90,7 @@ void DevDockingTabArea::setDockType(DEVGUI_DOCKLOC loc){
 
 void DevDockingTabArea::dockWindow(DevDockableWindow *window){
     window->setDockPos(area);
-    window->setLocalPosition(0,25);
+    window->setPosition(0,25);
     window->width = width;
     window->height = height-25;
 //    window->setPosition(globalx+10,globaly+50);
@@ -106,6 +110,8 @@ void DevDockingTabArea::handleMouse(MouseHandleEvent* event) {
     // Handle tab selection, buttons, ect.
     // DEVGUI_DOCKLOC {DEVDOCK_NONE, DEVDOCK_CENTER, DEVDOCK_LEFT, DEVDOCK_BOTTOM, DEVDOCK_RIGHT};
     bool indragarea = false;
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
     debugLoggobject("DevDockingTabArea Handle Mouse");
 
     // increase width based on direction.
@@ -160,7 +166,7 @@ void DevDockingTabArea::handleMouse(MouseHandleEvent* event) {
     }else if(event->event_type == MOUSE_UP && dragging){
         dragging = false;
     }
-    debugLoggobject("DevDockingTabArea Handle Mouse end");
+    debugLoggobject("DevDockingTabArea Handle Mouse end" << endl);
 }
 
 // Handles any keyboard function

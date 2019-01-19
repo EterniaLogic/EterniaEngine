@@ -44,10 +44,10 @@ App::App() {
     camera->height = &height;
     camera->eyePos = new vertex(1,1,60);
 
-    mouseListeners.add((int*)(&GHandlers::mouseHandler));
-    keyListeners.add((int*)(&GHandlers::keyHandler));
-    drawListeners.add((int*)(&GHandlers::drawHandler));
-    updateListeners.add((int*)(&GHandlers::updateHandler));
+    mouseListeners.add((void*)(&LayoutObject::mouseHandler));
+    keyListeners.add((void*)(&LayoutObject::keyHandler));
+    drawListeners.add((void*)(&LayoutObject::drawHandler));
+    updateListeners.add((void*)(&LayoutObject::updateHandler));
     
     // Start up the deveoper GUI if not a developer build, or end-user. Same EXE for everything.
     // Systems may include actual science to Game design. (Compare i.e: Mathcad to this)
@@ -72,7 +72,7 @@ bool App::Initialize(int argc, char** argv) {
 #endif
 
     Magick::InitializeMagick(*argv); // 2D image modification/editing
-    Magick::EnableOpenCL(); // enable OpenCL whether it fails or doesn't.
+    //Magick::EnableOpenCL(); // enable OpenCL whether it fails or doesn't.
 
     initGUI(); // initializes GUI and sets up first windows
     //initBaseGUI();

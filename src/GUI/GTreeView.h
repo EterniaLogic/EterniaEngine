@@ -1,10 +1,12 @@
 #ifndef GTREEVIEW_H_
 #define GTREEVIEW_H_
 
-#include "GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "GLabel.h"
 #include "DrawArea.h"
 #include "../Sprite2D/Sprite2D.h"
+#include "GLCommon.h"
+#include "GSimpleDrawers.h"
 
 class GTreeNode {
     public:
@@ -20,7 +22,7 @@ class GTreeNode {
 };
 
 // this defines a generic window
-class GTreeView : public GObject {
+class GTreeView : public LayoutObject {
     public:
         GTreeView();
         virtual ~GTreeView();

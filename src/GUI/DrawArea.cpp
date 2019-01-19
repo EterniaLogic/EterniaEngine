@@ -47,9 +47,9 @@ void DrawArea::loadGradient(DA_GDTYPE gradient_type, LinkedList<vertex>* list) {
     toDraw = new BitMap(list->size(),1);
     list->freeze();
     for(int i=0; i<list->size(); i++) {
-        this->toDraw->map[i][0].r = list->frozen[i]->x;
-        this->toDraw->map[i][0].g = list->frozen[i]->y;
-        this->toDraw->map[i][0].b = list->frozen[i]->z;
+        this->toDraw->map[i][0].r = list->frozen[i].x;
+        this->toDraw->map[i][0].g = list->frozen[i].y;
+        this->toDraw->map[i][0].b = list->frozen[i].z;
         this->toDraw->map[i][0].a = alpha;
     }
 }

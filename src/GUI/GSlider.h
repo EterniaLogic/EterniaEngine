@@ -1,14 +1,15 @@
 #ifndef GSLIDER_H_
 #define GSLIDER_H_
 
-#include "GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "GLabel.h"
 #include "DrawArea.h"
-
+#include "GSimpleDrawers.h"
+#include "GLCommon.h"
 
 
 // this defines a generic window
-class GSlider : public GObject {
+class GSlider : public LayoutObject {
     public:
         GSlider();
         virtual ~GSlider();

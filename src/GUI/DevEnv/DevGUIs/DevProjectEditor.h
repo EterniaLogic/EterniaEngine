@@ -1,14 +1,18 @@
 #ifndef DEV_PROJ_EDIT_H_
 #define DEV_PROJ_EDIT_H_
 
-#include "../../GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "../../GTreeView.h"
 #include "../DevConfig.h"
+#include "../../GLCommon.h"
 #include "DevDockableWindow.h"
 #include <Eternia/Data/LinkedList.hpp>
 
-// GUI main for the project editor
+#define debugLoggobject(msg) cout << msg;
+//#define debugLoggobject(msg) //
 
+
+// GUI main for the project editor
 class DevProjectEditor : public DevDockableWindow {
 private:
     void handleMouse(MouseHandleEvent*);

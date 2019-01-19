@@ -8,7 +8,7 @@
 // Very basic variable container
 class SoundBufferData {
     public:
-        SoundBufferData(CharString* file);
+        SoundBufferData(CharString file);
 
         ALsizei size;
         ALfloat freq;

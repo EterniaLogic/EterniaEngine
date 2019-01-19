@@ -1,6 +1,6 @@
 #include "ScriptCore.h"
 
-ScriptCore::ScriScriptCoreptProvider(CharString modfolder, CharString logfile){
+ScriptCore::ScriptCore(){
 
 }
 
@@ -33,7 +33,9 @@ bool ScriptCore::unloadModule(APIMod* mod){
 
 
 // Master module functions (Sent to actual implementation via APIMod)
-void ScriptCore::onInit(); // runs after a module is loaded.
+void ScriptCore::onInit(){ // runs after a module is loaded.
+    
+}
 
 // runs to tell the module to turn "on" and start processing.
 void ScriptCore::onEnable(){

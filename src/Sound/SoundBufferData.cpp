@@ -1,7 +1,7 @@
 #include "SoundBufferData.h"
 
-SoundBufferData::SoundBufferData(CharString* file) {
-    data = alutLoadMemoryFromFile ((const char *)file->get(), &format, &size, &freq);
+SoundBufferData::SoundBufferData(CharString file) {
+    data = alutLoadMemoryFromFile ((const char *)file.get(), &format, &size, &freq);
 
     ALenum e = alutGetError();
     if(e != ALUT_ERROR_NO_ERROR) {

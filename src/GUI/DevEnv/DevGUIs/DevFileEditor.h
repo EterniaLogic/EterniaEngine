@@ -1,8 +1,10 @@
 #ifndef DEVFILEEDITOR_H_
 #define DEVFILEEDITOR_H_
 
-#include "../../GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "../../GTextBox.h"
+#include "../../GSimpleDrawers.h"
+#include "../../GLCommon.h"
 #include "DevDockableWindow.h"
 #include <Eternia/Data/LinkedList.hpp>
 

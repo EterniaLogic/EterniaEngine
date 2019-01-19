@@ -1,16 +1,18 @@
 #ifndef DEVENVMENUBAR_H_
 #define DEVENVMENUBAR_H_
 
-#include "../../GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "../DevConfig.h"
+#include "../../GSimpleDrawers.h"
+#include "../../GLCommon.h"
 #include "DevMenuItem.h"
 #include <Eternia/Data/LinkedList.hpp>
 
 
 // Controls the top bar.
-class DevMenuBar : public GObject{
+class DevMenuBar : public LayoutObject{
 private:
-    LinkedList<DevMenuItem> menuItems;
+    LinkedList<DevMenuItem*> menuItems;
 public:
     DevMenuBar();
     virtual ~DevMenuBar();

@@ -3,7 +3,7 @@
 using namespace std;
 
 // initialize
-GWindow::GWindow(vertex* location_, vertex* size_) {
+GWindow::GWindow(vertex location_, vertex size_) {
     drawHeader=true;    // includes buttons
     drawButtons=true;   // all buttons here, but header exists
     drawMinimize=true;  // only minimize
@@ -15,8 +15,8 @@ GWindow::GWindow(vertex* location_, vertex* size_) {
     titleLabel = new GLabel();
     this->addChild(titleLabel);
     titleLabel->text = "test title!";
-    titleLabel->setLocalPosition(7,13);
-    titleLabel->foreColor = new vertex(255.f,255.f,255.f);
+    titleLabel->setPosition(7,13);
+    titleLabel->foreColor = vertex(255.f,255.f,255.f);
     titleLabel->allowMouseEvents = false;
 }
 
@@ -27,7 +27,9 @@ GWindow::~GWindow() {}
 // NOTE: GObject handles visibility and selection
 void GWindow::draw() {
     // update location
-
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
+    
     /*    if(drawWindowBorder) windowBorder->draw(location,size);
         windowBack->draw(location,size);
         windowHeader->draw(location,size);*/
@@ -53,14 +55,16 @@ void GWindow::draw() {
 // handles Mouse input;
 void GWindow::handleMouse(MouseHandleEvent* event) {
     // cout << "[Window] mouse handled ebutton:" << event->event_button << " type:" << event->event_type << "(" << event->x << ", " << event->y << ") selected:" << selected << " mover:"<<mouseOver << "drag:" << dragging << endl;
-
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
     // handle mouse thingie
     debugLoggobject("GWindow Handle Mouse");
 
     // Dragging this window?
     if(dragging && event->y < globaly+22) {
         // move the window along with the location, as long as the x,y are in a specific height
-        this->setPosition(event->x-this->dragoffsetx,event->y-this->dragoffsety);
+        this->setPosition(event->x-this->dragoffsetx,
+                            event->y-this->dragoffsety);
     }
 }
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/NBackups/Dev/Cpp/EterniaEngine
+CMAKE_SOURCE_DIR = /media/NBackups/Dev/Cpp/EterniaEngine/Engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/NBackups/Dev/Cpp/EterniaEngine
+CMAKE_BINARY_DIR = /media/NBackups/Dev/Cpp/EterniaEngine/Engine
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(CMAKE_COMMAND) -E cmake_progress_start /media/NBackups/Dev/Cpp/EterniaEngine/CMakeFiles /media/NBackups/Dev/Cpp/EterniaEngine/Engine/CMakeFiles/progress.marks
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/NBackups/Dev/Cpp/EterniaEngine/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/NBackups/Dev/Cpp/EterniaEngine/Engine/CMakeFiles /media/NBackups/Dev/Cpp/EterniaEngine/Engine/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/NBackups/Dev/Cpp/EterniaEngine/Engine/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/clean
+	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -143,93 +143,369 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-Engine/CMakeFiles/lua.dir/rule:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/CMakeFiles/lua.dir/rule
-.PHONY : Engine/CMakeFiles/lua.dir/rule
+#=============================================================================
+# Target rules for targets named lua
 
-# Convenience name for target.
-lua: Engine/CMakeFiles/lua.dir/rule
-
+# Build rule for target.
+lua: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lua
 .PHONY : lua
 
 # fast build rule for target.
 lua/fast:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/lua.dir/build.make Engine/CMakeFiles/lua.dir/build
+	$(MAKE) -f CMakeFiles/lua.dir/build.make CMakeFiles/lua.dir/build
 .PHONY : lua/fast
 
-# Convenience name for target.
-Engine/CMakeFiles/ImageMagick.dir/rule:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/CMakeFiles/ImageMagick.dir/rule
-.PHONY : Engine/CMakeFiles/ImageMagick.dir/rule
+#=============================================================================
+# Target rules for targets named ImageMagick
 
-# Convenience name for target.
-ImageMagick: Engine/CMakeFiles/ImageMagick.dir/rule
-
+# Build rule for target.
+ImageMagick: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ImageMagick
 .PHONY : ImageMagick
 
 # fast build rule for target.
 ImageMagick/fast:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/ImageMagick.dir/build.make Engine/CMakeFiles/ImageMagick.dir/build
+	$(MAKE) -f CMakeFiles/ImageMagick.dir/build.make CMakeFiles/ImageMagick.dir/build
 .PHONY : ImageMagick/fast
 
-# Convenience name for target.
-Engine/CMakeFiles/Engine.dir/rule:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/CMakeFiles/Engine.dir/rule
-.PHONY : Engine/CMakeFiles/Engine.dir/rule
+#=============================================================================
+# Target rules for targets named Engine
 
-# Convenience name for target.
-Engine: Engine/CMakeFiles/Engine.dir/rule
-
+# Build rule for target.
+Engine: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Engine
 .PHONY : Engine
 
 # fast build rule for target.
 Engine/fast:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/build
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
 .PHONY : Engine/fast
 
-# Convenience name for target.
-Engine/CMakeFiles/CPython.dir/rule:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/CMakeFiles/CPython.dir/rule
-.PHONY : Engine/CMakeFiles/CPython.dir/rule
+#=============================================================================
+# Target rules for targets named CPython
 
-# Convenience name for target.
-CPython: Engine/CMakeFiles/CPython.dir/rule
-
+# Build rule for target.
+CPython: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 CPython
 .PHONY : CPython
 
 # fast build rule for target.
 CPython/fast:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/CPython.dir/build.make Engine/CMakeFiles/CPython.dir/build
+	$(MAKE) -f CMakeFiles/CPython.dir/build.make CMakeFiles/CPython.dir/build
 .PHONY : CPython/fast
 
-# Convenience name for target.
-Engine/CMakeFiles/FFmpeg.dir/rule:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f CMakeFiles/Makefile2 Engine/CMakeFiles/FFmpeg.dir/rule
-.PHONY : Engine/CMakeFiles/FFmpeg.dir/rule
+#=============================================================================
+# Target rules for targets named FFmpeg
 
-# Convenience name for target.
-FFmpeg: Engine/CMakeFiles/FFmpeg.dir/rule
-
+# Build rule for target.
+FFmpeg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FFmpeg
 .PHONY : FFmpeg
 
 # fast build rule for target.
 FFmpeg/fast:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/FFmpeg.dir/build.make Engine/CMakeFiles/FFmpeg.dir/build
+	$(MAKE) -f CMakeFiles/FFmpeg.dir/build.make CMakeFiles/FFmpeg.dir/build
 .PHONY : FFmpeg/fast
+
+#=============================================================================
+# Target rules for targets named alrecord
+
+# Build rule for target.
+alrecord: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 alrecord
+.PHONY : alrecord
+
+# fast build rule for target.
+alrecord/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/alrecord.dir/build.make lib/openal-soft/CMakeFiles/alrecord.dir/build
+.PHONY : alrecord/fast
+
+#=============================================================================
+# Target rules for targets named ex-common
+
+# Build rule for target.
+ex-common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ex-common
+.PHONY : ex-common
+
+# fast build rule for target.
+ex-common/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/ex-common.dir/build.make lib/openal-soft/CMakeFiles/ex-common.dir/build
+.PHONY : ex-common/fast
+
+#=============================================================================
+# Target rules for targets named altonegen
+
+# Build rule for target.
+altonegen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 altonegen
+.PHONY : altonegen
+
+# fast build rule for target.
+altonegen/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/altonegen.dir/build.make lib/openal-soft/CMakeFiles/altonegen.dir/build
+.PHONY : altonegen/fast
+
+#=============================================================================
+# Target rules for targets named native-tools
+
+# Build rule for target.
+native-tools: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 native-tools
+.PHONY : native-tools
+
+# fast build rule for target.
+native-tools/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/native-tools.dir/build.make lib/openal-soft/CMakeFiles/native-tools.dir/build
+.PHONY : native-tools/fast
+
+#=============================================================================
+# Target rules for targets named common
+
+# Build rule for target.
+common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 common
+.PHONY : common
+
+# fast build rule for target.
+common/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/common.dir/build.make lib/openal-soft/CMakeFiles/common.dir/build
+.PHONY : common/fast
+
+#=============================================================================
+# Target rules for targets named build_version
+
+# Build rule for target.
+build_version: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 build_version
+.PHONY : build_version
+
+# fast build rule for target.
+build_version/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/build_version.dir/build.make lib/openal-soft/CMakeFiles/build_version.dir/build
+.PHONY : build_version/fast
+
+#=============================================================================
+# Target rules for targets named openal-info
+
+# Build rule for target.
+openal-info: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 openal-info
+.PHONY : openal-info
+
+# fast build rule for target.
+openal-info/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/openal-info.dir/build.make lib/openal-soft/CMakeFiles/openal-info.dir/build
+.PHONY : openal-info/fast
+
+#=============================================================================
+# Target rules for targets named OpenAL
+
+# Build rule for target.
+OpenAL: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 OpenAL
+.PHONY : OpenAL
+
+# fast build rule for target.
+OpenAL/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/OpenAL.dir/build.make lib/openal-soft/CMakeFiles/OpenAL.dir/build
+.PHONY : OpenAL/fast
+
+#=============================================================================
+# Target rules for targets named makehrtf
+
+# Build rule for target.
+makehrtf: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 makehrtf
+.PHONY : makehrtf
+
+# fast build rule for target.
+makehrtf/fast:
+	$(MAKE) -f lib/openal-soft/CMakeFiles/makehrtf.dir/build.make lib/openal-soft/CMakeFiles/makehrtf.dir/build
+.PHONY : makehrtf/fast
+
+#=============================================================================
+# Target rules for targets named alsoft-config
+
+# Build rule for target.
+alsoft-config: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 alsoft-config
+.PHONY : alsoft-config
+
+# fast build rule for target.
+alsoft-config/fast:
+	$(MAKE) -f lib/openal-soft/utils/alsoft-config/CMakeFiles/alsoft-config.dir/build.make lib/openal-soft/utils/alsoft-config/CMakeFiles/alsoft-config.dir/build
+.PHONY : alsoft-config/fast
+
+#=============================================================================
+# Target rules for targets named zlibstatic
+
+# Build rule for target.
+zlibstatic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 zlibstatic
+.PHONY : zlibstatic
+
+# fast build rule for target.
+zlibstatic/fast:
+	$(MAKE) -f lib/zlib/CMakeFiles/zlibstatic.dir/build.make lib/zlib/CMakeFiles/zlibstatic.dir/build
+.PHONY : zlibstatic/fast
+
+#=============================================================================
+# Target rules for targets named zlib
+
+# Build rule for target.
+zlib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 zlib
+.PHONY : zlib
+
+# fast build rule for target.
+zlib/fast:
+	$(MAKE) -f lib/zlib/CMakeFiles/zlib.dir/build.make lib/zlib/CMakeFiles/zlib.dir/build
+.PHONY : zlib/fast
+
+#=============================================================================
+# Target rules for targets named example
+
+# Build rule for target.
+example: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example
+.PHONY : example
+
+# fast build rule for target.
+example/fast:
+	$(MAKE) -f lib/zlib/CMakeFiles/example.dir/build.make lib/zlib/CMakeFiles/example.dir/build
+.PHONY : example/fast
+
+#=============================================================================
+# Target rules for targets named minigzip
+
+# Build rule for target.
+minigzip: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 minigzip
+.PHONY : minigzip
+
+# fast build rule for target.
+minigzip/fast:
+	$(MAKE) -f lib/zlib/CMakeFiles/minigzip.dir/build.make lib/zlib/CMakeFiles/minigzip.dir/build
+.PHONY : minigzip/fast
+
+#=============================================================================
+# Target rules for targets named minigzip64
+
+# Build rule for target.
+minigzip64: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 minigzip64
+.PHONY : minigzip64
+
+# fast build rule for target.
+minigzip64/fast:
+	$(MAKE) -f lib/zlib/CMakeFiles/minigzip64.dir/build.make lib/zlib/CMakeFiles/minigzip64.dir/build
+.PHONY : minigzip64/fast
+
+#=============================================================================
+# Target rules for targets named example64
+
+# Build rule for target.
+example64: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example64
+.PHONY : example64
+
+# fast build rule for target.
+example64/fast:
+	$(MAKE) -f lib/zlib/CMakeFiles/example64.dir/build.make lib/zlib/CMakeFiles/example64.dir/build
+.PHONY : example64/fast
+
+#=============================================================================
+# Target rules for targets named Eternia32
+
+# Build rule for target.
+Eternia32: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Eternia32
+.PHONY : Eternia32
+
+# fast build rule for target.
+Eternia32/fast:
+	$(MAKE) -f lib/EterniaLibrary/CMakeFiles/Eternia32.dir/build.make lib/EterniaLibrary/CMakeFiles/Eternia32.dir/build
+.PHONY : Eternia32/fast
+
+#=============================================================================
+# Target rules for targets named EterniaTest
+
+# Build rule for target.
+EterniaTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EterniaTest
+.PHONY : EterniaTest
+
+# fast build rule for target.
+EterniaTest/fast:
+	$(MAKE) -f lib/EterniaLibrary/CMakeFiles/EterniaTest.dir/build.make lib/EterniaLibrary/CMakeFiles/EterniaTest.dir/build
+.PHONY : EterniaTest/fast
+
+#=============================================================================
+# Target rules for targets named Eternia
+
+# Build rule for target.
+Eternia: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Eternia
+.PHONY : Eternia
+
+# fast build rule for target.
+Eternia/fast:
+	$(MAKE) -f lib/EterniaLibrary/CMakeFiles/Eternia.dir/build.make lib/EterniaLibrary/CMakeFiles/Eternia.dir/build
+.PHONY : Eternia/fast
+
+#=============================================================================
+# Target rules for targets named EterniaS
+
+# Build rule for target.
+EterniaS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EterniaS
+.PHONY : EterniaS
+
+# fast build rule for target.
+EterniaS/fast:
+	$(MAKE) -f lib/EterniaLibrary/CMakeFiles/EterniaS.dir/build.make lib/EterniaLibrary/CMakeFiles/EterniaS.dir/build
+.PHONY : EterniaS/fast
+
+#=============================================================================
+# Target rules for targets named EterniaExec
+
+# Build rule for target.
+EterniaExec: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EterniaExec
+.PHONY : EterniaExec
+
+# fast build rule for target.
+EterniaExec/fast:
+	$(MAKE) -f lib/EterniaLibrary/CMakeFiles/EterniaExec.dir/build.make lib/EterniaLibrary/CMakeFiles/EterniaExec.dir/build
+.PHONY : EterniaExec/fast
+
+#=============================================================================
+# Target rules for targets named run
+
+# Build rule for target.
+run: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run
+.PHONY : run
+
+# fast build rule for target.
+run/fast:
+	$(MAKE) -f lib/EterniaLibrary/CMakeFiles/run.dir/build.make lib/EterniaLibrary/CMakeFiles/run.dir/build
+.PHONY : run/fast
 
 src/AI/AICore.o: src/AI/AICore.cpp.o
 
@@ -237,7 +513,7 @@ src/AI/AICore.o: src/AI/AICore.cpp.o
 
 # target to build an object file
 src/AI/AICore.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/AI/AICore.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/AI/AICore.cpp.o
 .PHONY : src/AI/AICore.cpp.o
 
 src/AI/AICore.i: src/AI/AICore.cpp.i
@@ -246,7 +522,7 @@ src/AI/AICore.i: src/AI/AICore.cpp.i
 
 # target to preprocess a source file
 src/AI/AICore.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/AI/AICore.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/AI/AICore.cpp.i
 .PHONY : src/AI/AICore.cpp.i
 
 src/AI/AICore.s: src/AI/AICore.cpp.s
@@ -255,7 +531,7 @@ src/AI/AICore.s: src/AI/AICore.cpp.s
 
 # target to generate assembly for a file
 src/AI/AICore.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/AI/AICore.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/AI/AICore.cpp.s
 .PHONY : src/AI/AICore.cpp.s
 
 src/AI/AICore_Personality.o: src/AI/AICore_Personality.cpp.o
@@ -264,7 +540,7 @@ src/AI/AICore_Personality.o: src/AI/AICore_Personality.cpp.o
 
 # target to build an object file
 src/AI/AICore_Personality.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/AI/AICore_Personality.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/AI/AICore_Personality.cpp.o
 .PHONY : src/AI/AICore_Personality.cpp.o
 
 src/AI/AICore_Personality.i: src/AI/AICore_Personality.cpp.i
@@ -273,7 +549,7 @@ src/AI/AICore_Personality.i: src/AI/AICore_Personality.cpp.i
 
 # target to preprocess a source file
 src/AI/AICore_Personality.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/AI/AICore_Personality.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/AI/AICore_Personality.cpp.i
 .PHONY : src/AI/AICore_Personality.cpp.i
 
 src/AI/AICore_Personality.s: src/AI/AICore_Personality.cpp.s
@@ -282,7 +558,7 @@ src/AI/AICore_Personality.s: src/AI/AICore_Personality.cpp.s
 
 # target to generate assembly for a file
 src/AI/AICore_Personality.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/AI/AICore_Personality.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/AI/AICore_Personality.cpp.s
 .PHONY : src/AI/AICore_Personality.cpp.s
 
 src/App_GlutInit.o: src/App_GlutInit.cpp.o
@@ -291,7 +567,7 @@ src/App_GlutInit.o: src/App_GlutInit.cpp.o
 
 # target to build an object file
 src/App_GlutInit.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_GlutInit.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_GlutInit.cpp.o
 .PHONY : src/App_GlutInit.cpp.o
 
 src/App_GlutInit.i: src/App_GlutInit.cpp.i
@@ -300,7 +576,7 @@ src/App_GlutInit.i: src/App_GlutInit.cpp.i
 
 # target to preprocess a source file
 src/App_GlutInit.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_GlutInit.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_GlutInit.cpp.i
 .PHONY : src/App_GlutInit.cpp.i
 
 src/App_GlutInit.s: src/App_GlutInit.cpp.s
@@ -309,7 +585,7 @@ src/App_GlutInit.s: src/App_GlutInit.cpp.s
 
 # target to generate assembly for a file
 src/App_GlutInit.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_GlutInit.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_GlutInit.cpp.s
 .PHONY : src/App_GlutInit.cpp.s
 
 src/App_Init.o: src/App_Init.cpp.o
@@ -318,7 +594,7 @@ src/App_Init.o: src/App_Init.cpp.o
 
 # target to build an object file
 src/App_Init.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_Init.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_Init.cpp.o
 .PHONY : src/App_Init.cpp.o
 
 src/App_Init.i: src/App_Init.cpp.i
@@ -327,7 +603,7 @@ src/App_Init.i: src/App_Init.cpp.i
 
 # target to preprocess a source file
 src/App_Init.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_Init.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_Init.cpp.i
 .PHONY : src/App_Init.cpp.i
 
 src/App_Init.s: src/App_Init.cpp.s
@@ -336,7 +612,7 @@ src/App_Init.s: src/App_Init.cpp.s
 
 # target to generate assembly for a file
 src/App_Init.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_Init.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_Init.cpp.s
 .PHONY : src/App_Init.cpp.s
 
 src/App_InitErrorSignals.o: src/App_InitErrorSignals.cpp.o
@@ -345,7 +621,7 @@ src/App_InitErrorSignals.o: src/App_InitErrorSignals.cpp.o
 
 # target to build an object file
 src/App_InitErrorSignals.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_InitErrorSignals.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_InitErrorSignals.cpp.o
 .PHONY : src/App_InitErrorSignals.cpp.o
 
 src/App_InitErrorSignals.i: src/App_InitErrorSignals.cpp.i
@@ -354,7 +630,7 @@ src/App_InitErrorSignals.i: src/App_InitErrorSignals.cpp.i
 
 # target to preprocess a source file
 src/App_InitErrorSignals.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_InitErrorSignals.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_InitErrorSignals.cpp.i
 .PHONY : src/App_InitErrorSignals.cpp.i
 
 src/App_InitErrorSignals.s: src/App_InitErrorSignals.cpp.s
@@ -363,7 +639,7 @@ src/App_InitErrorSignals.s: src/App_InitErrorSignals.cpp.s
 
 # target to generate assembly for a file
 src/App_InitErrorSignals.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_InitErrorSignals.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_InitErrorSignals.cpp.s
 .PHONY : src/App_InitErrorSignals.cpp.s
 
 src/App_Test.o: src/App_Test.cpp.o
@@ -372,7 +648,7 @@ src/App_Test.o: src/App_Test.cpp.o
 
 # target to build an object file
 src/App_Test.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_Test.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_Test.cpp.o
 .PHONY : src/App_Test.cpp.o
 
 src/App_Test.i: src/App_Test.cpp.i
@@ -381,7 +657,7 @@ src/App_Test.i: src/App_Test.cpp.i
 
 # target to preprocess a source file
 src/App_Test.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_Test.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_Test.cpp.i
 .PHONY : src/App_Test.cpp.i
 
 src/App_Test.s: src/App_Test.cpp.s
@@ -390,7 +666,7 @@ src/App_Test.s: src/App_Test.cpp.s
 
 # target to generate assembly for a file
 src/App_Test.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_Test.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_Test.cpp.s
 .PHONY : src/App_Test.cpp.s
 
 src/App_ThreadAI.o: src/App_ThreadAI.cpp.o
@@ -399,7 +675,7 @@ src/App_ThreadAI.o: src/App_ThreadAI.cpp.o
 
 # target to build an object file
 src/App_ThreadAI.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadAI.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadAI.cpp.o
 .PHONY : src/App_ThreadAI.cpp.o
 
 src/App_ThreadAI.i: src/App_ThreadAI.cpp.i
@@ -408,7 +684,7 @@ src/App_ThreadAI.i: src/App_ThreadAI.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadAI.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadAI.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadAI.cpp.i
 .PHONY : src/App_ThreadAI.cpp.i
 
 src/App_ThreadAI.s: src/App_ThreadAI.cpp.s
@@ -417,7 +693,7 @@ src/App_ThreadAI.s: src/App_ThreadAI.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadAI.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadAI.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadAI.cpp.s
 .PHONY : src/App_ThreadAI.cpp.s
 
 src/App_ThreadAnimations.o: src/App_ThreadAnimations.cpp.o
@@ -426,7 +702,7 @@ src/App_ThreadAnimations.o: src/App_ThreadAnimations.cpp.o
 
 # target to build an object file
 src/App_ThreadAnimations.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadAnimations.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadAnimations.cpp.o
 .PHONY : src/App_ThreadAnimations.cpp.o
 
 src/App_ThreadAnimations.i: src/App_ThreadAnimations.cpp.i
@@ -435,7 +711,7 @@ src/App_ThreadAnimations.i: src/App_ThreadAnimations.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadAnimations.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadAnimations.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadAnimations.cpp.i
 .PHONY : src/App_ThreadAnimations.cpp.i
 
 src/App_ThreadAnimations.s: src/App_ThreadAnimations.cpp.s
@@ -444,7 +720,7 @@ src/App_ThreadAnimations.s: src/App_ThreadAnimations.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadAnimations.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadAnimations.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadAnimations.cpp.s
 .PHONY : src/App_ThreadAnimations.cpp.s
 
 src/App_ThreadBackendRender.o: src/App_ThreadBackendRender.cpp.o
@@ -453,7 +729,7 @@ src/App_ThreadBackendRender.o: src/App_ThreadBackendRender.cpp.o
 
 # target to build an object file
 src/App_ThreadBackendRender.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadBackendRender.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadBackendRender.cpp.o
 .PHONY : src/App_ThreadBackendRender.cpp.o
 
 src/App_ThreadBackendRender.i: src/App_ThreadBackendRender.cpp.i
@@ -462,7 +738,7 @@ src/App_ThreadBackendRender.i: src/App_ThreadBackendRender.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadBackendRender.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadBackendRender.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadBackendRender.cpp.i
 .PHONY : src/App_ThreadBackendRender.cpp.i
 
 src/App_ThreadBackendRender.s: src/App_ThreadBackendRender.cpp.s
@@ -471,7 +747,7 @@ src/App_ThreadBackendRender.s: src/App_ThreadBackendRender.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadBackendRender.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadBackendRender.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadBackendRender.cpp.s
 .PHONY : src/App_ThreadBackendRender.cpp.s
 
 src/App_ThreadCompression.o: src/App_ThreadCompression.cpp.o
@@ -480,7 +756,7 @@ src/App_ThreadCompression.o: src/App_ThreadCompression.cpp.o
 
 # target to build an object file
 src/App_ThreadCompression.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadCompression.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadCompression.cpp.o
 .PHONY : src/App_ThreadCompression.cpp.o
 
 src/App_ThreadCompression.i: src/App_ThreadCompression.cpp.i
@@ -489,7 +765,7 @@ src/App_ThreadCompression.i: src/App_ThreadCompression.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadCompression.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadCompression.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadCompression.cpp.i
 .PHONY : src/App_ThreadCompression.cpp.i
 
 src/App_ThreadCompression.s: src/App_ThreadCompression.cpp.s
@@ -498,7 +774,7 @@ src/App_ThreadCompression.s: src/App_ThreadCompression.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadCompression.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadCompression.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadCompression.cpp.s
 .PHONY : src/App_ThreadCompression.cpp.s
 
 src/App_ThreadEntity.o: src/App_ThreadEntity.cpp.o
@@ -507,7 +783,7 @@ src/App_ThreadEntity.o: src/App_ThreadEntity.cpp.o
 
 # target to build an object file
 src/App_ThreadEntity.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadEntity.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadEntity.cpp.o
 .PHONY : src/App_ThreadEntity.cpp.o
 
 src/App_ThreadEntity.i: src/App_ThreadEntity.cpp.i
@@ -516,7 +792,7 @@ src/App_ThreadEntity.i: src/App_ThreadEntity.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadEntity.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadEntity.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadEntity.cpp.i
 .PHONY : src/App_ThreadEntity.cpp.i
 
 src/App_ThreadEntity.s: src/App_ThreadEntity.cpp.s
@@ -525,7 +801,7 @@ src/App_ThreadEntity.s: src/App_ThreadEntity.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadEntity.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadEntity.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadEntity.cpp.s
 .PHONY : src/App_ThreadEntity.cpp.s
 
 src/App_ThreadEvents.o: src/App_ThreadEvents.cpp.o
@@ -534,7 +810,7 @@ src/App_ThreadEvents.o: src/App_ThreadEvents.cpp.o
 
 # target to build an object file
 src/App_ThreadEvents.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadEvents.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadEvents.cpp.o
 .PHONY : src/App_ThreadEvents.cpp.o
 
 src/App_ThreadEvents.i: src/App_ThreadEvents.cpp.i
@@ -543,7 +819,7 @@ src/App_ThreadEvents.i: src/App_ThreadEvents.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadEvents.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadEvents.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadEvents.cpp.i
 .PHONY : src/App_ThreadEvents.cpp.i
 
 src/App_ThreadEvents.s: src/App_ThreadEvents.cpp.s
@@ -552,7 +828,7 @@ src/App_ThreadEvents.s: src/App_ThreadEvents.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadEvents.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadEvents.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadEvents.cpp.s
 .PHONY : src/App_ThreadEvents.cpp.s
 
 src/App_ThreadFps.o: src/App_ThreadFps.cpp.o
@@ -561,7 +837,7 @@ src/App_ThreadFps.o: src/App_ThreadFps.cpp.o
 
 # target to build an object file
 src/App_ThreadFps.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadFps.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadFps.cpp.o
 .PHONY : src/App_ThreadFps.cpp.o
 
 src/App_ThreadFps.i: src/App_ThreadFps.cpp.i
@@ -570,7 +846,7 @@ src/App_ThreadFps.i: src/App_ThreadFps.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadFps.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadFps.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadFps.cpp.i
 .PHONY : src/App_ThreadFps.cpp.i
 
 src/App_ThreadFps.s: src/App_ThreadFps.cpp.s
@@ -579,7 +855,7 @@ src/App_ThreadFps.s: src/App_ThreadFps.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadFps.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadFps.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadFps.cpp.s
 .PHONY : src/App_ThreadFps.cpp.s
 
 src/App_ThreadLoad.o: src/App_ThreadLoad.cpp.o
@@ -588,7 +864,7 @@ src/App_ThreadLoad.o: src/App_ThreadLoad.cpp.o
 
 # target to build an object file
 src/App_ThreadLoad.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadLoad.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadLoad.cpp.o
 .PHONY : src/App_ThreadLoad.cpp.o
 
 src/App_ThreadLoad.i: src/App_ThreadLoad.cpp.i
@@ -597,7 +873,7 @@ src/App_ThreadLoad.i: src/App_ThreadLoad.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadLoad.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadLoad.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadLoad.cpp.i
 .PHONY : src/App_ThreadLoad.cpp.i
 
 src/App_ThreadLoad.s: src/App_ThreadLoad.cpp.s
@@ -606,7 +882,7 @@ src/App_ThreadLoad.s: src/App_ThreadLoad.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadLoad.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadLoad.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadLoad.cpp.s
 .PHONY : src/App_ThreadLoad.cpp.s
 
 src/App_ThreadNetworking.o: src/App_ThreadNetworking.cpp.o
@@ -615,7 +891,7 @@ src/App_ThreadNetworking.o: src/App_ThreadNetworking.cpp.o
 
 # target to build an object file
 src/App_ThreadNetworking.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadNetworking.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadNetworking.cpp.o
 .PHONY : src/App_ThreadNetworking.cpp.o
 
 src/App_ThreadNetworking.i: src/App_ThreadNetworking.cpp.i
@@ -624,7 +900,7 @@ src/App_ThreadNetworking.i: src/App_ThreadNetworking.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadNetworking.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadNetworking.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadNetworking.cpp.i
 .PHONY : src/App_ThreadNetworking.cpp.i
 
 src/App_ThreadNetworking.s: src/App_ThreadNetworking.cpp.s
@@ -633,7 +909,7 @@ src/App_ThreadNetworking.s: src/App_ThreadNetworking.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadNetworking.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadNetworking.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadNetworking.cpp.s
 .PHONY : src/App_ThreadNetworking.cpp.s
 
 src/App_ThreadPhysics.o: src/App_ThreadPhysics.cpp.o
@@ -642,7 +918,7 @@ src/App_ThreadPhysics.o: src/App_ThreadPhysics.cpp.o
 
 # target to build an object file
 src/App_ThreadPhysics.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadPhysics.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadPhysics.cpp.o
 .PHONY : src/App_ThreadPhysics.cpp.o
 
 src/App_ThreadPhysics.i: src/App_ThreadPhysics.cpp.i
@@ -651,7 +927,7 @@ src/App_ThreadPhysics.i: src/App_ThreadPhysics.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadPhysics.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadPhysics.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadPhysics.cpp.i
 .PHONY : src/App_ThreadPhysics.cpp.i
 
 src/App_ThreadPhysics.s: src/App_ThreadPhysics.cpp.s
@@ -660,7 +936,7 @@ src/App_ThreadPhysics.s: src/App_ThreadPhysics.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadPhysics.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadPhysics.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadPhysics.cpp.s
 .PHONY : src/App_ThreadPhysics.cpp.s
 
 src/App_ThreadRender.o: src/App_ThreadRender.cpp.o
@@ -669,7 +945,7 @@ src/App_ThreadRender.o: src/App_ThreadRender.cpp.o
 
 # target to build an object file
 src/App_ThreadRender.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadRender.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadRender.cpp.o
 .PHONY : src/App_ThreadRender.cpp.o
 
 src/App_ThreadRender.i: src/App_ThreadRender.cpp.i
@@ -678,7 +954,7 @@ src/App_ThreadRender.i: src/App_ThreadRender.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadRender.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadRender.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadRender.cpp.i
 .PHONY : src/App_ThreadRender.cpp.i
 
 src/App_ThreadRender.s: src/App_ThreadRender.cpp.s
@@ -687,7 +963,7 @@ src/App_ThreadRender.s: src/App_ThreadRender.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadRender.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadRender.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadRender.cpp.s
 .PHONY : src/App_ThreadRender.cpp.s
 
 src/App_ThreadScripts.o: src/App_ThreadScripts.cpp.o
@@ -696,7 +972,7 @@ src/App_ThreadScripts.o: src/App_ThreadScripts.cpp.o
 
 # target to build an object file
 src/App_ThreadScripts.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadScripts.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadScripts.cpp.o
 .PHONY : src/App_ThreadScripts.cpp.o
 
 src/App_ThreadScripts.i: src/App_ThreadScripts.cpp.i
@@ -705,7 +981,7 @@ src/App_ThreadScripts.i: src/App_ThreadScripts.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadScripts.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadScripts.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadScripts.cpp.i
 .PHONY : src/App_ThreadScripts.cpp.i
 
 src/App_ThreadScripts.s: src/App_ThreadScripts.cpp.s
@@ -714,7 +990,7 @@ src/App_ThreadScripts.s: src/App_ThreadScripts.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadScripts.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadScripts.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadScripts.cpp.s
 .PHONY : src/App_ThreadScripts.cpp.s
 
 src/App_ThreadSound.o: src/App_ThreadSound.cpp.o
@@ -723,7 +999,7 @@ src/App_ThreadSound.o: src/App_ThreadSound.cpp.o
 
 # target to build an object file
 src/App_ThreadSound.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadSound.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadSound.cpp.o
 .PHONY : src/App_ThreadSound.cpp.o
 
 src/App_ThreadSound.i: src/App_ThreadSound.cpp.i
@@ -732,7 +1008,7 @@ src/App_ThreadSound.i: src/App_ThreadSound.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadSound.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadSound.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadSound.cpp.i
 .PHONY : src/App_ThreadSound.cpp.i
 
 src/App_ThreadSound.s: src/App_ThreadSound.cpp.s
@@ -741,7 +1017,7 @@ src/App_ThreadSound.s: src/App_ThreadSound.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadSound.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadSound.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadSound.cpp.s
 .PHONY : src/App_ThreadSound.cpp.s
 
 src/App_ThreadUpdate.o: src/App_ThreadUpdate.cpp.o
@@ -750,7 +1026,7 @@ src/App_ThreadUpdate.o: src/App_ThreadUpdate.cpp.o
 
 # target to build an object file
 src/App_ThreadUpdate.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadUpdate.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadUpdate.cpp.o
 .PHONY : src/App_ThreadUpdate.cpp.o
 
 src/App_ThreadUpdate.i: src/App_ThreadUpdate.cpp.i
@@ -759,7 +1035,7 @@ src/App_ThreadUpdate.i: src/App_ThreadUpdate.cpp.i
 
 # target to preprocess a source file
 src/App_ThreadUpdate.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadUpdate.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadUpdate.cpp.i
 .PHONY : src/App_ThreadUpdate.cpp.i
 
 src/App_ThreadUpdate.s: src/App_ThreadUpdate.cpp.s
@@ -768,7 +1044,7 @@ src/App_ThreadUpdate.s: src/App_ThreadUpdate.cpp.s
 
 # target to generate assembly for a file
 src/App_ThreadUpdate.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/App_ThreadUpdate.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/App_ThreadUpdate.cpp.s
 .PHONY : src/App_ThreadUpdate.cpp.s
 
 src/EncryptedData/Encryptor.o: src/EncryptedData/Encryptor.cpp.o
@@ -777,7 +1053,7 @@ src/EncryptedData/Encryptor.o: src/EncryptedData/Encryptor.cpp.o
 
 # target to build an object file
 src/EncryptedData/Encryptor.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/EncryptedData/Encryptor.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/EncryptedData/Encryptor.cpp.o
 .PHONY : src/EncryptedData/Encryptor.cpp.o
 
 src/EncryptedData/Encryptor.i: src/EncryptedData/Encryptor.cpp.i
@@ -786,7 +1062,7 @@ src/EncryptedData/Encryptor.i: src/EncryptedData/Encryptor.cpp.i
 
 # target to preprocess a source file
 src/EncryptedData/Encryptor.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/EncryptedData/Encryptor.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/EncryptedData/Encryptor.cpp.i
 .PHONY : src/EncryptedData/Encryptor.cpp.i
 
 src/EncryptedData/Encryptor.s: src/EncryptedData/Encryptor.cpp.s
@@ -795,7 +1071,7 @@ src/EncryptedData/Encryptor.s: src/EncryptedData/Encryptor.cpp.s
 
 # target to generate assembly for a file
 src/EncryptedData/Encryptor.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/EncryptedData/Encryptor.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/EncryptedData/Encryptor.cpp.s
 .PHONY : src/EncryptedData/Encryptor.cpp.s
 
 src/Exporting/generateAssets.o: src/Exporting/generateAssets.cpp.o
@@ -804,7 +1080,7 @@ src/Exporting/generateAssets.o: src/Exporting/generateAssets.cpp.o
 
 # target to build an object file
 src/Exporting/generateAssets.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateAssets.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateAssets.cpp.o
 .PHONY : src/Exporting/generateAssets.cpp.o
 
 src/Exporting/generateAssets.i: src/Exporting/generateAssets.cpp.i
@@ -813,7 +1089,7 @@ src/Exporting/generateAssets.i: src/Exporting/generateAssets.cpp.i
 
 # target to preprocess a source file
 src/Exporting/generateAssets.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateAssets.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateAssets.cpp.i
 .PHONY : src/Exporting/generateAssets.cpp.i
 
 src/Exporting/generateAssets.s: src/Exporting/generateAssets.cpp.s
@@ -822,7 +1098,7 @@ src/Exporting/generateAssets.s: src/Exporting/generateAssets.cpp.s
 
 # target to generate assembly for a file
 src/Exporting/generateAssets.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateAssets.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateAssets.cpp.s
 .PHONY : src/Exporting/generateAssets.cpp.s
 
 src/Exporting/generateExecutables.o: src/Exporting/generateExecutables.cpp.o
@@ -831,7 +1107,7 @@ src/Exporting/generateExecutables.o: src/Exporting/generateExecutables.cpp.o
 
 # target to build an object file
 src/Exporting/generateExecutables.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateExecutables.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateExecutables.cpp.o
 .PHONY : src/Exporting/generateExecutables.cpp.o
 
 src/Exporting/generateExecutables.i: src/Exporting/generateExecutables.cpp.i
@@ -840,7 +1116,7 @@ src/Exporting/generateExecutables.i: src/Exporting/generateExecutables.cpp.i
 
 # target to preprocess a source file
 src/Exporting/generateExecutables.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateExecutables.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateExecutables.cpp.i
 .PHONY : src/Exporting/generateExecutables.cpp.i
 
 src/Exporting/generateExecutables.s: src/Exporting/generateExecutables.cpp.s
@@ -849,7 +1125,7 @@ src/Exporting/generateExecutables.s: src/Exporting/generateExecutables.cpp.s
 
 # target to generate assembly for a file
 src/Exporting/generateExecutables.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateExecutables.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateExecutables.cpp.s
 .PHONY : src/Exporting/generateExecutables.cpp.s
 
 src/Exporting/generateLocalizations.o: src/Exporting/generateLocalizations.cpp.o
@@ -858,7 +1134,7 @@ src/Exporting/generateLocalizations.o: src/Exporting/generateLocalizations.cpp.o
 
 # target to build an object file
 src/Exporting/generateLocalizations.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateLocalizations.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateLocalizations.cpp.o
 .PHONY : src/Exporting/generateLocalizations.cpp.o
 
 src/Exporting/generateLocalizations.i: src/Exporting/generateLocalizations.cpp.i
@@ -867,7 +1143,7 @@ src/Exporting/generateLocalizations.i: src/Exporting/generateLocalizations.cpp.i
 
 # target to preprocess a source file
 src/Exporting/generateLocalizations.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateLocalizations.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateLocalizations.cpp.i
 .PHONY : src/Exporting/generateLocalizations.cpp.i
 
 src/Exporting/generateLocalizations.s: src/Exporting/generateLocalizations.cpp.s
@@ -876,7 +1152,7 @@ src/Exporting/generateLocalizations.s: src/Exporting/generateLocalizations.cpp.s
 
 # target to generate assembly for a file
 src/Exporting/generateLocalizations.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateLocalizations.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateLocalizations.cpp.s
 .PHONY : src/Exporting/generateLocalizations.cpp.s
 
 src/Exporting/generateMipMaps.o: src/Exporting/generateMipMaps.cpp.o
@@ -885,7 +1161,7 @@ src/Exporting/generateMipMaps.o: src/Exporting/generateMipMaps.cpp.o
 
 # target to build an object file
 src/Exporting/generateMipMaps.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateMipMaps.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateMipMaps.cpp.o
 .PHONY : src/Exporting/generateMipMaps.cpp.o
 
 src/Exporting/generateMipMaps.i: src/Exporting/generateMipMaps.cpp.i
@@ -894,7 +1170,7 @@ src/Exporting/generateMipMaps.i: src/Exporting/generateMipMaps.cpp.i
 
 # target to preprocess a source file
 src/Exporting/generateMipMaps.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateMipMaps.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateMipMaps.cpp.i
 .PHONY : src/Exporting/generateMipMaps.cpp.i
 
 src/Exporting/generateMipMaps.s: src/Exporting/generateMipMaps.cpp.s
@@ -903,7 +1179,7 @@ src/Exporting/generateMipMaps.s: src/Exporting/generateMipMaps.cpp.s
 
 # target to generate assembly for a file
 src/Exporting/generateMipMaps.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateMipMaps.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateMipMaps.cpp.s
 .PHONY : src/Exporting/generateMipMaps.cpp.s
 
 src/Exporting/generatePackages.o: src/Exporting/generatePackages.cpp.o
@@ -912,7 +1188,7 @@ src/Exporting/generatePackages.o: src/Exporting/generatePackages.cpp.o
 
 # target to build an object file
 src/Exporting/generatePackages.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generatePackages.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generatePackages.cpp.o
 .PHONY : src/Exporting/generatePackages.cpp.o
 
 src/Exporting/generatePackages.i: src/Exporting/generatePackages.cpp.i
@@ -921,7 +1197,7 @@ src/Exporting/generatePackages.i: src/Exporting/generatePackages.cpp.i
 
 # target to preprocess a source file
 src/Exporting/generatePackages.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generatePackages.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generatePackages.cpp.i
 .PHONY : src/Exporting/generatePackages.cpp.i
 
 src/Exporting/generatePackages.s: src/Exporting/generatePackages.cpp.s
@@ -930,7 +1206,7 @@ src/Exporting/generatePackages.s: src/Exporting/generatePackages.cpp.s
 
 # target to generate assembly for a file
 src/Exporting/generatePackages.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generatePackages.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generatePackages.cpp.s
 .PHONY : src/Exporting/generatePackages.cpp.s
 
 src/Exporting/generateScripts.o: src/Exporting/generateScripts.cpp.o
@@ -939,7 +1215,7 @@ src/Exporting/generateScripts.o: src/Exporting/generateScripts.cpp.o
 
 # target to build an object file
 src/Exporting/generateScripts.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateScripts.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateScripts.cpp.o
 .PHONY : src/Exporting/generateScripts.cpp.o
 
 src/Exporting/generateScripts.i: src/Exporting/generateScripts.cpp.i
@@ -948,7 +1224,7 @@ src/Exporting/generateScripts.i: src/Exporting/generateScripts.cpp.i
 
 # target to preprocess a source file
 src/Exporting/generateScripts.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateScripts.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateScripts.cpp.i
 .PHONY : src/Exporting/generateScripts.cpp.i
 
 src/Exporting/generateScripts.s: src/Exporting/generateScripts.cpp.s
@@ -957,7 +1233,7 @@ src/Exporting/generateScripts.s: src/Exporting/generateScripts.cpp.s
 
 # target to generate assembly for a file
 src/Exporting/generateScripts.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateScripts.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateScripts.cpp.s
 .PHONY : src/Exporting/generateScripts.cpp.s
 
 src/Exporting/generateSettings.o: src/Exporting/generateSettings.cpp.o
@@ -966,7 +1242,7 @@ src/Exporting/generateSettings.o: src/Exporting/generateSettings.cpp.o
 
 # target to build an object file
 src/Exporting/generateSettings.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateSettings.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateSettings.cpp.o
 .PHONY : src/Exporting/generateSettings.cpp.o
 
 src/Exporting/generateSettings.i: src/Exporting/generateSettings.cpp.i
@@ -975,7 +1251,7 @@ src/Exporting/generateSettings.i: src/Exporting/generateSettings.cpp.i
 
 # target to preprocess a source file
 src/Exporting/generateSettings.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateSettings.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateSettings.cpp.i
 .PHONY : src/Exporting/generateSettings.cpp.i
 
 src/Exporting/generateSettings.s: src/Exporting/generateSettings.cpp.s
@@ -984,7 +1260,7 @@ src/Exporting/generateSettings.s: src/Exporting/generateSettings.cpp.s
 
 # target to generate assembly for a file
 src/Exporting/generateSettings.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Exporting/generateSettings.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Exporting/generateSettings.cpp.s
 .PHONY : src/Exporting/generateSettings.cpp.s
 
 src/GUI/DevEnv/DevEnv_Events.o: src/GUI/DevEnv/DevEnv_Events.cpp.o
@@ -993,7 +1269,7 @@ src/GUI/DevEnv/DevEnv_Events.o: src/GUI/DevEnv/DevEnv_Events.cpp.o
 
 # target to build an object file
 src/GUI/DevEnv/DevEnv_Events.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Events.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Events.cpp.o
 .PHONY : src/GUI/DevEnv/DevEnv_Events.cpp.o
 
 src/GUI/DevEnv/DevEnv_Events.i: src/GUI/DevEnv/DevEnv_Events.cpp.i
@@ -1002,7 +1278,7 @@ src/GUI/DevEnv/DevEnv_Events.i: src/GUI/DevEnv/DevEnv_Events.cpp.i
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevEnv_Events.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Events.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Events.cpp.i
 .PHONY : src/GUI/DevEnv/DevEnv_Events.cpp.i
 
 src/GUI/DevEnv/DevEnv_Events.s: src/GUI/DevEnv/DevEnv_Events.cpp.s
@@ -1011,7 +1287,7 @@ src/GUI/DevEnv/DevEnv_Events.s: src/GUI/DevEnv/DevEnv_Events.cpp.s
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevEnv_Events.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Events.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Events.cpp.s
 .PHONY : src/GUI/DevEnv/DevEnv_Events.cpp.s
 
 src/GUI/DevEnv/DevEnv_Init.o: src/GUI/DevEnv/DevEnv_Init.cpp.o
@@ -1020,7 +1296,7 @@ src/GUI/DevEnv/DevEnv_Init.o: src/GUI/DevEnv/DevEnv_Init.cpp.o
 
 # target to build an object file
 src/GUI/DevEnv/DevEnv_Init.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Init.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Init.cpp.o
 .PHONY : src/GUI/DevEnv/DevEnv_Init.cpp.o
 
 src/GUI/DevEnv/DevEnv_Init.i: src/GUI/DevEnv/DevEnv_Init.cpp.i
@@ -1029,7 +1305,7 @@ src/GUI/DevEnv/DevEnv_Init.i: src/GUI/DevEnv/DevEnv_Init.cpp.i
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevEnv_Init.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Init.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Init.cpp.i
 .PHONY : src/GUI/DevEnv/DevEnv_Init.cpp.i
 
 src/GUI/DevEnv/DevEnv_Init.s: src/GUI/DevEnv/DevEnv_Init.cpp.s
@@ -1038,7 +1314,7 @@ src/GUI/DevEnv/DevEnv_Init.s: src/GUI/DevEnv/DevEnv_Init.cpp.s
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevEnv_Init.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Init.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevEnv_Init.cpp.s
 .PHONY : src/GUI/DevEnv/DevEnv_Init.cpp.s
 
 src/GUI/DevEnv/DevGUIs/DevDockableWindow.o: src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.o
@@ -1047,7 +1323,7 @@ src/GUI/DevEnv/DevGUIs/DevDockableWindow.o: src/GUI/DevEnv/DevGUIs/DevDockableWi
 
 # target to build an object file
 src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.o
 .PHONY : src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.o
 
 src/GUI/DevEnv/DevGUIs/DevDockableWindow.i: src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.i
@@ -1056,7 +1332,7 @@ src/GUI/DevEnv/DevGUIs/DevDockableWindow.i: src/GUI/DevEnv/DevGUIs/DevDockableWi
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.i
 .PHONY : src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.i
 
 src/GUI/DevEnv/DevGUIs/DevDockableWindow.s: src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.s
@@ -1065,7 +1341,7 @@ src/GUI/DevEnv/DevGUIs/DevDockableWindow.s: src/GUI/DevEnv/DevGUIs/DevDockableWi
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.s
 .PHONY : src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp.s
 
 src/GUI/DevEnv/DevGUIs/DevDockingTabArea.o: src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.o
@@ -1074,7 +1350,7 @@ src/GUI/DevEnv/DevGUIs/DevDockingTabArea.o: src/GUI/DevEnv/DevGUIs/DevDockingTab
 
 # target to build an object file
 src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.o
 .PHONY : src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.o
 
 src/GUI/DevEnv/DevGUIs/DevDockingTabArea.i: src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.i
@@ -1083,7 +1359,7 @@ src/GUI/DevEnv/DevGUIs/DevDockingTabArea.i: src/GUI/DevEnv/DevGUIs/DevDockingTab
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.i
 .PHONY : src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.i
 
 src/GUI/DevEnv/DevGUIs/DevDockingTabArea.s: src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.s
@@ -1092,7 +1368,7 @@ src/GUI/DevEnv/DevGUIs/DevDockingTabArea.s: src/GUI/DevEnv/DevGUIs/DevDockingTab
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.s
 .PHONY : src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp.s
 
 src/GUI/DevEnv/DevGUIs/DevMenuBar.o: src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.o
@@ -1101,7 +1377,7 @@ src/GUI/DevEnv/DevGUIs/DevMenuBar.o: src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.o
 
 # target to build an object file
 src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.o
 .PHONY : src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.o
 
 src/GUI/DevEnv/DevGUIs/DevMenuBar.i: src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.i
@@ -1110,7 +1386,7 @@ src/GUI/DevEnv/DevGUIs/DevMenuBar.i: src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.i
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.i
 .PHONY : src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.i
 
 src/GUI/DevEnv/DevGUIs/DevMenuBar.s: src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.s
@@ -1119,7 +1395,7 @@ src/GUI/DevEnv/DevGUIs/DevMenuBar.s: src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.s
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.s
 .PHONY : src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp.s
 
 src/GUI/DevEnv/DevGUIs/DevMenuItem.o: src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.o
@@ -1128,7 +1404,7 @@ src/GUI/DevEnv/DevGUIs/DevMenuItem.o: src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.o
 
 # target to build an object file
 src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.o
 .PHONY : src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.o
 
 src/GUI/DevEnv/DevGUIs/DevMenuItem.i: src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.i
@@ -1137,7 +1413,7 @@ src/GUI/DevEnv/DevGUIs/DevMenuItem.i: src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.i
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.i
 .PHONY : src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.i
 
 src/GUI/DevEnv/DevGUIs/DevMenuItem.s: src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.s
@@ -1146,7 +1422,7 @@ src/GUI/DevEnv/DevGUIs/DevMenuItem.s: src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.s
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.s
 .PHONY : src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp.s
 
 src/GUI/DevEnv/DevGUIs/DevProjectEditor.o: src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.o
@@ -1155,7 +1431,7 @@ src/GUI/DevEnv/DevGUIs/DevProjectEditor.o: src/GUI/DevEnv/DevGUIs/DevProjectEdit
 
 # target to build an object file
 src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.o
 .PHONY : src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.o
 
 src/GUI/DevEnv/DevGUIs/DevProjectEditor.i: src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.i
@@ -1164,7 +1440,7 @@ src/GUI/DevEnv/DevGUIs/DevProjectEditor.i: src/GUI/DevEnv/DevGUIs/DevProjectEdit
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.i
 .PHONY : src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.i
 
 src/GUI/DevEnv/DevGUIs/DevProjectEditor.s: src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.s
@@ -1173,7 +1449,7 @@ src/GUI/DevEnv/DevGUIs/DevProjectEditor.s: src/GUI/DevEnv/DevGUIs/DevProjectEdit
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.s
 .PHONY : src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp.s
 
 src/GUI/DevEnv/DevViews/DevModelEditor.o: src/GUI/DevEnv/DevViews/DevModelEditor.cpp.o
@@ -1182,7 +1458,7 @@ src/GUI/DevEnv/DevViews/DevModelEditor.o: src/GUI/DevEnv/DevViews/DevModelEditor
 
 # target to build an object file
 src/GUI/DevEnv/DevViews/DevModelEditor.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevViews/DevModelEditor.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevViews/DevModelEditor.cpp.o
 .PHONY : src/GUI/DevEnv/DevViews/DevModelEditor.cpp.o
 
 src/GUI/DevEnv/DevViews/DevModelEditor.i: src/GUI/DevEnv/DevViews/DevModelEditor.cpp.i
@@ -1191,7 +1467,7 @@ src/GUI/DevEnv/DevViews/DevModelEditor.i: src/GUI/DevEnv/DevViews/DevModelEditor
 
 # target to preprocess a source file
 src/GUI/DevEnv/DevViews/DevModelEditor.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevViews/DevModelEditor.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevViews/DevModelEditor.cpp.i
 .PHONY : src/GUI/DevEnv/DevViews/DevModelEditor.cpp.i
 
 src/GUI/DevEnv/DevViews/DevModelEditor.s: src/GUI/DevEnv/DevViews/DevModelEditor.cpp.s
@@ -1200,7 +1476,7 @@ src/GUI/DevEnv/DevViews/DevModelEditor.s: src/GUI/DevEnv/DevViews/DevModelEditor
 
 # target to generate assembly for a file
 src/GUI/DevEnv/DevViews/DevModelEditor.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DevEnv/DevViews/DevModelEditor.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DevEnv/DevViews/DevModelEditor.cpp.s
 .PHONY : src/GUI/DevEnv/DevViews/DevModelEditor.cpp.s
 
 src/GUI/DrawArea.o: src/GUI/DrawArea.cpp.o
@@ -1209,7 +1485,7 @@ src/GUI/DrawArea.o: src/GUI/DrawArea.cpp.o
 
 # target to build an object file
 src/GUI/DrawArea.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DrawArea.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DrawArea.cpp.o
 .PHONY : src/GUI/DrawArea.cpp.o
 
 src/GUI/DrawArea.i: src/GUI/DrawArea.cpp.i
@@ -1218,7 +1494,7 @@ src/GUI/DrawArea.i: src/GUI/DrawArea.cpp.i
 
 # target to preprocess a source file
 src/GUI/DrawArea.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DrawArea.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DrawArea.cpp.i
 .PHONY : src/GUI/DrawArea.cpp.i
 
 src/GUI/DrawArea.s: src/GUI/DrawArea.cpp.s
@@ -1227,7 +1503,7 @@ src/GUI/DrawArea.s: src/GUI/DrawArea.cpp.s
 
 # target to generate assembly for a file
 src/GUI/DrawArea.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/DrawArea.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/DrawArea.cpp.s
 .PHONY : src/GUI/DrawArea.cpp.s
 
 src/GUI/GLabel.o: src/GUI/GLabel.cpp.o
@@ -1236,7 +1512,7 @@ src/GUI/GLabel.o: src/GUI/GLabel.cpp.o
 
 # target to build an object file
 src/GUI/GLabel.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GLabel.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GLabel.cpp.o
 .PHONY : src/GUI/GLabel.cpp.o
 
 src/GUI/GLabel.i: src/GUI/GLabel.cpp.i
@@ -1245,7 +1521,7 @@ src/GUI/GLabel.i: src/GUI/GLabel.cpp.i
 
 # target to preprocess a source file
 src/GUI/GLabel.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GLabel.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GLabel.cpp.i
 .PHONY : src/GUI/GLabel.cpp.i
 
 src/GUI/GLabel.s: src/GUI/GLabel.cpp.s
@@ -1254,35 +1530,8 @@ src/GUI/GLabel.s: src/GUI/GLabel.cpp.s
 
 # target to generate assembly for a file
 src/GUI/GLabel.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GLabel.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GLabel.cpp.s
 .PHONY : src/GUI/GLabel.cpp.s
-
-src/GUI/GObject.o: src/GUI/GObject.cpp.o
-
-.PHONY : src/GUI/GObject.o
-
-# target to build an object file
-src/GUI/GObject.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GObject.cpp.o
-.PHONY : src/GUI/GObject.cpp.o
-
-src/GUI/GObject.i: src/GUI/GObject.cpp.i
-
-.PHONY : src/GUI/GObject.i
-
-# target to preprocess a source file
-src/GUI/GObject.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GObject.cpp.i
-.PHONY : src/GUI/GObject.cpp.i
-
-src/GUI/GObject.s: src/GUI/GObject.cpp.s
-
-.PHONY : src/GUI/GObject.s
-
-# target to generate assembly for a file
-src/GUI/GObject.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GObject.cpp.s
-.PHONY : src/GUI/GObject.cpp.s
 
 src/GUI/GSimpleDrawers.o: src/GUI/GSimpleDrawers.cpp.o
 
@@ -1290,7 +1539,7 @@ src/GUI/GSimpleDrawers.o: src/GUI/GSimpleDrawers.cpp.o
 
 # target to build an object file
 src/GUI/GSimpleDrawers.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GSimpleDrawers.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GSimpleDrawers.cpp.o
 .PHONY : src/GUI/GSimpleDrawers.cpp.o
 
 src/GUI/GSimpleDrawers.i: src/GUI/GSimpleDrawers.cpp.i
@@ -1299,7 +1548,7 @@ src/GUI/GSimpleDrawers.i: src/GUI/GSimpleDrawers.cpp.i
 
 # target to preprocess a source file
 src/GUI/GSimpleDrawers.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GSimpleDrawers.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GSimpleDrawers.cpp.i
 .PHONY : src/GUI/GSimpleDrawers.cpp.i
 
 src/GUI/GSimpleDrawers.s: src/GUI/GSimpleDrawers.cpp.s
@@ -1308,7 +1557,7 @@ src/GUI/GSimpleDrawers.s: src/GUI/GSimpleDrawers.cpp.s
 
 # target to generate assembly for a file
 src/GUI/GSimpleDrawers.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GSimpleDrawers.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GSimpleDrawers.cpp.s
 .PHONY : src/GUI/GSimpleDrawers.cpp.s
 
 src/GUI/GSlider.o: src/GUI/GSlider.cpp.o
@@ -1317,7 +1566,7 @@ src/GUI/GSlider.o: src/GUI/GSlider.cpp.o
 
 # target to build an object file
 src/GUI/GSlider.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GSlider.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GSlider.cpp.o
 .PHONY : src/GUI/GSlider.cpp.o
 
 src/GUI/GSlider.i: src/GUI/GSlider.cpp.i
@@ -1326,7 +1575,7 @@ src/GUI/GSlider.i: src/GUI/GSlider.cpp.i
 
 # target to preprocess a source file
 src/GUI/GSlider.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GSlider.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GSlider.cpp.i
 .PHONY : src/GUI/GSlider.cpp.i
 
 src/GUI/GSlider.s: src/GUI/GSlider.cpp.s
@@ -1335,7 +1584,7 @@ src/GUI/GSlider.s: src/GUI/GSlider.cpp.s
 
 # target to generate assembly for a file
 src/GUI/GSlider.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GSlider.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GSlider.cpp.s
 .PHONY : src/GUI/GSlider.cpp.s
 
 src/GUI/GTextBox.o: src/GUI/GTextBox.cpp.o
@@ -1344,7 +1593,7 @@ src/GUI/GTextBox.o: src/GUI/GTextBox.cpp.o
 
 # target to build an object file
 src/GUI/GTextBox.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GTextBox.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GTextBox.cpp.o
 .PHONY : src/GUI/GTextBox.cpp.o
 
 src/GUI/GTextBox.i: src/GUI/GTextBox.cpp.i
@@ -1353,7 +1602,7 @@ src/GUI/GTextBox.i: src/GUI/GTextBox.cpp.i
 
 # target to preprocess a source file
 src/GUI/GTextBox.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GTextBox.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GTextBox.cpp.i
 .PHONY : src/GUI/GTextBox.cpp.i
 
 src/GUI/GTextBox.s: src/GUI/GTextBox.cpp.s
@@ -1362,7 +1611,7 @@ src/GUI/GTextBox.s: src/GUI/GTextBox.cpp.s
 
 # target to generate assembly for a file
 src/GUI/GTextBox.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GTextBox.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GTextBox.cpp.s
 .PHONY : src/GUI/GTextBox.cpp.s
 
 src/GUI/GTreeView.o: src/GUI/GTreeView.cpp.o
@@ -1371,7 +1620,7 @@ src/GUI/GTreeView.o: src/GUI/GTreeView.cpp.o
 
 # target to build an object file
 src/GUI/GTreeView.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GTreeView.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GTreeView.cpp.o
 .PHONY : src/GUI/GTreeView.cpp.o
 
 src/GUI/GTreeView.i: src/GUI/GTreeView.cpp.i
@@ -1380,7 +1629,7 @@ src/GUI/GTreeView.i: src/GUI/GTreeView.cpp.i
 
 # target to preprocess a source file
 src/GUI/GTreeView.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GTreeView.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GTreeView.cpp.i
 .PHONY : src/GUI/GTreeView.cpp.i
 
 src/GUI/GTreeView.s: src/GUI/GTreeView.cpp.s
@@ -1389,7 +1638,7 @@ src/GUI/GTreeView.s: src/GUI/GTreeView.cpp.s
 
 # target to generate assembly for a file
 src/GUI/GTreeView.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GTreeView.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GTreeView.cpp.s
 .PHONY : src/GUI/GTreeView.cpp.s
 
 src/GUI/GWindow.o: src/GUI/GWindow.cpp.o
@@ -1398,7 +1647,7 @@ src/GUI/GWindow.o: src/GUI/GWindow.cpp.o
 
 # target to build an object file
 src/GUI/GWindow.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GWindow.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GWindow.cpp.o
 .PHONY : src/GUI/GWindow.cpp.o
 
 src/GUI/GWindow.i: src/GUI/GWindow.cpp.i
@@ -1407,7 +1656,7 @@ src/GUI/GWindow.i: src/GUI/GWindow.cpp.i
 
 # target to preprocess a source file
 src/GUI/GWindow.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GWindow.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GWindow.cpp.i
 .PHONY : src/GUI/GWindow.cpp.i
 
 src/GUI/GWindow.s: src/GUI/GWindow.cpp.s
@@ -1416,7 +1665,7 @@ src/GUI/GWindow.s: src/GUI/GWindow.cpp.s
 
 # target to generate assembly for a file
 src/GUI/GWindow.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/GUI/GWindow.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/GUI/GWindow.cpp.s
 .PHONY : src/GUI/GWindow.cpp.s
 
 src/Helper/Camera.o: src/Helper/Camera.cpp.o
@@ -1425,7 +1674,7 @@ src/Helper/Camera.o: src/Helper/Camera.cpp.o
 
 # target to build an object file
 src/Helper/Camera.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Camera.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/Camera.cpp.o
 .PHONY : src/Helper/Camera.cpp.o
 
 src/Helper/Camera.i: src/Helper/Camera.cpp.i
@@ -1434,7 +1683,7 @@ src/Helper/Camera.i: src/Helper/Camera.cpp.i
 
 # target to preprocess a source file
 src/Helper/Camera.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Camera.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/Camera.cpp.i
 .PHONY : src/Helper/Camera.cpp.i
 
 src/Helper/Camera.s: src/Helper/Camera.cpp.s
@@ -1443,7 +1692,7 @@ src/Helper/Camera.s: src/Helper/Camera.cpp.s
 
 # target to generate assembly for a file
 src/Helper/Camera.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Camera.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/Camera.cpp.s
 .PHONY : src/Helper/Camera.cpp.s
 
 src/Helper/Compressable.o: src/Helper/Compressable.cpp.o
@@ -1452,7 +1701,7 @@ src/Helper/Compressable.o: src/Helper/Compressable.cpp.o
 
 # target to build an object file
 src/Helper/Compressable.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Compressable.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/Compressable.cpp.o
 .PHONY : src/Helper/Compressable.cpp.o
 
 src/Helper/Compressable.i: src/Helper/Compressable.cpp.i
@@ -1461,7 +1710,7 @@ src/Helper/Compressable.i: src/Helper/Compressable.cpp.i
 
 # target to preprocess a source file
 src/Helper/Compressable.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Compressable.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/Compressable.cpp.i
 .PHONY : src/Helper/Compressable.cpp.i
 
 src/Helper/Compressable.s: src/Helper/Compressable.cpp.s
@@ -1470,35 +1719,35 @@ src/Helper/Compressable.s: src/Helper/Compressable.cpp.s
 
 # target to generate assembly for a file
 src/Helper/Compressable.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Compressable.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/Compressable.cpp.s
 .PHONY : src/Helper/Compressable.cpp.s
 
-src/Helper/Loader.o: src/Helper/Loader.cpp.o
+src/Helper/LoadItem.o: src/Helper/LoadItem.cpp.o
 
-.PHONY : src/Helper/Loader.o
+.PHONY : src/Helper/LoadItem.o
 
 # target to build an object file
-src/Helper/Loader.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Loader.cpp.o
-.PHONY : src/Helper/Loader.cpp.o
+src/Helper/LoadItem.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/LoadItem.cpp.o
+.PHONY : src/Helper/LoadItem.cpp.o
 
-src/Helper/Loader.i: src/Helper/Loader.cpp.i
+src/Helper/LoadItem.i: src/Helper/LoadItem.cpp.i
 
-.PHONY : src/Helper/Loader.i
+.PHONY : src/Helper/LoadItem.i
 
 # target to preprocess a source file
-src/Helper/Loader.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Loader.cpp.i
-.PHONY : src/Helper/Loader.cpp.i
+src/Helper/LoadItem.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/LoadItem.cpp.i
+.PHONY : src/Helper/LoadItem.cpp.i
 
-src/Helper/Loader.s: src/Helper/Loader.cpp.s
+src/Helper/LoadItem.s: src/Helper/LoadItem.cpp.s
 
-.PHONY : src/Helper/Loader.s
+.PHONY : src/Helper/LoadItem.s
 
 # target to generate assembly for a file
-src/Helper/Loader.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/Loader.cpp.s
-.PHONY : src/Helper/Loader.cpp.s
+src/Helper/LoadItem.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/LoadItem.cpp.s
+.PHONY : src/Helper/LoadItem.cpp.s
 
 src/Helper/log.o: src/Helper/log.cpp.o
 
@@ -1506,7 +1755,7 @@ src/Helper/log.o: src/Helper/log.cpp.o
 
 # target to build an object file
 src/Helper/log.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/log.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/log.cpp.o
 .PHONY : src/Helper/log.cpp.o
 
 src/Helper/log.i: src/Helper/log.cpp.i
@@ -1515,7 +1764,7 @@ src/Helper/log.i: src/Helper/log.cpp.i
 
 # target to preprocess a source file
 src/Helper/log.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/log.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/log.cpp.i
 .PHONY : src/Helper/log.cpp.i
 
 src/Helper/log.s: src/Helper/log.cpp.s
@@ -1524,7 +1773,7 @@ src/Helper/log.s: src/Helper/log.cpp.s
 
 # target to generate assembly for a file
 src/Helper/log.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Helper/log.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Helper/log.cpp.s
 .PHONY : src/Helper/log.cpp.s
 
 src/Model/Model.o: src/Model/Model.cpp.o
@@ -1533,7 +1782,7 @@ src/Model/Model.o: src/Model/Model.cpp.o
 
 # target to build an object file
 src/Model/Model.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model.cpp.o
 .PHONY : src/Model/Model.cpp.o
 
 src/Model/Model.i: src/Model/Model.cpp.i
@@ -1542,7 +1791,7 @@ src/Model/Model.i: src/Model/Model.cpp.i
 
 # target to preprocess a source file
 src/Model/Model.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model.cpp.i
 .PHONY : src/Model/Model.cpp.i
 
 src/Model/Model.s: src/Model/Model.cpp.s
@@ -1551,62 +1800,35 @@ src/Model/Model.s: src/Model/Model.cpp.s
 
 # target to generate assembly for a file
 src/Model/Model.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model.cpp.s
 .PHONY : src/Model/Model.cpp.s
 
-src/Model/ModelFragment.o: src/Model/ModelFragment.cpp.o
+src/Model/ModelPart.o: src/Model/ModelPart.cpp.o
 
-.PHONY : src/Model/ModelFragment.o
-
-# target to build an object file
-src/Model/ModelFragment.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/ModelFragment.cpp.o
-.PHONY : src/Model/ModelFragment.cpp.o
-
-src/Model/ModelFragment.i: src/Model/ModelFragment.cpp.i
-
-.PHONY : src/Model/ModelFragment.i
-
-# target to preprocess a source file
-src/Model/ModelFragment.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/ModelFragment.cpp.i
-.PHONY : src/Model/ModelFragment.cpp.i
-
-src/Model/ModelFragment.s: src/Model/ModelFragment.cpp.s
-
-.PHONY : src/Model/ModelFragment.s
-
-# target to generate assembly for a file
-src/Model/ModelFragment.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/ModelFragment.cpp.s
-.PHONY : src/Model/ModelFragment.cpp.s
-
-src/Model/ModelMaterial.o: src/Model/ModelMaterial.cpp.o
-
-.PHONY : src/Model/ModelMaterial.o
+.PHONY : src/Model/ModelPart.o
 
 # target to build an object file
-src/Model/ModelMaterial.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/ModelMaterial.cpp.o
-.PHONY : src/Model/ModelMaterial.cpp.o
+src/Model/ModelPart.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/ModelPart.cpp.o
+.PHONY : src/Model/ModelPart.cpp.o
 
-src/Model/ModelMaterial.i: src/Model/ModelMaterial.cpp.i
+src/Model/ModelPart.i: src/Model/ModelPart.cpp.i
 
-.PHONY : src/Model/ModelMaterial.i
+.PHONY : src/Model/ModelPart.i
 
 # target to preprocess a source file
-src/Model/ModelMaterial.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/ModelMaterial.cpp.i
-.PHONY : src/Model/ModelMaterial.cpp.i
+src/Model/ModelPart.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/ModelPart.cpp.i
+.PHONY : src/Model/ModelPart.cpp.i
 
-src/Model/ModelMaterial.s: src/Model/ModelMaterial.cpp.s
+src/Model/ModelPart.s: src/Model/ModelPart.cpp.s
 
-.PHONY : src/Model/ModelMaterial.s
+.PHONY : src/Model/ModelPart.s
 
 # target to generate assembly for a file
-src/Model/ModelMaterial.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/ModelMaterial.cpp.s
-.PHONY : src/Model/ModelMaterial.cpp.s
+src/Model/ModelPart.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/ModelPart.cpp.s
+.PHONY : src/Model/ModelPart.cpp.s
 
 src/Model/Model_Animation.o: src/Model/Model_Animation.cpp.o
 
@@ -1614,7 +1836,7 @@ src/Model/Model_Animation.o: src/Model/Model_Animation.cpp.o
 
 # target to build an object file
 src/Model/Model_Animation.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_Animation.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_Animation.cpp.o
 .PHONY : src/Model/Model_Animation.cpp.o
 
 src/Model/Model_Animation.i: src/Model/Model_Animation.cpp.i
@@ -1623,7 +1845,7 @@ src/Model/Model_Animation.i: src/Model/Model_Animation.cpp.i
 
 # target to preprocess a source file
 src/Model/Model_Animation.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_Animation.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_Animation.cpp.i
 .PHONY : src/Model/Model_Animation.cpp.i
 
 src/Model/Model_Animation.s: src/Model/Model_Animation.cpp.s
@@ -1632,7 +1854,7 @@ src/Model/Model_Animation.s: src/Model/Model_Animation.cpp.s
 
 # target to generate assembly for a file
 src/Model/Model_Animation.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_Animation.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_Animation.cpp.s
 .PHONY : src/Model/Model_Animation.cpp.s
 
 src/Model/Model_FBX.o: src/Model/Model_FBX.cpp.o
@@ -1641,7 +1863,7 @@ src/Model/Model_FBX.o: src/Model/Model_FBX.cpp.o
 
 # target to build an object file
 src/Model/Model_FBX.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_FBX.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_FBX.cpp.o
 .PHONY : src/Model/Model_FBX.cpp.o
 
 src/Model/Model_FBX.i: src/Model/Model_FBX.cpp.i
@@ -1650,7 +1872,7 @@ src/Model/Model_FBX.i: src/Model/Model_FBX.cpp.i
 
 # target to preprocess a source file
 src/Model/Model_FBX.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_FBX.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_FBX.cpp.i
 .PHONY : src/Model/Model_FBX.cpp.i
 
 src/Model/Model_FBX.s: src/Model/Model_FBX.cpp.s
@@ -1659,7 +1881,7 @@ src/Model/Model_FBX.s: src/Model/Model_FBX.cpp.s
 
 # target to generate assembly for a file
 src/Model/Model_FBX.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_FBX.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_FBX.cpp.s
 .PHONY : src/Model/Model_FBX.cpp.s
 
 src/Model/Model_loadFromObj.o: src/Model/Model_loadFromObj.cpp.o
@@ -1668,7 +1890,7 @@ src/Model/Model_loadFromObj.o: src/Model/Model_loadFromObj.cpp.o
 
 # target to build an object file
 src/Model/Model_loadFromObj.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_loadFromObj.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_loadFromObj.cpp.o
 .PHONY : src/Model/Model_loadFromObj.cpp.o
 
 src/Model/Model_loadFromObj.i: src/Model/Model_loadFromObj.cpp.i
@@ -1677,7 +1899,7 @@ src/Model/Model_loadFromObj.i: src/Model/Model_loadFromObj.cpp.i
 
 # target to preprocess a source file
 src/Model/Model_loadFromObj.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_loadFromObj.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_loadFromObj.cpp.i
 .PHONY : src/Model/Model_loadFromObj.cpp.i
 
 src/Model/Model_loadFromObj.s: src/Model/Model_loadFromObj.cpp.s
@@ -1686,7 +1908,7 @@ src/Model/Model_loadFromObj.s: src/Model/Model_loadFromObj.cpp.s
 
 # target to generate assembly for a file
 src/Model/Model_loadFromObj.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/Model_loadFromObj.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/Model_loadFromObj.cpp.s
 .PHONY : src/Model/Model_loadFromObj.cpp.s
 
 src/Model/glsl.o: src/Model/glsl.cpp.o
@@ -1695,7 +1917,7 @@ src/Model/glsl.o: src/Model/glsl.cpp.o
 
 # target to build an object file
 src/Model/glsl.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/glsl.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/glsl.cpp.o
 .PHONY : src/Model/glsl.cpp.o
 
 src/Model/glsl.i: src/Model/glsl.cpp.i
@@ -1704,7 +1926,7 @@ src/Model/glsl.i: src/Model/glsl.cpp.i
 
 # target to preprocess a source file
 src/Model/glsl.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/glsl.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/glsl.cpp.i
 .PHONY : src/Model/glsl.cpp.i
 
 src/Model/glsl.s: src/Model/glsl.cpp.s
@@ -1713,7 +1935,7 @@ src/Model/glsl.s: src/Model/glsl.cpp.s
 
 # target to generate assembly for a file
 src/Model/glsl.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Model/glsl.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Model/glsl.cpp.s
 .PHONY : src/Model/glsl.cpp.s
 
 src/Networking/NetClient.o: src/Networking/NetClient.cpp.o
@@ -1722,7 +1944,7 @@ src/Networking/NetClient.o: src/Networking/NetClient.cpp.o
 
 # target to build an object file
 src/Networking/NetClient.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Networking/NetClient.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Networking/NetClient.cpp.o
 .PHONY : src/Networking/NetClient.cpp.o
 
 src/Networking/NetClient.i: src/Networking/NetClient.cpp.i
@@ -1731,7 +1953,7 @@ src/Networking/NetClient.i: src/Networking/NetClient.cpp.i
 
 # target to preprocess a source file
 src/Networking/NetClient.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Networking/NetClient.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Networking/NetClient.cpp.i
 .PHONY : src/Networking/NetClient.cpp.i
 
 src/Networking/NetClient.s: src/Networking/NetClient.cpp.s
@@ -1740,7 +1962,7 @@ src/Networking/NetClient.s: src/Networking/NetClient.cpp.s
 
 # target to generate assembly for a file
 src/Networking/NetClient.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Networking/NetClient.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Networking/NetClient.cpp.s
 .PHONY : src/Networking/NetClient.cpp.s
 
 src/Scripts/Java.o: src/Scripts/Java.cpp.o
@@ -1749,7 +1971,7 @@ src/Scripts/Java.o: src/Scripts/Java.cpp.o
 
 # target to build an object file
 src/Scripts/Java.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Java.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Java.cpp.o
 .PHONY : src/Scripts/Java.cpp.o
 
 src/Scripts/Java.i: src/Scripts/Java.cpp.i
@@ -1758,7 +1980,7 @@ src/Scripts/Java.i: src/Scripts/Java.cpp.i
 
 # target to preprocess a source file
 src/Scripts/Java.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Java.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Java.cpp.i
 .PHONY : src/Scripts/Java.cpp.i
 
 src/Scripts/Java.s: src/Scripts/Java.cpp.s
@@ -1767,35 +1989,8 @@ src/Scripts/Java.s: src/Scripts/Java.cpp.s
 
 # target to generate assembly for a file
 src/Scripts/Java.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Java.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Java.cpp.s
 .PHONY : src/Scripts/Java.cpp.s
-
-src/Scripts/LanguageBase.o: src/Scripts/LanguageBase.cpp.o
-
-.PHONY : src/Scripts/LanguageBase.o
-
-# target to build an object file
-src/Scripts/LanguageBase.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/LanguageBase.cpp.o
-.PHONY : src/Scripts/LanguageBase.cpp.o
-
-src/Scripts/LanguageBase.i: src/Scripts/LanguageBase.cpp.i
-
-.PHONY : src/Scripts/LanguageBase.i
-
-# target to preprocess a source file
-src/Scripts/LanguageBase.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/LanguageBase.cpp.i
-.PHONY : src/Scripts/LanguageBase.cpp.i
-
-src/Scripts/LanguageBase.s: src/Scripts/LanguageBase.cpp.s
-
-.PHONY : src/Scripts/LanguageBase.s
-
-# target to generate assembly for a file
-src/Scripts/LanguageBase.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/LanguageBase.cpp.s
-.PHONY : src/Scripts/LanguageBase.cpp.s
 
 src/Scripts/Lua.o: src/Scripts/Lua.cpp.o
 
@@ -1803,7 +1998,7 @@ src/Scripts/Lua.o: src/Scripts/Lua.cpp.o
 
 # target to build an object file
 src/Scripts/Lua.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Lua.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Lua.cpp.o
 .PHONY : src/Scripts/Lua.cpp.o
 
 src/Scripts/Lua.i: src/Scripts/Lua.cpp.i
@@ -1812,7 +2007,7 @@ src/Scripts/Lua.i: src/Scripts/Lua.cpp.i
 
 # target to preprocess a source file
 src/Scripts/Lua.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Lua.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Lua.cpp.i
 .PHONY : src/Scripts/Lua.cpp.i
 
 src/Scripts/Lua.s: src/Scripts/Lua.cpp.s
@@ -1821,7 +2016,7 @@ src/Scripts/Lua.s: src/Scripts/Lua.cpp.s
 
 # target to generate assembly for a file
 src/Scripts/Lua.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Lua.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Lua.cpp.s
 .PHONY : src/Scripts/Lua.cpp.s
 
 src/Scripts/Python/pModel.o: src/Scripts/Python/pModel.cpp.o
@@ -1830,7 +2025,7 @@ src/Scripts/Python/pModel.o: src/Scripts/Python/pModel.cpp.o
 
 # target to build an object file
 src/Scripts/Python/pModel.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.o
 .PHONY : src/Scripts/Python/pModel.cpp.o
 
 src/Scripts/Python/pModel.i: src/Scripts/Python/pModel.cpp.i
@@ -1839,7 +2034,7 @@ src/Scripts/Python/pModel.i: src/Scripts/Python/pModel.cpp.i
 
 # target to preprocess a source file
 src/Scripts/Python/pModel.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.i
 .PHONY : src/Scripts/Python/pModel.cpp.i
 
 src/Scripts/Python/pModel.s: src/Scripts/Python/pModel.cpp.s
@@ -1848,7 +2043,7 @@ src/Scripts/Python/pModel.s: src/Scripts/Python/pModel.cpp.s
 
 # target to generate assembly for a file
 src/Scripts/Python/pModel.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/Python/pModel.cpp.s
 .PHONY : src/Scripts/Python/pModel.cpp.s
 
 src/Scripts/PythonS.o: src/Scripts/PythonS.cpp.o
@@ -1857,7 +2052,7 @@ src/Scripts/PythonS.o: src/Scripts/PythonS.cpp.o
 
 # target to build an object file
 src/Scripts/PythonS.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.o
 .PHONY : src/Scripts/PythonS.cpp.o
 
 src/Scripts/PythonS.i: src/Scripts/PythonS.cpp.i
@@ -1866,7 +2061,7 @@ src/Scripts/PythonS.i: src/Scripts/PythonS.cpp.i
 
 # target to preprocess a source file
 src/Scripts/PythonS.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.i
 .PHONY : src/Scripts/PythonS.cpp.i
 
 src/Scripts/PythonS.s: src/Scripts/PythonS.cpp.s
@@ -1875,7 +2070,7 @@ src/Scripts/PythonS.s: src/Scripts/PythonS.cpp.s
 
 # target to generate assembly for a file
 src/Scripts/PythonS.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/PythonS.cpp.s
 .PHONY : src/Scripts/PythonS.cpp.s
 
 src/Scripts/ScriptCore.o: src/Scripts/ScriptCore.cpp.o
@@ -1884,7 +2079,7 @@ src/Scripts/ScriptCore.o: src/Scripts/ScriptCore.cpp.o
 
 # target to build an object file
 src/Scripts/ScriptCore.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/ScriptCore.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/ScriptCore.cpp.o
 .PHONY : src/Scripts/ScriptCore.cpp.o
 
 src/Scripts/ScriptCore.i: src/Scripts/ScriptCore.cpp.i
@@ -1893,7 +2088,7 @@ src/Scripts/ScriptCore.i: src/Scripts/ScriptCore.cpp.i
 
 # target to preprocess a source file
 src/Scripts/ScriptCore.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/ScriptCore.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/ScriptCore.cpp.i
 .PHONY : src/Scripts/ScriptCore.cpp.i
 
 src/Scripts/ScriptCore.s: src/Scripts/ScriptCore.cpp.s
@@ -1902,7 +2097,7 @@ src/Scripts/ScriptCore.s: src/Scripts/ScriptCore.cpp.s
 
 # target to generate assembly for a file
 src/Scripts/ScriptCore.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Scripts/ScriptCore.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Scripts/ScriptCore.cpp.s
 .PHONY : src/Scripts/ScriptCore.cpp.s
 
 src/Sound/SoundBufferData.o: src/Sound/SoundBufferData.cpp.o
@@ -1911,7 +2106,7 @@ src/Sound/SoundBufferData.o: src/Sound/SoundBufferData.cpp.o
 
 # target to build an object file
 src/Sound/SoundBufferData.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundBufferData.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundBufferData.cpp.o
 .PHONY : src/Sound/SoundBufferData.cpp.o
 
 src/Sound/SoundBufferData.i: src/Sound/SoundBufferData.cpp.i
@@ -1920,7 +2115,7 @@ src/Sound/SoundBufferData.i: src/Sound/SoundBufferData.cpp.i
 
 # target to preprocess a source file
 src/Sound/SoundBufferData.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundBufferData.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundBufferData.cpp.i
 .PHONY : src/Sound/SoundBufferData.cpp.i
 
 src/Sound/SoundBufferData.s: src/Sound/SoundBufferData.cpp.s
@@ -1929,7 +2124,7 @@ src/Sound/SoundBufferData.s: src/Sound/SoundBufferData.cpp.s
 
 # target to generate assembly for a file
 src/Sound/SoundBufferData.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundBufferData.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundBufferData.cpp.s
 .PHONY : src/Sound/SoundBufferData.cpp.s
 
 src/Sound/SoundListener.o: src/Sound/SoundListener.cpp.o
@@ -1938,7 +2133,7 @@ src/Sound/SoundListener.o: src/Sound/SoundListener.cpp.o
 
 # target to build an object file
 src/Sound/SoundListener.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundListener.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundListener.cpp.o
 .PHONY : src/Sound/SoundListener.cpp.o
 
 src/Sound/SoundListener.i: src/Sound/SoundListener.cpp.i
@@ -1947,7 +2142,7 @@ src/Sound/SoundListener.i: src/Sound/SoundListener.cpp.i
 
 # target to preprocess a source file
 src/Sound/SoundListener.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundListener.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundListener.cpp.i
 .PHONY : src/Sound/SoundListener.cpp.i
 
 src/Sound/SoundListener.s: src/Sound/SoundListener.cpp.s
@@ -1956,7 +2151,7 @@ src/Sound/SoundListener.s: src/Sound/SoundListener.cpp.s
 
 # target to generate assembly for a file
 src/Sound/SoundListener.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundListener.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundListener.cpp.s
 .PHONY : src/Sound/SoundListener.cpp.s
 
 src/Sound/SoundManager.o: src/Sound/SoundManager.cpp.o
@@ -1965,7 +2160,7 @@ src/Sound/SoundManager.o: src/Sound/SoundManager.cpp.o
 
 # target to build an object file
 src/Sound/SoundManager.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundManager.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundManager.cpp.o
 .PHONY : src/Sound/SoundManager.cpp.o
 
 src/Sound/SoundManager.i: src/Sound/SoundManager.cpp.i
@@ -1974,7 +2169,7 @@ src/Sound/SoundManager.i: src/Sound/SoundManager.cpp.i
 
 # target to preprocess a source file
 src/Sound/SoundManager.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundManager.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundManager.cpp.i
 .PHONY : src/Sound/SoundManager.cpp.i
 
 src/Sound/SoundManager.s: src/Sound/SoundManager.cpp.s
@@ -1983,7 +2178,7 @@ src/Sound/SoundManager.s: src/Sound/SoundManager.cpp.s
 
 # target to generate assembly for a file
 src/Sound/SoundManager.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundManager.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundManager.cpp.s
 .PHONY : src/Sound/SoundManager.cpp.s
 
 src/Sound/SoundMic.o: src/Sound/SoundMic.cpp.o
@@ -1992,7 +2187,7 @@ src/Sound/SoundMic.o: src/Sound/SoundMic.cpp.o
 
 # target to build an object file
 src/Sound/SoundMic.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundMic.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundMic.cpp.o
 .PHONY : src/Sound/SoundMic.cpp.o
 
 src/Sound/SoundMic.i: src/Sound/SoundMic.cpp.i
@@ -2001,7 +2196,7 @@ src/Sound/SoundMic.i: src/Sound/SoundMic.cpp.i
 
 # target to preprocess a source file
 src/Sound/SoundMic.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundMic.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundMic.cpp.i
 .PHONY : src/Sound/SoundMic.cpp.i
 
 src/Sound/SoundMic.s: src/Sound/SoundMic.cpp.s
@@ -2010,7 +2205,7 @@ src/Sound/SoundMic.s: src/Sound/SoundMic.cpp.s
 
 # target to generate assembly for a file
 src/Sound/SoundMic.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundMic.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundMic.cpp.s
 .PHONY : src/Sound/SoundMic.cpp.s
 
 src/Sound/SoundSource.o: src/Sound/SoundSource.cpp.o
@@ -2019,7 +2214,7 @@ src/Sound/SoundSource.o: src/Sound/SoundSource.cpp.o
 
 # target to build an object file
 src/Sound/SoundSource.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundSource.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundSource.cpp.o
 .PHONY : src/Sound/SoundSource.cpp.o
 
 src/Sound/SoundSource.i: src/Sound/SoundSource.cpp.i
@@ -2028,7 +2223,7 @@ src/Sound/SoundSource.i: src/Sound/SoundSource.cpp.i
 
 # target to preprocess a source file
 src/Sound/SoundSource.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundSource.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundSource.cpp.i
 .PHONY : src/Sound/SoundSource.cpp.i
 
 src/Sound/SoundSource.s: src/Sound/SoundSource.cpp.s
@@ -2037,7 +2232,7 @@ src/Sound/SoundSource.s: src/Sound/SoundSource.cpp.s
 
 # target to generate assembly for a file
 src/Sound/SoundSource.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sound/SoundSource.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sound/SoundSource.cpp.s
 .PHONY : src/Sound/SoundSource.cpp.s
 
 src/Sprite2D/Sprite2D.o: src/Sprite2D/Sprite2D.cpp.o
@@ -2046,7 +2241,7 @@ src/Sprite2D/Sprite2D.o: src/Sprite2D/Sprite2D.cpp.o
 
 # target to build an object file
 src/Sprite2D/Sprite2D.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sprite2D/Sprite2D.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sprite2D/Sprite2D.cpp.o
 .PHONY : src/Sprite2D/Sprite2D.cpp.o
 
 src/Sprite2D/Sprite2D.i: src/Sprite2D/Sprite2D.cpp.i
@@ -2055,7 +2250,7 @@ src/Sprite2D/Sprite2D.i: src/Sprite2D/Sprite2D.cpp.i
 
 # target to preprocess a source file
 src/Sprite2D/Sprite2D.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sprite2D/Sprite2D.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sprite2D/Sprite2D.cpp.i
 .PHONY : src/Sprite2D/Sprite2D.cpp.i
 
 src/Sprite2D/Sprite2D.s: src/Sprite2D/Sprite2D.cpp.s
@@ -2064,7 +2259,7 @@ src/Sprite2D/Sprite2D.s: src/Sprite2D/Sprite2D.cpp.s
 
 # target to generate assembly for a file
 src/Sprite2D/Sprite2D.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/Sprite2D/Sprite2D.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/Sprite2D/Sprite2D.cpp.s
 .PHONY : src/Sprite2D/Sprite2D.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -2073,7 +2268,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -2082,7 +2277,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -2091,7 +2286,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(MAKE) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -2111,6 +2306,28 @@ help:
 	@echo "... CPython"
 	@echo "... edit_cache"
 	@echo "... FFmpeg"
+	@echo "... alrecord"
+	@echo "... ex-common"
+	@echo "... altonegen"
+	@echo "... native-tools"
+	@echo "... common"
+	@echo "... build_version"
+	@echo "... openal-info"
+	@echo "... OpenAL"
+	@echo "... makehrtf"
+	@echo "... alsoft-config"
+	@echo "... zlibstatic"
+	@echo "... zlib"
+	@echo "... example"
+	@echo "... minigzip"
+	@echo "... minigzip64"
+	@echo "... example64"
+	@echo "... Eternia32"
+	@echo "... EterniaTest"
+	@echo "... Eternia"
+	@echo "... EterniaS"
+	@echo "... EterniaExec"
+	@echo "... run"
 	@echo "... src/AI/AICore.o"
 	@echo "... src/AI/AICore.i"
 	@echo "... src/AI/AICore.s"
@@ -2225,9 +2442,6 @@ help:
 	@echo "... src/GUI/GLabel.o"
 	@echo "... src/GUI/GLabel.i"
 	@echo "... src/GUI/GLabel.s"
-	@echo "... src/GUI/GObject.o"
-	@echo "... src/GUI/GObject.i"
-	@echo "... src/GUI/GObject.s"
 	@echo "... src/GUI/GSimpleDrawers.o"
 	@echo "... src/GUI/GSimpleDrawers.i"
 	@echo "... src/GUI/GSimpleDrawers.s"
@@ -2249,21 +2463,18 @@ help:
 	@echo "... src/Helper/Compressable.o"
 	@echo "... src/Helper/Compressable.i"
 	@echo "... src/Helper/Compressable.s"
-	@echo "... src/Helper/Loader.o"
-	@echo "... src/Helper/Loader.i"
-	@echo "... src/Helper/Loader.s"
+	@echo "... src/Helper/LoadItem.o"
+	@echo "... src/Helper/LoadItem.i"
+	@echo "... src/Helper/LoadItem.s"
 	@echo "... src/Helper/log.o"
 	@echo "... src/Helper/log.i"
 	@echo "... src/Helper/log.s"
 	@echo "... src/Model/Model.o"
 	@echo "... src/Model/Model.i"
 	@echo "... src/Model/Model.s"
-	@echo "... src/Model/ModelFragment.o"
-	@echo "... src/Model/ModelFragment.i"
-	@echo "... src/Model/ModelFragment.s"
-	@echo "... src/Model/ModelMaterial.o"
-	@echo "... src/Model/ModelMaterial.i"
-	@echo "... src/Model/ModelMaterial.s"
+	@echo "... src/Model/ModelPart.o"
+	@echo "... src/Model/ModelPart.i"
+	@echo "... src/Model/ModelPart.s"
 	@echo "... src/Model/Model_Animation.o"
 	@echo "... src/Model/Model_Animation.i"
 	@echo "... src/Model/Model_Animation.s"
@@ -2282,9 +2493,6 @@ help:
 	@echo "... src/Scripts/Java.o"
 	@echo "... src/Scripts/Java.i"
 	@echo "... src/Scripts/Java.s"
-	@echo "... src/Scripts/LanguageBase.o"
-	@echo "... src/Scripts/LanguageBase.i"
-	@echo "... src/Scripts/LanguageBase.s"
 	@echo "... src/Scripts/Lua.o"
 	@echo "... src/Scripts/Lua.i"
 	@echo "... src/Scripts/Lua.s"
@@ -2329,6 +2537,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /media/NBackups/Dev/Cpp/EterniaEngine && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

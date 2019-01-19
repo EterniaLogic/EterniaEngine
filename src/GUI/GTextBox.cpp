@@ -8,10 +8,10 @@ using namespace std;
 GTextBox::GTextBox() {
     carrot_col = 0;
     carrot_row = 0;
-    lines.add(currentRow=new CharString());
+    lines.add(currentRow=CharString());
 
-    foreColor = new vertex(0,0,0);
-    backColor = new vertex(255,255,255);
+    foreColor = vertex(0,0,0);
+    backColor = vertex(255,255,255);
     highlightColor = vertex(200,200,200);
     opacity = 1.0f;
     carrot=true;
@@ -27,6 +27,9 @@ GTextBox::~GTextBox() {}
 // Header Draw Function; Calls all other drawing functions and
 // NOTE: GObject handles visibility and selection
 void GTextBox::draw() {
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
+    
     if(mouseOver){
         cursorReq = true;
         cursorSet = GLUT_CURSOR_TEXT;
@@ -35,7 +38,7 @@ void GTextBox::draw() {
         cursorReq = false;
     }
 
-    gDrawSolidColor_c(backColor, opacity);
+    gDrawSolidColor(backColor, opacity);
     gDrawRectangle(globalx, globaly, width, height);
 
     // Draw lines of text, detect if a line goes beyond. Scrollbar?
@@ -46,7 +49,7 @@ void GTextBox::draw() {
     gDrawRectangle(globalx, globaly+12*carrot_row, width, 12);
 
     glLineWidth(3);
-    gDrawSolidColor_c(foreColor, 1.0f);
+    gDrawSolidColor(foreColor, 1.0f);
 
     // Draw each letter in the text
     lines.freeze();
@@ -55,21 +58,21 @@ void GTextBox::draw() {
         glRasterPos2i(globalx,globaly+ 10 + i*12);
         currentlinewidth=0;
 
-        if(i >= lines.frozenlen || lines.frozen[i] == 0x0 || lines.frozen[i]->get() == 0x0)
+        if(i >= lines.frozenlen || lines.frozen[i].getSize() == 0 || lines.frozen[i].get() == 0x0)
             continue;
         //cout << "drawing text: '" << lines.frozen[i]->get() << "'" << endl;
-        for(unsigned int j=0; j<lines.frozen[i]->getSize(); j++) {
+        for(unsigned int j=0; j<lines.frozen[i].getSize(); j++) {
             // skip for loop if row maxed out
             if(currentlinewidth+6 > width) break;
 
             // draw character
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, lines.frozen[i]->get()[j]);
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, lines.frozen[i].get()[j]);
 
             // calculate carrot X coordinate
-            if(i == carrot_row && carrot_col > j) carrotlineloc += glutBitmapWidth(GLUT_BITMAP_HELVETICA_12, lines.frozen[i]->get()[j]);
+            if(i == carrot_row && carrot_col > j) carrotlineloc += glutBitmapWidth(GLUT_BITMAP_HELVETICA_12, lines.frozen[i].get()[j]);
 
             // calculate current row width
-            currentlinewidth += glutBitmapWidth(GLUT_BITMAP_HELVETICA_12, lines.frozen[i]->get()[j]);
+            currentlinewidth += glutBitmapWidth(GLUT_BITMAP_HELVETICA_12, lines.frozen[i].get()[j]);
 
         }
     }
@@ -99,20 +102,20 @@ void GTextBox::handleMouse(MouseHandleEvent* event) {
 }
 
 void GTextBox::handleNewline(){
-    if(carrot_col < currentRow->getSize()){
+    if(carrot_col < currentRow.getSize()){
         cout << "split row" << endl;
-        CharString *tmp = new CharString();
-        int tmplen = currentRow->getSize()-carrot_col;
-        tmp->set(currentRow->substr(carrot_col,tmplen).get(),tmplen);
+        CharString tmp;
+        int tmplen = currentRow.getSize()-carrot_col;
+        tmp.set(currentRow.substr(carrot_col,tmplen).get(),tmplen);
 
-        int oldlen = currentRow->getSize()-tmplen;
-        currentRow->set(currentRow->substr(0,oldlen).get(),oldlen);
+        int oldlen = currentRow.getSize()-tmplen;
+        currentRow.set(currentRow.substr(0,oldlen).get(),oldlen);
 
         lines.insert(currentRow = tmp, carrot_row+1);
     }else{
         // insert new line, copy text over if there was some.
         cout << "append row" << endl;
-        lines.add(currentRow = new CharString("\n",0));
+        lines.add(currentRow = CharString("\n",0));
     }
 
     carrot_col=0;
@@ -125,15 +128,15 @@ void GTextBox::handleBackspace(){
         // append the row onto the previous row, then delete the current row.
         carrot_row--;
         currentRow = lines.frozen[carrot_row];
-        CharString *tmprow = lines.frozen[carrot_row+1];
+        CharString tmprow = lines.frozen[carrot_row+1];
         lines.remove(carrot_row+1);
-        carrot_col = currentRow->getSize(); // set location first
-        currentRow->concata(*tmprow);
+        carrot_col = currentRow.getSize(); // set location first
+        currentRow.concata(tmprow);
     }else{
         cout << "Remove midchar" << endl;
-        currentRow->removeChar(carrot_col-1);
-        if(carrot_col > currentRow->getSize())
-            carrot_col = currentRow->getSize();
+        currentRow.removeChar(carrot_col-1);
+        if(carrot_col > currentRow.getSize())
+            carrot_col = currentRow.getSize();
     }
 }
 
@@ -143,17 +146,17 @@ void GTextBox::handleBasicKey(unsigned char key){
     char* val = (char*)malloc(sizeof(char));
     val[0] = key;
 
-    if(carrot_col >= currentRow->getSize()-1){
-        currentRow->concata(val,1);
+    if(carrot_col >= currentRow.getSize()-1){
+        currentRow.concata(val,1);
     }else{
         if(carrot_col > 0){
-            CharString a = currentRow->substr(0,carrot_col);
-            CharString b = currentRow->substr(carrot_col,currentRow->getSize()-carrot_col);
-            currentRow->set(a);
-            currentRow->concata(val,1);
-            currentRow->concatb(b);
+            CharString a = currentRow.substr(0, carrot_col);
+            CharString b = currentRow.substr(carrot_col, currentRow.getSize()-carrot_col);
+            currentRow.set(a);
+            currentRow.concata(val,1);
+            currentRow.concatb(b);
         }else{
-            currentRow->concatb(val,1);
+            currentRow.concatb(val,1);
         }
     }
 
@@ -176,7 +179,7 @@ void GTextBox::handleKeyboard(KeyHandleEvent* event) {
                         if(carrot_row > 0){
                             carrot_row--;
                             currentRow = lines.frozen[carrot_row];
-                            carrot_col = (carrot_col > currentRow->getSize()) ? currentRow->getSize() : carrot_col;
+                            carrot_col = (carrot_col > currentRow.getSize()) ? currentRow.getSize() : carrot_col;
                         }else{
                             carrot_col = 0;
                         }
@@ -185,9 +188,9 @@ void GTextBox::handleKeyboard(KeyHandleEvent* event) {
                         if(carrot_row < lines.size()-1){
                             carrot_row++;
                             currentRow = lines.frozen[carrot_row];
-                            carrot_col = (carrot_col > currentRow->getSize()-1) ? currentRow->getSize()-1 : carrot_col;
+                            carrot_col = (carrot_col > currentRow.getSize()-1) ? currentRow.getSize()-1 : carrot_col;
                         }else{
-                            carrot_col = currentRow->getSize();
+                            carrot_col = currentRow.getSize();
                         }
                     break;
                 case 100: // left arrow
@@ -196,11 +199,11 @@ void GTextBox::handleKeyboard(KeyHandleEvent* event) {
                         }else if(carrot_row > 0){
                            carrot_row--;
                            currentRow = lines.frozen[carrot_row];
-                           carrot_col = currentRow->getSize();
+                           carrot_col = currentRow.getSize();
                         }
                     break;
                 case 102: // right arrow
-                        if(carrot_col <= currentRow->getSize()-1){
+                        if(carrot_col <= currentRow.getSize()-1){
                             carrot_col++;
                         }else if(carrot_row < lines.size()-1){
                            carrot_row++;
@@ -212,7 +215,7 @@ void GTextBox::handleKeyboard(KeyHandleEvent* event) {
                         carrot_col = 0;
                     break;
                 case 107: // end
-                        carrot_col = currentRow->getSize();
+                        carrot_col = currentRow.getSize();
                     break;
             }
         }else if(enabled){
@@ -246,9 +249,9 @@ void GTextBox::update() {
     if(carrottime <= 0){
         carrot = !carrot;
 
-        bottomscroll->setLocalPosition(5,height-bottomscroll->height);
+        bottomscroll->setPosition(5,height-bottomscroll->height);
         bottomscroll->width = width-10;
-        rightscroll->setLocalPosition(width-rightscroll->width,5);
+        rightscroll->setPosition(width-rightscroll->width,5);
         rightscroll->height = height-10;
 
         carrottimelast=clock();

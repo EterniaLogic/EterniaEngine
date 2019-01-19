@@ -1,15 +1,17 @@
 #ifndef DEVENVMENUITEM_
 #define DEVENVMENUITEM_
 
-#include "../../GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "../../GLabel.h"
+#include "../../GSimpleDrawers.h"
+#include "../../GLCommon.h"
 #include <Eternia/Data/LinkedList.hpp>
 
 
 // Controls the top bar.
-class DevMenuItem : public GObject{
+class DevMenuItem : public LayoutObject{
 private:
-    LinkedList<DevMenuItem> menuItems;
+    LinkedList<DevMenuItem*> menuItems;
     CharString itemName; // docked-up item name
     void (*action)(); // action that occurs when this is clicked or "Enter" button used.
 public:
@@ -25,7 +27,7 @@ public:
     void addMenu(DevMenuItem *item); // sub item
     void setText(CharString text); // set the text for this item
     void setAction(void (*action)()); // set the text for this item
-    void setPosition(int x, int y, int width); // set item position...
+    //void setPosition(int x, int y, int width); // set item position...
     
     void handleMouse(MouseHandleEvent*);
     void handleKeyboard(KeyHandleEvent*);

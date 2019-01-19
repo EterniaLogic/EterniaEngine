@@ -21,6 +21,8 @@ GSlider::~GSlider() {}
 // NOTE: GObject handles visibility and selection
 void GSlider::draw() {
     // draw the primary circle, active element
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
     gDrawSolidColor_d(0.5f,0.5f,0.5f, opacity);
     if(vertical){
         gDrawRectangle(globalx+(mouseOver ? 0 : 4), globaly, mouseOver ? 10 : 2, height);
@@ -55,6 +57,9 @@ void GSlider::draw() {
 
 // handles Mouse input;
 void GSlider::handleMouse(MouseHandleEvent* event) {
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
+    
     if(event->event_button == LEFT_BUTTON && event->event_type == MOUSE_DOWN) {
         dragging = true;
     } else if(event->event_button == LEFT_BUTTON && event->event_type == MOUSE_UP) {

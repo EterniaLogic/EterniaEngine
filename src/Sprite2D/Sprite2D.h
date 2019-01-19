@@ -4,18 +4,20 @@
 
 #include <Eternia/Math/struct/vertex.h>
 #include <Eternia/Data/CharString.h>
+#include <Eternia/Design/IAnimated.h>
+
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <GL/freeglut.h>
 #include <GL/glut.h>
 
 #include <Magick++.h>
+#include <MagickCore/MagickCore.h>
+//#include <Magick++/include.h>
 //#include <ImageMagick-6/Magick++.h>
 #include <list>
 
 #include <malloc.h>
-
-#include <Eternia/Design/IAnimated.h>
 
 using namespace Math;
 

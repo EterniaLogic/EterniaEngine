@@ -6,12 +6,13 @@
 #include <Eternia/Math/struct/vertex.h>
 #include <Eternia/Data/CharString.h>
 #include <Eternia/Data/LinkedList.hpp>
-#include <Eternia/Data/FileFormat/OBJ.h>
 #include <Eternia/Design/Model/IModel.h>
 #include <Eternia/Design/Model/IMaterial.h>
 #include <Eternia/Design/Model/IModelPart.h>
 #include <Eternia/Data/FileFormat/MTL.h>
+#include <Eternia/Data/FileFormat/OBJ.h>
 #include <Eternia/Parsing/SimpleParser.h>
+#include <Eternia/Design/IAnimated.h>
 
 #include <stdlib.h>
 #include <GL/glew.h>
@@ -24,15 +25,9 @@
 //#include <fbxsdk.h>
 #include "glsl.h"
 
-#include "ModelMaterial.h"
+#include "ModelPart.h"
 
-#ifndef ModelFrag_h
-    #include "ModelFragment.h"
-#else
-    class ModelFragment;
-#endif
 
-#include "../Helper/AnimatedObject.h"
 
 
 
@@ -52,35 +47,32 @@
 // Not to mention that we are already using it for the entire library.
 // This also enables us to use the linear algebra sector with ease.
 
-class Model : public IModel {
+class Model : public IModel, public IAnimated {
         friend class ModelMaterial;
+private:
+    cwc::glShaderManager SM;
+    cwc::glShader *shader;
+public:
+    Model();
+    virtual ~Model();
 
-    private:
+    // From IModel -> IAnimated
+    void animateTick(long timeMillis);
+    
+    
+    
+    Model cloneModel(); // clone this model (copy/paste data over)
+    Model* cloneModelPtr(); // clone this model, verticies, materials are directly pointed to the original (good for less memory)
 
-        cwc::glShaderManager SM;
-        cwc::glShader *shader;
+    void loadFromFile(CharString loc); // Load model from file. Auto-detect filetype.
+    void loadFromObj(CharString objFile); // STATIC OBJECTS open up a Obj file and load the materials relative to it. (Moderate raw file)
+    void loadFromFbx(char* fbxFile); // ANIMATED CHARS open up FBX (Autodesk maya)
 
-    public:
-        Model();
-        virtual ~Model();
+    void Animator(); // Animates FBX models (Used in end-line Animation thread)
 
-        // From IModel -> IAnimated
-        void animateTick(long timeMillis);
-        
-        
-        
-        Model cloneModel(); // clone this model (copy/paste data over)
-        Model* cloneModelPtr(); // clone this model, verticies, materials are directly pointed to the original (good for less memory)
+    void bufferModel(); // Buffer this model in the graphics card
 
-        void loadFromFile(CharString* loc); // Load model from file. Auto-detect filetype.
-        void loadFromObj(CharString objFile); // STATIC OBJECTS open up a Obj file and load the materials relative to it. (Moderate raw file)
-        void loadFromFbx(char* fbxFile); // ANIMATED CHARS open up FBX (Autodesk maya)
-
-        void Animator(); // Animates FBX models (Used in end-line Animation thread)
-
-        void bufferModel(); // Buffer this model in the graphics card
-
-        void Draw(); // draws Model directly to the openGL engine
+    void Draw(); // draws Model directly to the openGL engine
 };
 
 
@@ -109,4 +101,6 @@ class Model : public IModel {
     map_bump file.png               << map bumpiness
 */
 
+#else
+    class Model;
 #endif

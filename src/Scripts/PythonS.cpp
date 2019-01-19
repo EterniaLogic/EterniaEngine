@@ -1,8 +1,13 @@
 #include "PythonS.h"
 
 
-PythonS::PythonS(CharString _loc){
-    loc = _loc;
+PythonS::PythonS(CharString file, CharString name, CharString language, CharString version){
+    this->file = file;
+    this->name = name;
+    this->language = language;
+    this->version = version;
+    permscope = P_MOD;
+    modcwdloc = "./data/mods/";
     start();
     
 }

@@ -3,6 +3,7 @@
 
 #include "GLCommon.h"
 #include <Eternia/Data/CharString.h>
+#include "GLCommon.h"
 
 using namespace Math;
 

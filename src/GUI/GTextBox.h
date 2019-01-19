@@ -1,18 +1,19 @@
 #ifndef GTEXTBOX_H_
 #define GTEXTBOX_H_
 
-#include "GObject.h"
+#include <Eternia/Design/GUI/LayoutObject.h>
 #include "DrawArea.h"
 #include "GSlider.h"
 #include <Eternia/Data/CharString.h>
+#include "GLCommon.h"
 
 enum GUI_SCROLLBAR {GUISCROLL_AUTO, GUISCROLL_NONE, GUISCROLL_BOTTOM, GUISCROLL_RIGHT};
 
 // this defines a generic window
-class GTextBox : public GObject {
+class GTextBox : public LayoutObject {
 private:
     LinkedList<CharString> lines;
-    CharString *currentRow; // pre-cached row from the list
+    CharString currentRow; // pre-cached row from the list
     
     int carrot_col, carrot_row; // tracks the current position of the carrot, if this object is focussed.
     bool carrot; // carrot currently visible?

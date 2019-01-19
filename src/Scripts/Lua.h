@@ -11,8 +11,9 @@ extern "C"{
 
 
 #include <Eternia/include.h>
-#include "../Helper/ResourceLocation.h"
 #include <Eternia/API/APIMod.h>
+#include "../Helper/ResourceLocation.h"
+
 // This enables the engine to run Lua scripts.
 //  If there are too many scripts, the engine may also pre-load them and run in multi-threaded mode.
 
@@ -26,18 +27,7 @@ public:
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        // API language implementation functions.
+    // API language implementation functions.
     void onLoad();
     void onEnable();
     void onDisable();
@@ -64,7 +54,7 @@ public:
     
     // internal systems (Compiled languages still need an API)
 	void addClass(int size); // add a class for use by scripts
-	void addFunction(void* func, char* funcname, int params); // add a function for use by scripts
+	void addFunction(lua_CFunction func, char* funcname); // add a function for use by scripts
 	void compile(); // compileable languages can be dynamically compiled, others will just run a check
     
     // any type of script

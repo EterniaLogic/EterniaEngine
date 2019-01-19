@@ -5,6 +5,7 @@ using namespace std;
 GTreeView::GTreeView(){
     canDrag = false;
     treelevel=0;
+    
 }
 
 // Destroy
@@ -13,13 +14,15 @@ GTreeView::~GTreeView() {}
 
 void GTreeView::_drawTree(GTreeNode* node, int xoffset){
     if(node == 0x0) return;
+    int globalx = getGlobalX();
+    int globaly = getGlobalY();
     int xoffset2 = xoffset;
 
     if(node->selected){
         glColor3f(0.f,0.f,1.f);
-        gDrawRectangle(globalx+xoffset,globaly+15*treelevel,200,15);
+        gDrawRectangle(globalx+xoffset, globaly+15*treelevel,200,15);
         glColor3f(0.8f,0.8f,1.f);
-        gDrawRectangle(globalx+xoffset+1,globaly+15*treelevel+1,198,13);
+        gDrawRectangle(globalx+xoffset+1, globaly+15*treelevel+1,198,13);
     }
 
     if(node->Child != 0x0){
@@ -58,7 +61,7 @@ void GTreeView::draw() {
 
 // handles Mouse input;
 void GTreeView::handleMouse(MouseHandleEvent* event) {
-    debugLoggobject("GTreeView Handle Mouse");
+    debugLoggobject("GTreeView Handle Mouse" << endl);
 }
 
 // Handles any keyboard function

@@ -9,7 +9,7 @@
 // Interfaces with external files and uses them to perform simple-to-complex high-end operations.
 class ScriptCore : public APICore {
 public:
-    ScriptCore(CharString modfolder, CharString logfile);
+    ScriptCore();
 
     // Module management
     void preloadMods(); // pre-loads mod files and dependencies chains

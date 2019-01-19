@@ -1,11 +1,11 @@
-#include "Loader.h"
+#include "LoadItem.h"
 
 // just put variables into class
 
 LoadItem::LoadItem() {
     this->buffer = false;
-    this->filetoload = new CharString();
-    this->data = 0x0;
+    this->filetoload = "";
+    this->data = "";
     this->loaded = false;
     this->used = false;
     this->type = LT_NONE;
@@ -17,10 +17,10 @@ LoadItem::LoadItem() {
     //this->onLoadedTexture = 0x0;
 }
 
-LoadItem::LoadItem(CharString* filetoload_, LTYPE type_, bool doBuffer) {
+LoadItem::LoadItem(CharString filetoload_, LTYPE type_, bool doBuffer) {
     this->buffer = doBuffer;
     this->filetoload = filetoload_;
-    this->data = 0x0;
+    this->data = "";
     this->loaded = false;
     this->used = false;
     this->type = type_;
@@ -33,11 +33,11 @@ LoadItem::LoadItem(CharString* filetoload_, LTYPE type_, bool doBuffer) {
 }
 
 void LoadItem::loadRaw() {
-    std::ifstream t(filetoload->get());
+    std::ifstream t(filetoload.get());
     std::string str((std::istreambuf_iterator<char>(t)),
                     std::istreambuf_iterator<char>());
 
-    data = new CharString(str.c_str(), str.length());
+    data = CharString(str.c_str(), str.length());
 
     if(onLoadedRaw != 0x0) onLoadedRaw(robj, data);
 }
@@ -59,17 +59,15 @@ void LoadItem::loadModel() {
 }
 
 void LoadItem::loadTexture() {
-
-
     //if(onLoadedTexture != 0x0) onLoadedTexture(robj, tdata);
 }
 
 
 // loads this file
 void LoadItem::doLoad() {
-    ifstream f(filetoload->get());
+    ifstream f(filetoload.get());
     if(!f.good()) {
-        cout << "[File Loader] file '" << filetoload->get() << "' does not exist!" << endl;
+        cout << "[File Loader] file '" << filetoload.get() << "' does not exist!" << endl;
         return;
     }
 
@@ -103,9 +101,9 @@ void LoadItem::expire() {
 }
 
 // returns 0x0 if it is not loaded
-CharString* LoadItem::getRAW() {
+CharString LoadItem::getRAW() {
     // retrieve loaded data
-    CharString* dataR = 0x0;
+    CharString dataR;
     if(loaded) {
         // return data
         dataR = data;

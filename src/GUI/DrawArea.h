@@ -11,6 +11,9 @@
 #include <GL/freeglut.h>
 #include <GL/glut.h>
 
+#include "GLCommon.h"
+#include "GSimpleDrawers.h"
+
 // Draw array type
 // DA_IMAGE Image that is drawn to the screen
 // DA_GRADIENT  Linear gradient, colors based off of bitmap (first row only)

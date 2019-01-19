@@ -1,6 +1,7 @@
 #include "Sprite2D.h"
 
 using namespace Magick;
+using namespace MagickCore;
 using namespace std;
 
 Sprite2D::Sprite2D(){
@@ -73,10 +74,10 @@ void Sprite2D::animateTick(long timeMillis){
     }
         
     //cout << "Current Image Frame: " << currentFrame << endl;
-        
-    std::list<Image>::iterator it = imageList.begin();
+    
+    std::list<Magick::Image>::iterator it = imageList.begin();
     advance(it, currentFrame);
-    image = (Image)(*it);
+    image = (Magick::Image)(*it);
     
     width = image.columns();
     height = image.rows();
@@ -95,7 +96,7 @@ void Sprite2D::animateTick(long timeMillis){
 //   image->magick("RGBA");
     
     if(image.depth() > 3)
-        image.write(0,0,width,height,"RGBA", IntegerPixel, imagedata);
+        image.write(0,0,width,height,"RGBA", LongPixel, imagedata);
     else image.write(0,0,width,height,"RGBA", ShortPixel, imagedata);
     
     
