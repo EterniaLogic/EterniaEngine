@@ -2,17 +2,21 @@
 Cross-Platform C++ OpenGL 3D Multi-threaded Game Engine with script support
 
 ## Required packages for compilation
-- EterniaLibrary (See https://github.com/EterniaLogic/EterniaLibrary)
 - OpenGL of some kind
-- GLEW
-- FreeGLUT
-- OpenAL
-- ALUT
-- Lua 5.1
 - Java 8 (if using the added option for Java programming as scripting)
-- ZLib
-- magick++
 - X11 (Linux only)
+
+
+## Included Packages under /Lib (using Github)
+- EterniaLibrary (See https://github.com/EterniaLogic/EterniaLibrary)
+- cpython
+- FFmpeg
+- FreeALUT
+- magick++
+- Lua 5.1
+- OpenAL
+- ZLib
+
 
 note that some of these are included with NVidia in Windows.
 
@@ -28,6 +32,13 @@ note that some of these are included with NVidia in Windows.
 ******************************************************************************************************************************
 ******************************************************************************************************************************
 Installer Command lines for each operating system:
+## Git commands
+* git clone --recurse-submodules https://github.com/EterniaLogic/EterniaEngine EterniaEngine
+* cd EterniaEngine
+* git submodule init
+* git submodule update
+
+
 
 ## Linux
 
