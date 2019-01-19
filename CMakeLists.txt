@@ -67,10 +67,10 @@ SUBDIRLIST(SUBDIRS src)
 
 #add ALL files. (If you don't want a file to compile, just change the extension)
 file(GLOB_RECURSE CC_src2
-    "*.h"
-    "*.c"
-    "*.cpp"
-    "*.hpp"
+    "src/*.h"
+    "src/*.c"
+    "src/*.cpp"
+    "src/*.hpp"
 )
 
 
@@ -81,9 +81,9 @@ include_directories("dep/FBX/include")
 #TARGET_LINK_LIBRARIES("dep/FBX/lib/gcc4/x64/release/libfbxsdk.a")
 
 #EterniaLib
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaLib/include")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaLib/lib")
-message("ETERNIA LOCAL LOC: " "${CMAKE_CURRENT_SOURCE_DIR}/../EterniaLib/include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../../EterniaLib/include")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/../../EterniaLib/lib")
+message("ETERNIA LOCAL LOC: " "${CMAKE_CURRENT_SOURCE_DIR}/../../EterniaLib/include")
 #add_definitions(${EterniaLibrary_DEFINITIONS})
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaGameLogic/include")
@@ -91,108 +91,90 @@ link_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaGameLogic/lib")
 #add_definitions(${EterniaGameLogic_DEFINITIONS})
 
 
-ADD_EXECUTABLE(${program} ${CC_src2})
-target_link_libraries(${program} "libEternia.a" "libEterniaGameLogic.a")
-#ExternalProject_Add(PATH=${CMAKE_CURRENT_BINARY_DIR}/EterniaLib)
 
 
 
 
+#add_subdirectory(../../EterniaLib)
 add_subdirectory(lib/openal-soft)
-add_subdirectory(lib/ALUT)
-add_subdirectory(lib/freeglut/freeglut/freeglut)
-
 add_subdirectory(lib/zlib)
 
-add_subdirectory(lib/lua)
+#add_external(lib/lua)
+#add_external(lib/ALUT)
+#add_external(lib/ImageMagick)
 
 
-
-
-######################################
-####### Mainstream Libraries #########
-######################################
-
-
-# list all of the direct download dependencies here.
-#set(PROGRAMz SFML SFGUI)#openal rapidxml tinyxml ogre pcre libsndfile libjpeg libfreetype2 OIS)
-#set(glewDDIR GIT_REPOSITORY "git://glew.git.sourceforge.net/gitroot/glew/glew")
-#set(SFGUIDDIR GIT_REPOSITORY "git://boxbox.org/SFGUI.git")
-#set(SFMLDDIR GIT_REPOSITORY "https://github.com/LaurentGomila/SFML.git")
-
-#foreach(programz ${PROGRAMz})
-#    ExternalProject_Add(${programz}
-#      PREFIX "${CMAKE_CURRENT_BINARY_DIR}/dep/${programz}"
-#      ${${programz}DDIR}
-#      INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/dep/${programz}"
-#      CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/dep/${programz}"
-#    )
-
-#    ExternalProject_Get_Property(${programz} install_dir)
-#    include_directories(${install_dir}/include)
-
-#    add_dependencies(${program} ${programz})
-#    file(GLOB p_src
-        #"${install_dir}/lib/*.a"
-#        "${install_dir}/lib/*.so"
-#    )
-
-#    set(${programz}_DIR .)
-#    MESSAGE( STATUS "BB: " ${p_src} )
-
-
-#    find_package(${programz} REQUIRED)
-
-#    link_directories(${install_dir}/lib)
-#    target_link_libraries(${program} ${p_src})
-#endforeach(programz)
-
-
-
-## GLEW
 #add_custom_target(
-#   glew
-#   COMMAND make all ${GLEW_ARGS}
-#   WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/dep/glew/src/glew/"
-#)
-#include_directories(${CMAKE_BINARY_DIR}/dep/glew/src/glew/include)
-#link_directories(${CMAKE_BINARY_DIR}/dep/glew/src/lib)
-#IF(WIN32)
-#    link_libraries(${CMAKE_BINARY_DIR}/dep/glew/lib/glew32.dll)
-#    link_libraries(${CMAKE_BINARY_DIR}/dep/glew/lib/glew32mx.dll)
-#ELSE()
-#    target_link_libraries(${program} GLEW)
-#ENDIF()
-#add_dependencies(${program} glew)
-
-
-# set interlinking dependencies
-#add_dependencies(SFML glew)
-#add_dependencies(SFGUI SFML)
-#add_dependencies(SFGUI glew)
-
-
-## Add my library
-#add_custom_target(EterniaLib
-#   COMMAND make all
-#   WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/EterniaLib/"
+#    EterniaLib
+#    COMMAND cmake .
+#    COMMAND make -j 40 # && cp "${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Lib" "${CMAKE_CURRENT_SOURCE_DIR}/Lib/"
+#    WORKING_DIRECTORY ../../EterniaLib
 #)
 
-#include_directories("EterniaLib/src")
-#link_directories(${CMAKE_BINARY_DIR})
-#link_libraries(Eternia)
+#add_custom_target(
+#    EterniaGameLogic
+#    COMMAND cmake .
+#    COMMAND make -j 40 # && cp "${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Lib" "${CMAKE_CURRENT_SOURCE_DIR}/Lib/"
+#    WORKING_DIRECTORY ../EterniaGameLogic
+#)
 
-#add_dependencies(${program} EterniaLib)
+add_custom_target(
+    CPython
+    #COMMAND ./configure --enable-shared
+    COMMAND make -j 40 # && cp "${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Lib" "${CMAKE_CURRENT_SOURCE_DIR}/Lib/"
+    WORKING_DIRECTORY lib/cpython
+)
 
-#add_custom_command(TARGET EterniaLib
-#                    POST_BUILD
-#                    COMMAND cp ${CMAKE_BINARY_DIR}/EterniaLib/libEternia.a ${CMAKE_BINARY_DIR}/ )
+add_custom_target(
+    lua
+    COMMAND make -j 40
+    WORKING_DIRECTORY lib/lua
+)
 
 
+add_custom_target(
+    FFmpeg
+    #COMMAND ./configure
+    COMMAND make -j 40
+    WORKING_DIRECTORY lib/FFmpeg
+)
+
+add_custom_target(
+    ImageMagick
+#    COMMAND ./configure && make -j 40
+    COMMAND make -j 40
+    WORKING_DIRECTORY lib/ImageMagick
+)
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/freealut/include")
+#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/lua")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/openal-soft/include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/zlib")
+
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/freealut/lib")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickWand/.libs")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/Magick++/lib/.libs")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickCore/.libs")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavcodec")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libswscale")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavutil")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavdevice")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavformat")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavfilter")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libswresample")
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/zlib")
+
+set(CUSTOMDEPS CPython OpenAL zlib lua FFmpeg ImageMagick)
+set(FFMPGLIBS libavcodec.a libswscale.a libavutil.a libavdevice.a libavformat.a libavfilter.a libswresample.a)
+set(CUSTOMLIBS "libEternia.a" "libEterniaGameLogic.a" libpython*.a libcommon.a libz.a liblua.a libMagickCore-7.Q16HDRI.a libMagick++-7.Q16HDRI.a ${FFMPGLIBS})
 
 
 ######################################
-########## My Libraries ##############
+###########  Libraries  ##############
 ######################################
 #IF (WIN32)
 #	TARGET_LINK_LIBRARIES(${program} C:\Users\Dread\build\EterniaLib\Debug\Eternia.lib)
@@ -216,29 +198,37 @@ ELSE()
     add_definitions(${X11_DEFINITIONS})
 ENDIF()
 #find_package(OpenCL REQUIRED) #use opencl-config.cmake
-find_package(OpenAL REQUIRED)
-find_package(ALUT REQUIRED)
-find_package(Boost COMPONENTS thread chrono system)
+
+#find_package(ALUT REQUIRED)
+#find_package(Boost COMPONENTS thread chrono system)
 find_package(GLEW REQUIRED)
 find_package(GLUT REQUIRED)
 find_package(OpenGL REQUIRED)
 #find_package(OpenCL) # not required, but building with it will help
-find_package(ZLIB REQUIRED) # zlib
+
 ####find_package(Eternia REQUIRED) # << Eternia Library
 FIND_PACKAGE(Threads REQUIRED)
+
+
+
+# built alongside
+#find_package(OpenAL REQUIRED)
+#find_package(ZLIB REQUIRED) # zlib
+
+
 
 
 #include_directories(${OpenAL_INCLUDE_DIRS})
 #link_directories(${OpenAL_LIBRARY_DIRS})
 #add_definitions(${OpenAL_DEFINITIONS})
 
-include_directories(${OPENAL_INCLUDE_DIRS})
-link_directories(${OPENAL_LIBRARY_DIRS})
-add_definitions(${OPENAL_DEFINITIONS})
+#include_directories(${OPENAL_INCLUDE_DIRS})
+#link_directories(${OPENAL_LIBRARY_DIRS})
+#add_definitions(${OPENAL_DEFINITIONS})
 
-include_directories(${ALUT_INCLUDE_DIRS})
-link_directories(${ALUT_LIBRARY_DIRS})
-add_definitions(${ALUT_DEFINITIONS})
+#include_directories(${ALUT_INCLUDE_DIRS})
+#link_directories(${ALUT_LIBRARY_DIRS})
+#add_definitions(${ALUT_DEFINITIONS})
 
 #include_directories(${OpenGL_INCLUDE_DIRS})
 #link_directories(${OpenGL_LIBRARY_DIRS})
@@ -268,16 +258,16 @@ add_definitions(${GLUT_DEFINITIONS})
 #link_directories(${Boost_LIBRARY_DIRS})
 #add_definitions(${Boost_DEFINITIONS})
 
-include_directories(${ZLIB_INCLUDE_DIRS})
-link_directories(${ZLIB_LIBRARY_DIRS})
-add_definitions(${ZLIB_DEFINITIONS})
+#include_directories(${ZLIB_INCLUDE_DIRS})
+#link_directories(${ZLIB_LIBRARY_DIRS})
+#add_definitions(${ZLIB_DEFINITIONS})
 
 
 
 
 
 # Scripting
-FIND_PACKAGE(Lua51 REQUIRED)
+#FIND_PACKAGE(Lua51 REQUIRED)
 FIND_PACKAGE(Java REQUIRED)
 FIND_PACKAGE(JNI REQUIRED)
 #FIND_PACKAGE(JVM REQUIRED)
@@ -285,18 +275,18 @@ FIND_PACKAGE(PythonLibs REQUIRED)
 FIND_PACKAGE(PythonInterp REQUIRED)
 
 #Visuals
-FIND_PACKAGE(ImageMagick REQUIRED)
-FIND_PACKAGE(ImageMagick COMPONENTS Magick++)
-FIND_PACKAGE(ImageMagick COMPONENTS MagickCore)
-FIND_PACKAGE(ImageMagick COMPONENTS convert)
-FIND_PACKAGE(ImageMagick COMPONENTS Magick++ convert)
+#FIND_PACKAGE(ImageMagick REQUIRED)
+#FIND_PACKAGE(ImageMagick COMPONENTS Magick++)
+#FIND_PACKAGE(ImageMagick COMPONENTS MagickCore)
+#FIND_PACKAGE(ImageMagick COMPONENTS convert)
+#FIND_PACKAGE(ImageMagick COMPONENTS Magick++ convert)
 
 
 
 
-include_directories(${LUA_INCLUDE_DIR})
-link_directories(${LUA_LIBRARIES})
-add_definitions(${LUA_DEFINITIONS})
+#include_directories(${LUA_INCLUDE_DIR})
+#link_directories(${LUA_LIBRARIES})
+#add_definitions(${LUA_DEFINITIONS})
 
 include_directories(${JAVA_INCLUDE_DIRS})
 link_directories(${JAVA_LIBRARY_DIRS})
@@ -307,12 +297,12 @@ link_directories(${PYTHON_LIBRARY})
 add_definitions(${PYTHON_DEFINITIONS})
 
 
-message("Lua: ${LUA_LIBRARY}")
+#message("Lua: ${LUA_LIBRARY}")
 message("JNI: ${JNI_LIBRARIES}")
 message("OCL: ${OPENCL_LIBRARY}")
 message("GL: ${OPENGL_LIBRARY}")
 message("GLEW: ${GLEW_LIBRARY}")
-message("OpenAL: ${OPENAL_LIBRARY}")
+#message("OpenAL: ${OPENAL_LIBRARY}")
 message("ALUT: ${ALUT_LIBRARY}")
 
 
@@ -328,15 +318,15 @@ link_directories(${PYTHONLIBS_LIBRARY_DIRS})
 add_definitions(${PYTHONLIBS_DEFINITIONS})
 
 #Images processing, 2D/3D sprites
-include_directories(${ImageMagick_INCLUDE_DIRS})
-link_directories(${ImageMagick_LIBRARIES})
-add_definitions(${ImageMagick_DEFINITIONS})
-include_directories(${ImageMagick_MagickCore_INCLUDE_DIRS})
-link_directories(${ImageMagick_MagickCore_LIBRARY})
-add_definitions(${ImageMagick_MagickCore_DEFINITIONS})
-include_directories(${ImageMagick_Magick++_INCLUDE_DIRS})
-link_directories(${ImageMagick_Magick++_LIBRARY})
-add_definitions(${ImageMagick_Magick++_DEFINITIONS})
+#include_directories(${ImageMagick_INCLUDE_DIRS})
+#link_directories(${ImageMagick_LIBRARIES})
+#add_definitions(${ImageMagick_DEFINITIONS})
+#include_directories(${ImageMagick_MagickCore_INCLUDE_DIRS})
+#link_directories(${ImageMagick_MagickCore_LIBRARY})
+#add_definitions(${ImageMagick_MagickCore_DEFINITIONS})
+#include_directories(${ImageMagick_Magick++_INCLUDE_DIRS})
+#link_directories(${ImageMagick_Magick++_LIBRARY})
+#add_definitions(${ImageMagick_Magick++_DEFINITIONS})
 
 #message("ImageMagick: ${ImageMagick_LIBRARY}")
 #message("ImageMagickCore: ${ImageMagick_MagickCore_LIBRARY}")
@@ -357,7 +347,13 @@ set(CORELIBS ${OPENGL_LIBRARY} ${X11_LIBRARY} ${OPENAL_LIBRARY} ${OPENCL_LIBRARY
 #message("LIBS: ${CORELIBS}")
 
 
-target_link_libraries(${program} ${CORELIBS} X11)
+
+
+ADD_EXECUTABLE(${program} ${CC_src2})
+target_link_libraries(${program} ${CORELIBS} X11 ${CUSTOMLIBS})
+#ExternalProject_Add(PATH=${CMAKE_CURRENT_BINARY_DIR}/EterniaLib)
+
+add_dependencies(${program} ${CUSTOMDEPS})
 
 #add_custom_command(TARGET EterniaLibrary
 #    POST_BUILD

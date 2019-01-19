@@ -1,9 +1,6 @@
 [submodule "lib/openal-soft"]
 	path = lib/openal-soft
 	url = https://github.com/kcat/openal-soft
-[submodule "lib/freeglut"]
-	path = lib/freeglut
-	url = https://github.com/dcnieho/FreeGLUT
 [submodule "lib/ImageMagick"]
 	path = lib/ImageMagick
 	url = https://github.com/ImageMagick/ImageMagick
@@ -16,3 +13,12 @@
 [submodule "lib/ALUT"]
 	path = lib/ALUT
 	url = https://github.com/blackberry/ALUT
+[submodule "lib/cpython"]
+	path = lib/cpython
+	url = https://github.com/python/cpython
+[submodule "lib/freealut"]
+	path = lib/freealut
+	url = https://github.com/vancegroup/freealut
+[submodule "lib/FFmpeg"]
+	path = lib/FFmpeg
+	url = https://github.com/FFmpeg/FFmpeg
