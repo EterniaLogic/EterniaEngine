@@ -22,3 +22,6 @@
 [submodule "lib/FFmpeg"]
 	path = lib/FFmpeg
 	url = https://github.com/FFmpeg/FFmpeg
+[submodule "lib/EterniaLibrary"]
+	path = lib/EterniaLibrary
+	url = https://github.com/EterniaLogic/EterniaLibrary
