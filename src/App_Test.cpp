@@ -163,14 +163,14 @@ void App::initTestModels() {
     modelbuffer.push(testModel); // Prebuffer
     testModel->setOffset(vertex(0,0,0));
     testModel->setScale(vertex(0.5f,0.5f,0.5f));
-    currentModelList.add(testModel);
+    currentModelList.add(testModel); // add to global model list
     
     
     // Testing 2D tiled/animated sprites for 2D-based games or 2D GUI elements.
     //  Sprites can also be used for GUI backgrounds, ect.
     Sprite2D *sprite = new Sprite2D();
     CharString imgloc;
-    imgloc.set("test_sprite.gif");
+    imgloc = "test_sprite.gif";
     sprite->openImage(imgloc,false);
     sprite->frameFps = 1; // this test Gif is 1 FPS.
     sprite->currentFrame = 0;

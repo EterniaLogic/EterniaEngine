@@ -79,7 +79,7 @@ void Sprite2D::animateTick(long timeMillis){
     advance(it, currentFrame);
     image = (Magick::Image)(*it);
     
-    width = image.columns();
+    width = (size_t)image.columns();
     height = image.rows();
     
     //cout << "bind size: ("<< width << ", " << height << ", " << (width*height*image.depth())/4 << " bytes)" << endl;

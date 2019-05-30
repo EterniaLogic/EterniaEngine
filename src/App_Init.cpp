@@ -49,11 +49,12 @@ App::App() {
     drawListeners.add((void*)(&LayoutObject::drawHandler));
     updateListeners.add((void*)(&LayoutObject::updateHandler));
     
-    // Start up the deveoper GUI if not a developer build, or end-user. Same EXE for everything.
-    // Systems may include actual science to Game design. (Compare i.e: Mathcad to this)
+    _onInit(); // APICore Init
 
 // Editor Environment
 #ifdef DEV
+    // Start up the deveoper GUI if not a developer build, or end-user. Same EXE for everything.
+    // Systems may include actual science to Game design. (Compare i.e: Mathcad to this)
     _devEnv.updateWindowSize(width,height);
 #endif
 }
@@ -78,6 +79,8 @@ bool App::Initialize(int argc, char** argv) {
     //initBaseGUI();
     initUser();
     initThreads(); // continuous function
+    
+    _onEnable(); // APICore load mods
     return true;
 }
 
@@ -193,6 +196,7 @@ void App::initGL() {
 void App::close(){
     if(!closed){
         closed=true;
+        _onUnload();
         sound.close();
     }
 }
@@ -235,8 +239,7 @@ void App::initThreads() {
     cout.flush();
     std::thread fps(&App::fpsThread, this);
 
-    cout << "Rendering Mode: ";
-    cout.flush();
+    cout << "Rendering Mode: "; cout.flush();
 
     if(config->items[string("ServerOnly")].Compare("false",5)) {
         cout << "<Client>" << endl;

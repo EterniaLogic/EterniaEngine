@@ -3,3 +3,9 @@ CMakeFiles
 bin/
 obj/
 Debug/
+
+CPackConfig.cmake
+CPackSourceConfig.cmake
+
+error.log
+global.log

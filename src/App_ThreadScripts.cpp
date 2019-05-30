@@ -14,8 +14,8 @@ void App::scriptsThread() {
     //Py_Initialize();
     while(!mDone) {
         last = clock();
-        //
-        camera->camera_angle->x += ((double)((1.0/180.0)*3.14156));
+        // CAUSES ITEM TO DISSAPEAR AFTER 360!
+        // camera->camera_angle->x += ((double)((1.0/180.0)*3.14156));
 
         // execute a string of python code
         //object exec(str code, object globals = object(), object locals = object());
@@ -25,6 +25,9 @@ void App::scriptsThread() {
 
         // Common script runner:
         //  Java/JS/Python/C#
+        
+        // run Mods
+        _onTick(time/1000000.0); // APICore Tick Thread
 
 
         // Timing set (Self-adjusting for any lag)

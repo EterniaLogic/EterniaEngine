@@ -39,10 +39,15 @@
 
 
 class ResourceLocation{
+private:
     bool preloaded;
+    CharString location;
+    CharString data; // preloaded data
 
 public:
     ResourceLocation(CharString loc);
+    
+    CharString getData(); // if preloaded, then just access, else load
 
     // preload this resource into memory. (Otherwise, it will be directly loaded)
     void preload(); 

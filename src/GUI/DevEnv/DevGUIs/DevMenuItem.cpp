@@ -54,7 +54,8 @@ void DevMenuItem::setAction(void (*action)()){
 void DevMenuItem::handleMouse(MouseHandleEvent* event){
     // mouse click of either type.
     // If there are sub-items and this is hovered on, make them visible.
-    cout << "mouseOver" << endl;
+    //cout << "" << endl;
+    debugLoggobject("DevMenuItem mouseOver");
 }
 
 void DevMenuItem::handleKeyboard(KeyHandleEvent* event){

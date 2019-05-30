@@ -12,7 +12,7 @@
 #include <GL/glut.h>
 
 #include <Magick++.h>
-#include <MagickCore/MagickCore.h>
+//#include <MagickCore/MagickCore.h> // When externally compiling ImageMagick
 //#include <Magick++/include.h>
 //#include <ImageMagick-6/Magick++.h>
 #include <list>

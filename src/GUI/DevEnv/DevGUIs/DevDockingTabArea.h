@@ -10,8 +10,8 @@
 #include <Eternia/Data/LinkedList.hpp>
 // Standalone drawing parent. If not visible (AKA: no children), then don't draw.
 
-#define debugLoggobject(msg) cout << msg;
-//#define debugLoggobject(msg) //
+//#define debugLoggobject(msg) cout << msg;
+#define debugLoggobject(msg) //
 
 class DevDockingTabArea : public LayoutObject{
 private:

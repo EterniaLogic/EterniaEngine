@@ -1,55 +1,40 @@
 cmake_minimum_required(VERSION 2.8)
-include(ExternalProject)
-#include(Hg)
-#include(CVS)
-SET(program Engine)
-
 set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
-
+set(CMAKE_LEGACY_CYGWIN_WIN32 0)
+set(CMAKE_VERBOSE_MAKEFILE:BOOL OFF)
+SET(program Engine)
+include(ExternalProject)
 PROJECT(EterniaEngine)
 
-#build for windows under linux
-#set(WIN32 0)
-IF(WIN32)
-    message("NOTE: Building for Windows!")
-	# the name of the target operating system
-	SET(CMAKE_SYSTEM_NAME Windows)
 
-	# which compilers to use for C and C++
-	SET(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
-	SET(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
-	SET(CMAKE_RC_COMPILER x86_64-w64-mingw32-windres)
 
-	# here is the target environment located
-	SET(CMAKE_FIND_ROOT_PATH  /usr/x86_64-w64-mingw32 )
 
-	# adjust the default behaviour of the FIND_XXX() commands:
-	# search headers and libraries in the target environment, search
-	# programs in the host environment
-	set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-	set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-	set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
-	#rename resultant compiled object to .exe because the compiler is still thinking in linux extensions.
-	add_custom_command(TARGET EterniaEngine
-                    POST_BUILD
-                    COMMAND mv ${CMAKE_BINARY_DIR}/${program} ${CMAKE_BINARY_DIR}/${program}.exe)
-    ADD_DEFINITIONS(-w) #cygwin throws a LOT of errors.
-    link_libraries(opengl32)
+message("THREADS")
+FIND_PACKAGE(Threads REQUIRED)
+message("THREADS")
 
-    set(GLEW_ARGS SYSTEM=linux-mingw64)
-    set(WIN32_CARGS -DWINDOWS=1 -DWIN32=1 )
-ENDIF()
+
 
 set(CMAKE_BUILD_TYPE Debug)
+set(LIBTYPE STATIC)
+set(USEPRECOMPILED_LIBS true)
+set(USEPRECOMPILED_ETERNIALIBRARY false)
+
+
 #set(CMAKE_CXX_FLAGS "-Wall -pedantic -Wextra")
 #set(CMAKE_CXX_FLAGS " -pedantic -pipe -DDEBUG -std=c++0x")
 
 #set(CMAKE_CXX_FLAGS " -pipe -DDEBUG -std=c++0x -g3 -w -ldl -static")
 #set(CMAKE_C_FLAGS " -pipe -DDEBUG -std=c++0x -g3 -w -ldl -static")
 
-set(CMAKE_CXX_FLAGS " -DDEBUG -std=c++0x -g3 -w")
-set(CMAKE_C_FLAGS " -DDEBUG -std=c++0x -g3 -w")
+set(CMAKE_CXX_FLAGS " -DDEBUG -std=c++11 -g3 -w")
+set(CMAKE_C_FLAGS " -DDEBUG -std=c++11 -g3 -w")
+
+set(OpenGL_GL_PREFERENCE LEGACY)
+
+
+
 
 
 MACRO(SUBDIRLIST result curdir)
@@ -85,19 +70,10 @@ include_directories("dep/FBX/include")
 #link_directories("${CMAKE_CURRENT_SOURCE_DIR}/../../EterniaLib/lib")
 #message("ETERNIA LOCAL LOC: " "${CMAKE_CURRENT_SOURCE_DIR}/../../EterniaLib/include")
 
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaGameLogic/include")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/../EterniaGameLogic/lib")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include/")
 #add_definitions(${EterniaGameLogic_DEFINITIONS})
 
 
-
-
-
-
-#add_subdirectory(../../EterniaLib)
-add_subdirectory(lib/openal-soft)
-add_subdirectory(lib/zlib)
-add_subdirectory(lib/EterniaLibrary)
 
 #add_external(lib/lua)
 #add_external(lib/ALUT)
@@ -110,69 +86,108 @@ add_subdirectory(lib/EterniaLibrary)
 #    WORKING_DIRECTORY ../EterniaGameLogic
 #)
 
-add_custom_target(
-    CPython
-    #COMMAND ./configure --enable-shared
-    COMMAND make -j 40 # && cp "${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Lib" "${CMAKE_CURRENT_SOURCE_DIR}/Lib/"
-    WORKING_DIRECTORY lib/cpython
-)
-
-add_custom_target(
-    lua
-    COMMAND make -j 40
-    WORKING_DIRECTORY lib/lua
-)
 
 
-add_custom_target(
-    FFmpeg
-    #COMMAND ./configure
-    COMMAND make -j 40
-    WORKING_DIRECTORY lib/FFmpeg
-)
 
-add_custom_target(
-    ImageMagick
-#    COMMAND ./configure && make -j 40
-    COMMAND make -j 40
-    WORKING_DIRECTORY lib/ImageMagick
-)
-
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Include")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Include")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/freealut/include")
-#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/include")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/")
-#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickCore")
-#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickWand")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/Magick++/lib")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/lua")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/openal-soft/include")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/zlib")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/freealut/include")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/EterniaLibrary/include")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/lua")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/zlib")
+#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/include")
+#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/")
+#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/Magick++/lib")
 
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/freealut/lib")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickWand/.libs")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/Magick++/lib/.libs")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickCore/.libs")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavcodec")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libswscale")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavutil")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavdevice")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavformat")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavfilter")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libswresample")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/lua")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/zlib")
-link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/EterniaLibrary/lib")
 
-set(CUSTOMDEPS CPython OpenAL zlib lua FFmpeg ImageMagick EterniaLibrary)
-set(MAGICKLIBS libMagickWand-7.Q16HDRI.a libMagickCore-7.Q16HDRI.a libMagick++-7.Q16HDRI.a)
-set(MAGICDEPS dl)
-set(FFMPGLIBS libavcodec.a libswscale.a libavutil.a libavdevice.a libavformat.a libavfilter.a libswresample.a)
-set(CUSTOMLIBS "libEternia.a" "libEterniaGameLogic.a" libpython3.8m.a libopenal.so libz.a liblua.a ${MAGICDEPS} ${FFMPGLIBS})
 
+
+
+link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/")
+IF(!USEPRECOMPILED_ETERNIALIBRARY)
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/precompiled_EterniaLib")
+ELSE()
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/EterniaLibrary/lib")
+    add_subdirectory("lib/EterniaLibrary")
+    set(CUSTOMDEPSA Eternia)
+    message("Compiling EterniaLibrary when available")
+ENDIF()
+
+
+
+
+#### MAKES BUILDING FASTER
+IF(USEPRECOMPILED_LIBS)
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/precompiled")
+ELSE()
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/freealut/src/.libs")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/openal-soft")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython")
+    #link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickWand/.libs")
+    #link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/Magick++/lib/.libs")
+    #link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/ImageMagick/MagickCore/.libs")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavcodec")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libswscale")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavutil")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavdevice")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavformat")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libavfilter")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/FFmpeg/libswresample")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/lua")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/zlib")
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/EterniaLibrary/lib")
+
+    link_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/")
+
+
+    add_subdirectory(lib/openal-soft)
+    add_subdirectory(lib/zlib)
+    
+    
+    #add_custom_target(
+    #    ImageMagick
+    #    COMMAND make -j 40
+    #    WORKING_DIRECTORY lib/ImageMagick
+    #)
+    
+    add_custom_target(
+        CPython
+        #COMMAND ./configure --enable-shared
+        COMMAND make -j 40 # && cp "${CMAKE_CURRENT_SOURCE_DIR}/lib/cpython/Lib" "${CMAKE_CURRENT_SOURCE_DIR}/Lib/"
+        WORKING_DIRECTORY lib/cpython
+    )
+
+    add_custom_target(
+        freealut
+        #COMMAND ./configure --enable-shared
+        COMMAND make -j 40
+        WORKING_DIRECTORY lib/freealut
+    )
+
+    add_custom_target(
+        lua
+        COMMAND make -j 40
+        WORKING_DIRECTORY lib/lua
+    )
+
+
+    add_custom_target(
+        FFmpeg
+        #COMMAND ./configure
+        COMMAND make -j 40
+        WORKING_DIRECTORY lib/FFmpeg
+    )
+
+
+    set(CUSTOMDEPSB CPython OpenAL zlib lua FFmpeg freealut)
+    #set(MAGICKLIBS libMagickWand-7.Q16HDRI.a libMagickCore-7.Q16HDRI.a libMagick++-7.Q16HDRI.a)
+    #set(MAGICKDEPS dl Xext gomp freetype png16 z tiff lzma jbig)
+ENDIF()
+
+set(FFMPGLIBS libopenal.a libalut.a libavcodec.a libswscale.a libavutil.a libavdevice.a libavformat.a libavfilter.a libswresample.a)
+set(CUSTOMLIBS "libEternia.a" "libEterniaGameLogic.a" libpython3.8m.a libz.a liblua.a ${FFMPGLIBS} ) #${MAGICKLIBS} libopenal.so
 
 ######################################
 ###########  Libraries  ##############
@@ -187,14 +202,11 @@ set(CUSTOMLIBS "libEternia.a" "libEterniaGameLogic.a" libpython3.8m.a libopenal.
 set(CONFIGS_FOLDER .)
 #set(SFML_DIR ${CONFIGS_FOLDER})
 set(OpenCL_DIR ${CONFIGS_FOLDER})
-set(ALUT_DIR ${CONFIGS_FOLDER})
+#set(ALUT_DIR ${CONFIGS_FOLDER})
 ####set(Eternia_DIR ${CONFIGS_FOLDER})
 #set(CEGUI_DIR ${CONFIGS_FOLDER})
 
-FIND_PACKAGE(Threads REQUIRED)
-if(CMAKE_USE_PTHREADS_INIT)
-    set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-pthread")
-endif()
+
 
 
 IF(WIN32)
@@ -287,11 +299,11 @@ add_definitions(${JAVA_DEFINITIONS})
 #FIND_PACKAGE(PythonInterp REQUIRED)
 
 #Visuals
-#FIND_PACKAGE(ImageMagick REQUIRED)
-#FIND_PACKAGE(ImageMagick COMPONENTS Magick++)
-#FIND_PACKAGE(ImageMagick COMPONENTS MagickCore)
-#FIND_PACKAGE(ImageMagick COMPONENTS convert)
-#FIND_PACKAGE(ImageMagick COMPONENTS Magick++ convert)
+FIND_PACKAGE(ImageMagick REQUIRED)
+FIND_PACKAGE(ImageMagick COMPONENTS Magick++)
+FIND_PACKAGE(ImageMagick COMPONENTS MagickCore)
+FIND_PACKAGE(ImageMagick COMPONENTS convert)
+FIND_PACKAGE(ImageMagick COMPONENTS Magick++ convert)
 
 
 
@@ -328,55 +340,44 @@ add_definitions(${JAVA_DEFINITIONS})
 #add_definitions(${PYTHONLIBS_DEFINITIONS})
 
 #Images processing, 2D/3D sprites
-#include_directories(${ImageMagick_INCLUDE_DIRS})
-#link_directories(${ImageMagick_LIBRARIES})
-#add_definitions(${ImageMagick_DEFINITIONS})
-#include_directories(${ImageMagick_MagickCore_INCLUDE_DIRS})
-#link_directories(${ImageMagick_MagickCore_LIBRARY})
-#add_definitions(${ImageMagick_MagickCore_DEFINITIONS})
-#include_directories(${ImageMagick_Magick++_INCLUDE_DIRS})
-#link_directories(${ImageMagick_Magick++_LIBRARY})
-#add_definitions(${ImageMagick_Magick++_DEFINITIONS})
+include_directories(${ImageMagick_INCLUDE_DIRS})
+link_directories(${ImageMagick_LIBRARIES})
+add_definitions(${ImageMagick_DEFINITIONS})
+include_directories(${ImageMagick_MagickCore_INCLUDE_DIRS})
+link_directories(${ImageMagick_MagickCore_LIBRARY})
+add_definitions(${ImageMagick_MagickCore_DEFINITIONS})
+include_directories(${ImageMagick_Magick++_INCLUDE_DIRS})
+link_directories(${ImageMagick_Magick++_LIBRARY})
+add_definitions(${ImageMagick_Magick++_DEFINITIONS})
 
 #message("ImageMagick: ${ImageMagick_LIBRARY}")
-#message("ImageMagickCore: ${ImageMagick_MagickCore_LIBRARY}")
-#message("ImageMagick++: ${ImageMagick_Magick++_LIBRARY}")
+message("ImageMagickCore: ${ImageMagick_MagickCore_LIBRARY}")
+message("ImageMagick++: ${ImageMagick_Magick++_LIBRARY}")
 
 include_directories("/usr/lib/jvm/java-8-openjdk-amd64/include")
 include_directories("/usr/lib/jvm/java-8-openjdk-amd64/include/linux")
 
-####include_directories(${Eternia_INCLUDE_DIRS})
-####link_directories(${Eternia_LIBRARY_DIRS})
-####add_definitions(${Eternia_DEFINITIONS})
 
 
 
 
 #${OPENCL_LIBRARY}
-set(CORELIBS ${OPENGL_LIBRARY} ${X11_LIBRARY} ${OPENAL_LIBRARY} ${OPENCL_LIBRARY} ${ALUT_LIBRARY} ${GLUT_LIBRARY} ${GLEW_LIBRARY} ${Boost_LIBRARIES} ${ZLIB_LIBRARY} ${LUA_LIBRARY} ${JAVA_LIBRARY} ${JNI_LIBRARIES} ${PYTHONLIBS_LIBRARY} ${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+set(CORELIBS ${OPENGL_LIBRARY} ${X11_LIBRARY} ${OPENCL_LIBRARY} ${GLUT_LIBRARY} ${GLEW_LIBRARY} ${Boost_LIBRARIES} ${LUA_LIBRARY} ${JAVA_LIBRARY} ${JNI_LIBRARIES} ${PYTHONLIBS_LIBRARY} ${ImageMagick_Magick++_LIBRARY} ${ImageMagick_MagickCore_LIBRARY} ${CMAKE_THREAD_LIBS_INIT}) 
+# ${ALUT_LIBRARY} ${ZLIB_LIBRARY} ${OPENAL_LIBRARY}
+# 
 message("LIBS: ${CORELIBS}")
 message("THREADSLIB: ${CMAKE_THREAD_LIBS_INIT}")
+message("CUSTOMLIBS: ${CUSTOMLIBS}")
+#message("MAGICK_DEP_LIBS: ${MAGICKDEPS}")
 
 
-
-
+SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 ADD_EXECUTABLE(${program} ${CC_src2})
-target_link_libraries(${program} ${CORELIBS} X11 ${CUSTOMLIBS}  pthread)
+#target_link_libraries(${program} dl)
+target_link_libraries(${program} ${CORELIBS} X11 ${CUSTOMLIBS} ${CMAKE_THREAD_LIBS_INIT} dl sndio) # ${MAGICKDEPS}
+
 #ExternalProject_Add(PATH=${CMAKE_CURRENT_BINARY_DIR}/EterniaLib)
-
-add_dependencies(${program} ${CUSTOMDEPS})
-
-#add_custom_command(TARGET EterniaLibrary
-#    POST_BUILD
-#    COMMAND cp ${CMAKE_BINARY_DIR}/EterniaLib/libEternia.a ${CMAKE_BINARY_DIR}/)
-
-# Merge all of the dependency libraries (?)
-#add_custom_command(TARGET EterniaEngine
-#    POST_BUILD
-#    COMMAND cp ${CMAKE_BINARY_DIR}/EterniaLib/libEternia.a ${CMAKE_BINARY_DIR}/)
-#######################
-#######################
-#######################
+add_dependencies(${program} ${CUSTOMDEPSA} ${CUSTOMDEPSB})
 
 
 
@@ -397,14 +398,3 @@ INSTALL(TARGETS ${program}
   RUNTIME DESTINATION bin
 )
 
-
-FOREACH(subdir ${SUBDIRS})
-    #ADD_SUBDIRECTORY(${subdir})
-	file(GLOB ${subdir}_files
-		"*.h"
-		"*.c"
-		"*.cpp"
-		"*.hpp"
-	)
-	SOURCE_GROUP(${subdir} FILES ${subdir}_files)
-ENDFOREACH()

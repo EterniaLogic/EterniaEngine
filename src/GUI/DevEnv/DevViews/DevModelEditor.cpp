@@ -3,6 +3,8 @@
 DevModelEditor::DevModelEditor(){
     camera.width = &width;
     camera.height = &height;
+    //camera.eyePos = new vertex(0,0,0);
+    //camera.refPos = new vertex(1,1,60);
     camera.eyePos = new vertex(1,1,60);
     name = CharString("Model Editor", 12);
     canDrag=false; // don't use standard dragging events
@@ -16,12 +18,12 @@ void DevModelEditor::draw(){
     camera.height = &parent->height;
     int globalx = getGlobalX();
     int globaly = getGlobalY();
-    cout << "devmodeleditor draw" << endl;
+    debugLoggobject("devmodeleditor draw");
 
     //glViewport(parent->globalx, parent->globaly+25, parent->width, parent->height-25);
     glViewport(globalx, parent->parent->height-parent->height-25, parent->width, parent->height-25);
 
-    //std::cout << parent->globalx << " " << parent->globaly << " " << parent->width << " " << parent->height << std::endl;
+    //std::cout << parent->getGlobalX() << " " << parent->getGlobalY() << " " << parent->width << " " << parent->height << std::endl;
 
     camera.orthoView();
     glColor3f(0.f, 0.f, 0.f);
@@ -33,6 +35,7 @@ void DevModelEditor::draw(){
     // Draw a basic grid...
     glColor3f(1.f, 1.f, 1.f);
     glLineWidth(1);
+    
     glBegin(GL_LINES);
     glColor3f(1.f, 0.f, 0.f);
     glVertex3f(10000.f,0,0);
@@ -51,8 +54,8 @@ void DevModelEditor::draw(){
 }
 
 void DevModelEditor::update(){
-    camera.camera_angle->x += ((double)((1.0/180.0)*3.14156))/20.;
-    camera.camera_angle->y += ((double)((1.0/180.0)*3.14156))/20.;
+    //camera.camera_angle->x += ((double)((1.0/180.0)*3.14156))/20.;
+    //camera.camera_angle->y += ((double)((1.0/180.0)*3.14156))/20.;
 }
 
 
@@ -85,7 +88,7 @@ void DevModelEditor::handleMouse(MouseHandleEvent* event){
 
     this->dragoffsetx = event->x;
     this->dragoffsety = event->y;
-    cout << camera.camera_range << endl;
+    //cout << camera.camera_range << endl;
 }
 
 void DevModelEditor::handleKeyboard(KeyHandleEvent* event){

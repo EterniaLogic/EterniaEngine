@@ -8,8 +8,8 @@
 #include "DevDockableWindow.h"
 #include <Eternia/Data/LinkedList.hpp>
 
-#define debugLoggobject(msg) cout << msg;
-//#define debugLoggobject(msg) //
+//#define debugLoggobject(msg) cout << msg;
+#define debugLoggobject(msg) //
 
 
 // GUI main for the project editor

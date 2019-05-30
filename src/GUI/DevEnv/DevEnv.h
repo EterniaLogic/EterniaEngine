@@ -9,8 +9,7 @@
 #include "DevGUIs/DevProjectEditor.h"
 #include "DevViews/DevModelEditor.h"
 
-#define debugLoggobject(msg) cout << msg;
-//#define debugLoggobject(msg) //
+
 
 using namespace Math;
 

@@ -12,18 +12,7 @@
 //#define COUT_RENDER_DEBUG
 //#define COUT_EVENT_DEBUG
 
-#ifdef COUT_RENDER_DEBUG
-#define debugLog(s) cout << s << endl; cout.flush()
-#else
-#define debugLog(s)  //nothing
-#endif
 
-
-#ifdef COUT_EVENT_DEBUG
-#define debugLoge(s) cout << s << endl; cout.flush()
-#else
-#define debugLoge(s)  //nothing
-#endif
 
 
 #include <stdio.h>
@@ -61,6 +50,7 @@
 
 
 #include <Eternia/Data/includes.h>
+#include <Eternia/API/APICore.h>
 #include <Eternia/constants.h>
 #include <Eternia/Parsing/Config.h>
 #include <Eternia/Design/Events/KeyHandleEvent.h>
@@ -95,14 +85,28 @@
 	#define _LINUX_
 #endif
 
-
-
 // linux
 #if defined(_LINUX_)
 	#include <X11/Xlib.h>
 #endif
 
-class App {
+
+#ifdef COUT_RENDER_DEBUG
+#define debugLog(s) cout << s << endl; cout.flush()
+#else
+#define debugLog(s)  //nothing
+#endif
+
+
+#ifdef COUT_EVENT_DEBUG
+#define debugLoge(s) cout << s << endl; cout.flush()
+#else
+#define debugLoge(s)  //nothing
+#endif
+
+
+
+class App : public APICore {
     public:
         App();
         virtual ~App();
@@ -124,6 +128,14 @@ class App {
         virtual void initGUI(); // overrideable GUI initializer (if not overriden, a generic GUI window will open)
         void renderRun();
         //GEN_Shaders shadergen; // only inits shaders
+        
+        
+        
+        
+        
+        
+        
+        
 
         int width, height;
         int Antialiasing, depthBits, stencilBits;
@@ -139,10 +151,11 @@ class App {
         LinkedList<void*> soundListeners;     // sounds to be played are thrown in here
 
         // Physics collision, gravity, ect.
-        LinkedList<Model*> physicsList;
+        LinkedList<Model*> physicsList; // global models that have physics
         LinkedList<Sprite2D*> spriteList; // 2D Sprites list
         LinkedList<IAnimated*> animationList; // 2D Sprites list
         LinkedList<Model*> currentModelList; // list of models to draw (And animate if using an animation engine)
+        LinkedList<Model*> invisibleModelList; // models that are not currently visible
 
 
         // LinkedList<> PIPList, 2DList;
@@ -172,6 +185,17 @@ class App {
         void initThreads(); // starts threads
         void testGUI(); // gui which contains FPS, ect.
         void initTestModels();
+        
+        // inherited overrides from APICore
+        void onInit(); // initial start of the system, called by (start())  ->  _onInit();
+        void onEnable(); // resumes ticks, Core, mods, etc.
+        void onLoadMods(); // load other mods manually?
+        void onDisable(); // disabling / pausing ticks, Core, mods, etc.
+        void onUnload(); // closing down
+        void onTick(double seconds); // Global tick timer, useful for game timing or w/e. (Mods already get ticked in _onTick(double seconds);
+
+        void checkModUpdates(); // tell all mods to check for updates
+        void updateMods(); // download and test mods along with required dependencies.
 
 
         // GLUT event handlers (Implemented in "App_ThreadEvents.cpp")

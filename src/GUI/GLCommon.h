@@ -9,7 +9,7 @@
 #include <Eternia/constants.h>
 #include <Eternia/Math/struct/vertex.h>
 
-#define debugLoggobject(msg) cout << msg;
-//#define debugLoggobject(msg) //
+//#define debugLoggobject(msg) cout << msg;
+#define debugLoggobject(msg) //
 
 #endif

@@ -48,6 +48,7 @@ void DevProjectEditor::update(){
 
 void DevProjectEditor::handleMouse(MouseHandleEvent*){
     debugLoggobject("DevProjectEditor Handle Mouse");
+    //cout << "DevProjectEditor mouseOver" << endl;
 }
 
 void DevProjectEditor::handleKeyboard(KeyHandleEvent*){

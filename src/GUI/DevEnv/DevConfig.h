@@ -8,6 +8,9 @@ using namespace Math;
 // The Dev config is just a file full of colorization options.
 //  May be exported to user-specific values
 
+//#define debugLoggobject(msg) Logger::GLOBAL.log(msg);
+#define debugLoggobject(msg) //
+
 namespace DEVCONF{
     // Generic GUI colors
     const vertex GUI_ForeColor(0.f,0.f,0.f);
