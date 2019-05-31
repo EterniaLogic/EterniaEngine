@@ -1,1 +1,2 @@
 lib/precompiled/libavcodec.a filter=lfs diff=lfs merge=lfs -text
+lib/precompiled/libavformat.a filter=lfs diff=lfs merge=lfs -text
