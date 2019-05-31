@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="EterniaEngine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="WinDebug">
+				<Option output="bin/Debug/EterniaEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug/" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add option="-m32 -pipe" />
+					<Add directory="../EterniaLib/include" />
+					<Add directory="C:/Program Files (x86)/Java/jdk1.8.0_51/include" />
+					<Add directory="C:/cygwin32/usr/include" />
+					<Add directory="C:/cygwin32/usr/include/ImageMagick-6" />
+				</Compiler>
+				<Linker>
+					<Add library="C:/MinGW/winbuilds/lib64/liblua.dll.a" />
+					<Add library="C:/Program Files (x86)/Java/jdk1.8.0_51/lib/jvm.lib" />
+					<Add library="C:/Program Files (x86)/Java/jdk1.8.0_51/lib/jawt.lib" />
+					<Add library="C:/cygwin32/lib/libz.a" />
+					<Add library="C:/cygwin32/lib/libpthread.a" />
+					<Add library="C:/cygwin32/lib/libopenal.dll.a" />
+					<Add library="C:/cygwin32/lib/libGL.dll.a" />
+					<Add library="C:/cygwin32/lib/libGLEW.dll.a" />
+					<Add library="C:/cygwin32/lib/libGLU.dll.a" />
+					<Add library="C:/cygwin32/lib/libglut.dll.a" />
+					<Add library="C:/cygwin32/lib/libGraphicsMagick.dll.a" />
+					<Add library="C:/cygwin32/lib/libGraphicsMagick++.dll.a" />
+					<Add library="C:/cygwin32/lib/libdl.a" />
+					<Add library="../EterniaLib/bin/Debug/libEterniaLib.a" />
+				</Linker>
+			</Target>
+			<Target title="WinRelease">
+				<Option output="bin/Release/EterniaEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-Os" />
+					<Add option="-std=c++11" />
+					<Add option="-w" />
+					<Add option="-m32" />
+					<Add directory="../dep/freeglut/include" />
+					<Add directory="../EterniaLib/include" />
+					<Add directory="../dep/OpenAL/include" />
+					<Add directory="dep/zlib" />
+					<Add directory="dep/ALUT-master/src" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="../dep/freeglut/lib/freeglut.lib" />
+					<Add library="../dep/freeglut/lib/glew32.lib" />
+					<Add library="../dep/freeglut/lib/glew32mx.lib" />
+					<Add library="../dep/freeglut/lib/glew32mxs.lib" />
+					<Add library="../dep/freeglut/lib/glew32s.lib" />
+					<Add library="../dep/freeglut/lib/glut32.lib" />
+					<Add library="../EterniaLib/bin/Debug/EterniaLib" />
+					<Add library="../dep/OpenAL/libs/Win32/OpenAL32.lib" />
+					<Add library="../dep/OpenAL/libs/Win64/OpenAL32.lib" />
+					<Add library="C:/MinGW/lib/libglu32.a" />
+					<Add library="C:/MinGW/lib/libopengl32.a" />
+				</Linker>
+			</Target>
+			<Target title="WinDebug64">
+				<Option output="bin/Debug/EterniaEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/64/Debug/" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="../dep/freeglut/include" />
+					<Add directory="../EterniaLib/include" />
+					<Add directory="../dep/OpenAL/include" />
+					<Add directory="dep/zlib" />
+					<Add directory="dep/ALUT-master/src" />
+					<Add directory="C:/MinGW/include" />
+					<Add directory="../dep/glew" />
+				</Compiler>
+				<Linker>
+					<Add library="../EterniaLib/bin/Debug/EterniaLib" />
+					<Add library="../dep/freeglut64/lib/freeglut.lib" />
+					<Add library="../dep/freeglut64/lib/glew.lib" />
+					<Add library="../dep/freeglut64/lib/glewmx.lib" />
+					<Add library="../dep/freeglut64/lib/glewmxs.lib" />
+					<Add library="../dep/freeglut64/lib/glews.lib" />
+					<Add library="../dep/freeglut64/lib/glut.lib" />
+					<Add library="../dep/OpenAL/libs/Win64/OpenAL32.lib" />
+					<Add library="C:/MinGW/lib/libglu32.a" />
+					<Add library="C:/MinGW/lib/libopengl32.a" />
+				</Linker>
+			</Target>
+			<Target title="WinRelease64">
+				<Option output="bin/Release/EterniaEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/64/" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-std=c++11" />
+					<Add option="-w" />
+					<Add directory="../dep/freeglut/include" />
+					<Add directory="../EterniaLib/include" />
+					<Add directory="../dep/OpenAL/include" />
+					<Add directory="dep/zlib" />
+					<Add directory="dep/ALUT-master/src" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="../EterniaLib/bin/Debug/EterniaLib" />
+					<Add library="../dep/freeglut64/lib/freeglut.lib" />
+					<Add library="../dep/freeglut64/lib/glew.lib" />
+					<Add library="../dep/freeglut64/lib/glewmx.lib" />
+					<Add library="../dep/freeglut64/lib/glewmxs.lib" />
+					<Add library="../dep/freeglut64/lib/glews.lib" />
+					<Add library="../dep/freeglut64/lib/glut.lib" />
+					<Add library="../dep/OpenAL/libs/Win64/OpenAL32.lib" />
+				</Linker>
+			</Target>
+			<Target title="LinDebug64">
+				<Option output="bin/Debug/EterniaEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/64/Debug/" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="../EterniaLib/include" />
+					<Add directory="/usr/include/" />
+					<Add directory="/usr/include/ImageMagick-6" />
+					<Add directory="/usr/include/x86_64-linux-gnu/ImageMagick-6" />
+					<Add directory="/usr/include/lua5.1" />
+				</Compiler>
+				<Linker>
+					<Add option="-Lglut" />
+					<Add option="-LGL" />
+					<Add option="-LGLEW" />
+					<Add option="-LGLU" />
+					<Add option="-LOpenCL" />
+					<Add option="-LBoost" />
+					<Add option="-Lz" />
+					<Add option="-Lopenal" />
+					<Add option="-Lalut" />
+					<Add option="-LX11" />
+					<Add option="-Lpthread" />
+					<Add option="-LLua5.1" />
+					<Add library="../EterniaLib/libEternia.a" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libz.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libpthread.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libGL.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libGLEW.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libGLU.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libX11.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libglut.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libalut.so" />
+					<Add library="../../../../../../usr/lib/x86_64-linux-gnu/libopenal.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libMagick++-6.Q16.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/libMagickCore-6.Q16.so" />
+					<Add library="/usr/lib/x86_64-linux-gnu/liblua5.1.so" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="G:/home/eternialogic/Cpp/dep/freeglut/include" />
+		</Compiler>
+		<Linker>
+			<Add directory="G:/home/eternialogic/Cpp/dep/freeglut/lib" />
+		</Linker>
+		<Unit filename="src/AI/AICore.cpp" />
+		<Unit filename="src/AI/AICore.h" />
+		<Unit filename="src/AI/AICore_Personality.cpp" />
+		<Unit filename="src/AI/Entity.h" />
+		<Unit filename="src/App.h" />
+		<Unit filename="src/App_GlutInit.cpp" />
+		<Unit filename="src/App_Init.cpp" />
+		<Unit filename="src/App_InitErrorSignals.cpp" />
+		<Unit filename="src/App_Test.cpp" />
+		<Unit filename="src/App_ThreadAI.cpp" />
+		<Unit filename="src/App_ThreadAnimations.cpp" />
+		<Unit filename="src/App_ThreadBackendRender.cpp" />
+		<Unit filename="src/App_ThreadCompression.cpp" />
+		<Unit filename="src/App_ThreadEntity.cpp" />
+		<Unit filename="src/App_ThreadEvents.cpp" />
+		<Unit filename="src/App_ThreadFps.cpp" />
+		<Unit filename="src/App_ThreadLoad.cpp" />
+		<Unit filename="src/App_ThreadNetworking.cpp" />
+		<Unit filename="src/App_ThreadPhysics.cpp" />
+		<Unit filename="src/App_ThreadRender.cpp" />
+		<Unit filename="src/App_ThreadScripts.cpp" />
+		<Unit filename="src/App_ThreadSound.cpp" />
+		<Unit filename="src/App_ThreadUpdate.cpp" />
+		<Unit filename="src/Config/Config.cpp" />
+		<Unit filename="src/Config/Config.h" />
+		<Unit filename="src/EncryptedData/EFile.h" />
+		<Unit filename="src/EncryptedData/EFolder.h" />
+		<Unit filename="src/EncryptedData/Encryptor.cpp" />
+		<Unit filename="src/EncryptedData/Encryptor.h" />
+		<Unit filename="src/Event_old/Event.cpp" />
+		<Unit filename="src/Event_old/Event.h" />
+		<Unit filename="src/Event_old/EventRequirement.cpp" />
+		<Unit filename="src/Event_old/EventRequirement.h" />
+		<Unit filename="src/Event_old/EventScheduler.cpp" />
+		<Unit filename="src/Event_old/EventScheduler.h" />
+		<Unit filename="src/Event_old/EventTrigger.cpp" />
+		<Unit filename="src/Event_old/EventTrigger.h" />
+		<Unit filename="src/Events/KeyHandleEvent.cpp" />
+		<Unit filename="src/Events/KeyHandleEvent.h" />
+		<Unit filename="src/Events/MouseHandleEvent.cpp" />
+		<Unit filename="src/Events/MouseHandleEvent.h" />
+		<Unit filename="src/Exporting/generateAssets.cpp" />
+		<Unit filename="src/Exporting/generateExecutables.cpp" />
+		<Unit filename="src/Exporting/generateExports.h" />
+		<Unit filename="src/Exporting/generateLocalizations.cpp" />
+		<Unit filename="src/Exporting/generateMipMaps.cpp" />
+		<Unit filename="src/Exporting/generatePackages.cpp" />
+		<Unit filename="src/Exporting/generateScripts.cpp" />
+		<Unit filename="src/Exporting/generateSettings.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevConfig.h" />
+		<Unit filename="src/GUI/DevEnv/DevEnv.h" />
+		<Unit filename="src/GUI/DevEnv/DevEnv_Events.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevEnv_Init.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevAssetEditor.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevConsoleWindow.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevDockableWindow.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevDockableWindow.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevDockingTabArea.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevDockingTabArea.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevFileEditor.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevMenuBar.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevMenuBar.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevMenuItem.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevMenuItem.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevProjectEditor.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevProjectEditor.h" />
+		<Unit filename="src/GUI/DevEnv/DevGUIs/DevScriptEditor.h" />
+		<Unit filename="src/GUI/DevEnv/DevViews/DevModelEditor.cpp" />
+		<Unit filename="src/GUI/DevEnv/DevViews/DevModelEditor.h" />
+		<Unit filename="src/GUI/DevEnv/DevViews/DevPhysicsEditor.h" />
+		<Unit filename="src/GUI/DrawArea.cpp" />
+		<Unit filename="src/GUI/DrawArea.h" />
+		<Unit filename="src/GUI/GButton.h" />
+		<Unit filename="src/GUI/GLCommon.h" />
+		<Unit filename="src/GUI/GLabel.cpp" />
+		<Unit filename="src/GUI/GLabel.h" />
+		<Unit filename="src/GUI/GObject.cpp" />
+		<Unit filename="src/GUI/GObject.h" />
+		<Unit filename="src/GUI/GSimpleDrawers.cpp" />
+		<Unit filename="src/GUI/GSimpleDrawers.h" />
+		<Unit filename="src/GUI/GSlider.cpp" />
+		<Unit filename="src/GUI/GSlider.h" />
+		<Unit filename="src/GUI/GTextBox.cpp" />
+		<Unit filename="src/GUI/GTextBox.h" />
+		<Unit filename="src/GUI/GTreeView.cpp" />
+		<Unit filename="src/GUI/GTreeView.h" />
+		<Unit filename="src/GUI/GWindow.cpp" />
+		<Unit filename="src/GUI/GWindow.h" />
+		<Unit filename="src/GUI/gui.h" />
+		<Unit filename="src/Helper/AnimatedObject.cpp" />
+		<Unit filename="src/Helper/AnimatedObject.h" />
+		<Unit filename="src/Helper/Camera.cpp" />
+		<Unit filename="src/Helper/Camera.h" />
+		<Unit filename="src/Helper/Compressable.cpp" />
+		<Unit filename="src/Helper/Compressable.h" />
+		<Unit filename="src/Helper/FBOLoader.h" />
+		<Unit filename="src/Helper/Loader.cpp" />
+		<Unit filename="src/Helper/Loader.h" />
+		<Unit filename="src/Helper/ResourceLocation.h" />
+		<Unit filename="src/Helper/log.cpp" />
+		<Unit filename="src/Model/Model.cpp" />
+		<Unit filename="src/Model/Model.h" />
+		<Unit filename="src/Model/ModelFragment.cpp" />
+		<Unit filename="src/Model/ModelFragment.h" />
+		<Unit filename="src/Model/ModelMaterial.cpp" />
+		<Unit filename="src/Model/ModelMaterial.h" />
+		<Unit filename="src/Model/Model_Animation.cpp" />
+		<Unit filename="src/Model/Model_FBX.cpp" />
+		<Unit filename="src/Model/Model_loadFromObj.cpp" />
+		<Unit filename="src/Model/glsl.cpp" />
+		<Unit filename="src/Model/glsl.h" />
+		<Unit filename="src/Networking/NetClient.cpp" />
+		<Unit filename="src/Networking/NetClient.h" />
+		<Unit filename="src/Networking/NetHandler.h" />
+		<Unit filename="src/Networking/NetPacket.h" />
+		<Unit filename="src/Networking/serverClientHandler.h" />
+		<Unit filename="src/Scripts/API/API.h" />
+		<Unit filename="src/Scripts/API/API_3D.h" />
+		<Unit filename="src/Scripts/API/API_Model.h" />
+		<Unit filename="src/Scripts/CSharp.h" />
+		<Unit filename="src/Scripts/Java.cpp" />
+		<Unit filename="src/Scripts/Java.h" />
+		<Unit filename="src/Scripts/Javascript.h" />
+		<Unit filename="src/Scripts/Lua.cpp" />
+		<Unit filename="src/Scripts/Lua.h" />
+		<Unit filename="src/Scripts/Python.h" />
+		<Unit filename="src/Scripts/ScriptProvider.h" />
+		<Unit filename="src/Shaders.h" />
+		<Unit filename="src/Sound/EntitySound.h" />
+		<Unit filename="src/Sound/SoundBufferData.cpp" />
+		<Unit filename="src/Sound/SoundBufferData.h" />
+		<Unit filename="src/Sound/SoundListener.cpp" />
+		<Unit filename="src/Sound/SoundListener.h" />
+		<Unit filename="src/Sound/SoundManager.cpp" />
+		<Unit filename="src/Sound/SoundManager.h" />
+		<Unit filename="src/Sound/SoundMic.cpp" />
+		<Unit filename="src/Sound/SoundMic.h" />
+		<Unit filename="src/Sound/SoundSource.cpp" />
+		<Unit filename="src/Sound/SoundSource.h" />
+		<Unit filename="src/Sprite2D/Sprite2D.cpp" />
+		<Unit filename="src/Sprite2D/Sprite2D.h" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger>
+				<search_path add="..\EterniaLib" />
+			</debugger>
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" use_define="1" update_manifest="0" do_auto_increment="0" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,329 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../lib/FFmpeg/libavcodec/arm/aacpsdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/ac3dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/audiodsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/audiodsp_init_neon.c \
+../lib/FFmpeg/libavcodec/arm/blockdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/blockdsp_init_neon.c \
+../lib/FFmpeg/libavcodec/arm/fft_fixed_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/fft_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/flacdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/fmtconvert_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/g722dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/h264chroma_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/h264dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/h264pred_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/h264qpel_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/hevcdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/hevcdsp_init_neon.c \
+../lib/FFmpeg/libavcodec/arm/hpeldsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/hpeldsp_init_armv6.c \
+../lib/FFmpeg/libavcodec/arm/hpeldsp_init_neon.c \
+../lib/FFmpeg/libavcodec/arm/idctdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/idctdsp_init_armv5te.c \
+../lib/FFmpeg/libavcodec/arm/idctdsp_init_armv6.c \
+../lib/FFmpeg/libavcodec/arm/idctdsp_init_neon.c \
+../lib/FFmpeg/libavcodec/arm/lossless_audiodsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/me_cmp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/mlpdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/mpegaudiodsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/mpegvideo_arm.c \
+../lib/FFmpeg/libavcodec/arm/mpegvideo_armv5te.c \
+../lib/FFmpeg/libavcodec/arm/mpegvideoencdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/neontest.c \
+../lib/FFmpeg/libavcodec/arm/pixblockdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/rdft_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/rv34dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/rv40dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/sbcdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/sbrdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/synth_filter_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/vc1dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/vc1dsp_init_neon.c \
+../lib/FFmpeg/libavcodec/arm/videodsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/videodsp_init_armv5te.c \
+../lib/FFmpeg/libavcodec/arm/vorbisdsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/vp3dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/vp6dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/vp8dsp_init_arm.c \
+../lib/FFmpeg/libavcodec/arm/vp8dsp_init_armv6.c \
+../lib/FFmpeg/libavcodec/arm/vp8dsp_init_neon.c \
+../lib/FFmpeg/libavcodec/arm/vp9dsp_init_10bpp_arm.c \
+../lib/FFmpeg/libavcodec/arm/vp9dsp_init_12bpp_arm.c \
+../lib/FFmpeg/libavcodec/arm/vp9dsp_init_16bpp_arm_template.c \
+../lib/FFmpeg/libavcodec/arm/vp9dsp_init_arm.c 
+
+S_UPPER_SRCS += \
+../lib/FFmpeg/libavcodec/arm/aacpsdsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/ac3dsp_arm.S \
+../lib/FFmpeg/libavcodec/arm/ac3dsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/ac3dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/audiodsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/blockdsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/fft_fixed_neon.S \
+../lib/FFmpeg/libavcodec/arm/fft_neon.S \
+../lib/FFmpeg/libavcodec/arm/fft_vfp.S \
+../lib/FFmpeg/libavcodec/arm/flacdsp_arm.S \
+../lib/FFmpeg/libavcodec/arm/fmtconvert_neon.S \
+../lib/FFmpeg/libavcodec/arm/fmtconvert_vfp.S \
+../lib/FFmpeg/libavcodec/arm/g722dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/h264cmc_neon.S \
+../lib/FFmpeg/libavcodec/arm/h264dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/h264idct_neon.S \
+../lib/FFmpeg/libavcodec/arm/h264pred_neon.S \
+../lib/FFmpeg/libavcodec/arm/h264qpel_neon.S \
+../lib/FFmpeg/libavcodec/arm/hevcdsp_deblock_neon.S \
+../lib/FFmpeg/libavcodec/arm/hevcdsp_idct_neon.S \
+../lib/FFmpeg/libavcodec/arm/hevcdsp_qpel_neon.S \
+../lib/FFmpeg/libavcodec/arm/hevcdsp_sao_neon.S \
+../lib/FFmpeg/libavcodec/arm/hpeldsp_arm.S \
+../lib/FFmpeg/libavcodec/arm/hpeldsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/hpeldsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/idctdsp_arm.S \
+../lib/FFmpeg/libavcodec/arm/idctdsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/idctdsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/int_neon.S \
+../lib/FFmpeg/libavcodec/arm/jrevdct_arm.S \
+../lib/FFmpeg/libavcodec/arm/lossless_audiodsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/mdct_fixed_neon.S \
+../lib/FFmpeg/libavcodec/arm/mdct_neon.S \
+../lib/FFmpeg/libavcodec/arm/mdct_vfp.S \
+../lib/FFmpeg/libavcodec/arm/me_cmp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/mlpdsp_armv5te.S \
+../lib/FFmpeg/libavcodec/arm/mlpdsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/mpegaudiodsp_fixed_armv6.S \
+../lib/FFmpeg/libavcodec/arm/mpegvideo_armv5te_s.S \
+../lib/FFmpeg/libavcodec/arm/mpegvideo_neon.S \
+../lib/FFmpeg/libavcodec/arm/mpegvideoencdsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/neon.S \
+../lib/FFmpeg/libavcodec/arm/pixblockdsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/rdft_neon.S \
+../lib/FFmpeg/libavcodec/arm/rv34dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/rv40dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/sbcdsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/sbcdsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/sbrdsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/simple_idct_arm.S \
+../lib/FFmpeg/libavcodec/arm/simple_idct_armv5te.S \
+../lib/FFmpeg/libavcodec/arm/simple_idct_armv6.S \
+../lib/FFmpeg/libavcodec/arm/simple_idct_neon.S \
+../lib/FFmpeg/libavcodec/arm/startcode_armv6.S \
+../lib/FFmpeg/libavcodec/arm/synth_filter_neon.S \
+../lib/FFmpeg/libavcodec/arm/synth_filter_vfp.S \
+../lib/FFmpeg/libavcodec/arm/vc1dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/videodsp_armv5te.S \
+../lib/FFmpeg/libavcodec/arm/vorbisdsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp3dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp6dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp8_armv6.S \
+../lib/FFmpeg/libavcodec/arm/vp8dsp_armv6.S \
+../lib/FFmpeg/libavcodec/arm/vp8dsp_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp9itxfm_16bpp_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp9itxfm_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp9lpf_16bpp_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp9lpf_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp9mc_16bpp_neon.S \
+../lib/FFmpeg/libavcodec/arm/vp9mc_neon.S 
+
+OBJS += \
+./lib/FFmpeg/libavcodec/arm/aacpsdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/aacpsdsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/ac3dsp_arm.o \
+./lib/FFmpeg/libavcodec/arm/ac3dsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/ac3dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/ac3dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/audiodsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/audiodsp_init_neon.o \
+./lib/FFmpeg/libavcodec/arm/audiodsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/blockdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/blockdsp_init_neon.o \
+./lib/FFmpeg/libavcodec/arm/blockdsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/fft_fixed_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/fft_fixed_neon.o \
+./lib/FFmpeg/libavcodec/arm/fft_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/fft_neon.o \
+./lib/FFmpeg/libavcodec/arm/fft_vfp.o \
+./lib/FFmpeg/libavcodec/arm/flacdsp_arm.o \
+./lib/FFmpeg/libavcodec/arm/flacdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/fmtconvert_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/fmtconvert_neon.o \
+./lib/FFmpeg/libavcodec/arm/fmtconvert_vfp.o \
+./lib/FFmpeg/libavcodec/arm/g722dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/g722dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/h264chroma_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/h264cmc_neon.o \
+./lib/FFmpeg/libavcodec/arm/h264dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/h264dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/h264idct_neon.o \
+./lib/FFmpeg/libavcodec/arm/h264pred_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/h264pred_neon.o \
+./lib/FFmpeg/libavcodec/arm/h264qpel_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/h264qpel_neon.o \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_deblock_neon.o \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_idct_neon.o \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_init_neon.o \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_qpel_neon.o \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_sao_neon.o \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_arm.o \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_init_armv6.o \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_init_neon.o \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/idctdsp_arm.o \
+./lib/FFmpeg/libavcodec/arm/idctdsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_armv5te.o \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_armv6.o \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_neon.o \
+./lib/FFmpeg/libavcodec/arm/idctdsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/int_neon.o \
+./lib/FFmpeg/libavcodec/arm/jrevdct_arm.o \
+./lib/FFmpeg/libavcodec/arm/lossless_audiodsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/lossless_audiodsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/mdct_fixed_neon.o \
+./lib/FFmpeg/libavcodec/arm/mdct_neon.o \
+./lib/FFmpeg/libavcodec/arm/mdct_vfp.o \
+./lib/FFmpeg/libavcodec/arm/me_cmp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/me_cmp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/mlpdsp_armv5te.o \
+./lib/FFmpeg/libavcodec/arm/mlpdsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/mlpdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/mpegaudiodsp_fixed_armv6.o \
+./lib/FFmpeg/libavcodec/arm/mpegaudiodsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/mpegvideo_arm.o \
+./lib/FFmpeg/libavcodec/arm/mpegvideo_armv5te.o \
+./lib/FFmpeg/libavcodec/arm/mpegvideo_armv5te_s.o \
+./lib/FFmpeg/libavcodec/arm/mpegvideo_neon.o \
+./lib/FFmpeg/libavcodec/arm/mpegvideoencdsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/mpegvideoencdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/neon.o \
+./lib/FFmpeg/libavcodec/arm/neontest.o \
+./lib/FFmpeg/libavcodec/arm/pixblockdsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/pixblockdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/rdft_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/rdft_neon.o \
+./lib/FFmpeg/libavcodec/arm/rv34dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/rv34dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/rv40dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/rv40dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/sbcdsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/sbcdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/sbcdsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/sbrdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/sbrdsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/simple_idct_arm.o \
+./lib/FFmpeg/libavcodec/arm/simple_idct_armv5te.o \
+./lib/FFmpeg/libavcodec/arm/simple_idct_armv6.o \
+./lib/FFmpeg/libavcodec/arm/simple_idct_neon.o \
+./lib/FFmpeg/libavcodec/arm/startcode_armv6.o \
+./lib/FFmpeg/libavcodec/arm/synth_filter_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/synth_filter_neon.o \
+./lib/FFmpeg/libavcodec/arm/synth_filter_vfp.o \
+./lib/FFmpeg/libavcodec/arm/vc1dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/vc1dsp_init_neon.o \
+./lib/FFmpeg/libavcodec/arm/vc1dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/videodsp_armv5te.o \
+./lib/FFmpeg/libavcodec/arm/videodsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/videodsp_init_armv5te.o \
+./lib/FFmpeg/libavcodec/arm/vorbisdsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/vorbisdsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp3dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/vp3dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp6dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/vp6dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp8_armv6.o \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_armv6.o \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_init_armv6.o \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_init_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_10bpp_arm.o \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_12bpp_arm.o \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_16bpp_arm_template.o \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_arm.o \
+./lib/FFmpeg/libavcodec/arm/vp9itxfm_16bpp_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp9itxfm_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp9lpf_16bpp_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp9lpf_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp9mc_16bpp_neon.o \
+./lib/FFmpeg/libavcodec/arm/vp9mc_neon.o 
+
+C_DEPS += \
+./lib/FFmpeg/libavcodec/arm/aacpsdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/ac3dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/audiodsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/audiodsp_init_neon.d \
+./lib/FFmpeg/libavcodec/arm/blockdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/blockdsp_init_neon.d \
+./lib/FFmpeg/libavcodec/arm/fft_fixed_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/fft_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/flacdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/fmtconvert_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/g722dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/h264chroma_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/h264dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/h264pred_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/h264qpel_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/hevcdsp_init_neon.d \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_init_armv6.d \
+./lib/FFmpeg/libavcodec/arm/hpeldsp_init_neon.d \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_armv5te.d \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_armv6.d \
+./lib/FFmpeg/libavcodec/arm/idctdsp_init_neon.d \
+./lib/FFmpeg/libavcodec/arm/lossless_audiodsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/me_cmp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/mlpdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/mpegaudiodsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/mpegvideo_arm.d \
+./lib/FFmpeg/libavcodec/arm/mpegvideo_armv5te.d \
+./lib/FFmpeg/libavcodec/arm/mpegvideoencdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/neontest.d \
+./lib/FFmpeg/libavcodec/arm/pixblockdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/rdft_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/rv34dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/rv40dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/sbcdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/sbrdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/synth_filter_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/vc1dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/vc1dsp_init_neon.d \
+./lib/FFmpeg/libavcodec/arm/videodsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/videodsp_init_armv5te.d \
+./lib/FFmpeg/libavcodec/arm/vorbisdsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/vp3dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/vp6dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_init_arm.d \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_init_armv6.d \
+./lib/FFmpeg/libavcodec/arm/vp8dsp_init_neon.d \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_10bpp_arm.d \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_12bpp_arm.d \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_16bpp_arm_template.d \
+./lib/FFmpeg/libavcodec/arm/vp9dsp_init_arm.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+lib/FFmpeg/libavcodec/arm/%.o: ../lib/FFmpeg/libavcodec/arm/%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C Compiler'
+	gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+lib/FFmpeg/libavcodec/arm/%.o: ../lib/FFmpeg/libavcodec/arm/%.S
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC Assembler'
+	as  -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 6.4.--><structure>
+	<type>fa</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="IDLE">
+			<x>270.0</x>
+			<y>30.0</y>
+			<initial/>
+		</state>
+		<state id="1" name="WANDER">
+			<x>270.0</x>
+			<y>101.0</y>
+		</state>
+		<state id="2" name="AGGRO">
+			<x>230.0</x>
+			<y>172.0</y>
+		</state>
+		<state id="3" name="ATTACK">
+			<x>110.0</x>
+			<y>243.0</y>
+		</state>
+		<state id="4" name="DECIDE">
+			<x>310.0</x>
+			<y>172.0</y>
+		</state>
+		<state id="5" name="DO_COMMAND">
+			<x>470.0</x>
+			<y>315.0</y>
+		</state>
+		<state id="6" name="TALK">
+			<x>190.0</x>
+			<y>243.0</y>
+		</state>
+		<state id="7" name="COMMAND">
+			<x>270.0</x>
+			<y>243.0</y>
+		</state>
+		<state id="8" name="COMMANDED">
+			<x>430.0</x>
+			<y>243.0</y>
+		</state>
+		<state id="9" name="HELLO">
+			<x>230.0</x>
+			<y>386.0</y>
+		</state>
+		<state id="10" name="GET_OUT_OF_WAY">
+			<x>150.0</x>
+			<y>386.0</y>
+		</state>
+		<state id="11" name="YOU_ARE_MINE">
+			<x>150.0</x>
+			<y>315.0</y>
+		</state>
+		<state id="12" name="I_WANT_A_COMMAND">
+			<x>230.0</x>
+			<y>315.0</y>
+		</state>
+		<state id="13" name="REPAIR">
+			<x>30.0</x>
+			<y>529.0</y>
+		</state>
+		<state id="14" name="NICE">
+			<x>310.0</x>
+			<y>315.0</y>
+		</state>
+		<state id="15" name="I_AM_NOT_YOURS_TO_COMMAND">
+			<x>70.0</x>
+			<y>315.0</y>
+		</state>
+		<state id="16" name="STRATEGIZE">
+			<x>390.0</x>
+			<y>386.0</y>
+		</state>
+		<state id="17" name="PLOT">
+			<x>350.0</x>
+			<y>243.0</y>
+		</state>
+		<state id="20" name="PERSUADE">
+			<x>390.0</x>
+			<y>315.0</y>
+		</state>
+		<state id="21" name="DO_PLOT">
+			<x>310.0</x>
+			<y>386.0</y>
+		</state>
+		<state id="22" name="FLANK">
+			<x>350.0</x>
+			<y>529.0</y>
+		</state>
+		<state id="23" name="HOLD_POSITION">
+			<x>190.0</x>
+			<y>529.0</y>
+		</state>
+		<state id="24" name="BUILD_DEFENSE">
+			<x>110.0</x>
+			<y>529.0</y>
+		</state>
+		<state id="25" name="COUNTER">
+			<x>430.0</x>
+			<y>529.0</y>
+		</state>
+		<state id="26" name="SNIPER">
+			<x>270.0</x>
+			<y>529.0</y>
+		</state>
+		<state id="27" name="HOLD_POS">
+			<x>510.0</x>
+			<y>529.0</y>
+		</state>
+		<state id="28" name="ASSAULT">
+			<x>270.0</x>
+			<y>457.0</y>
+		</state>
+		<state id="29" name="SETUP">
+			<x>190.0</x>
+			<y>457.0</y>
+		</state>
+		<state id="30" name="DEFENSE">
+			<x>350.0</x>
+			<y>457.0</y>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>28</from>
+			<to>23</to>
+			<read>BEST_STAT</read>
+		</transition>
+		<transition>
+			<from>14</from>
+			<to>9</to>
+			<read>is_nice</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>LOOP</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>INTELLIGENCE</read>
+		</transition>
+		<transition>
+			<from>20</from>
+			<to>21</to>
+			<read>HAS_FRIENDS</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>11</to>
+			<read>ENEMY</read>
+		</transition>
+		<transition>
+			<from>14</from>
+			<to>10</to>
+			<read>not_nice</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>14</to>
+			<read>GREETING</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>16</to>
+			<read>IN_SQUAD</read>
+		</transition>
+		<transition>
+			<from>29</from>
+			<to>24</to>
+			<read>NEED_BETTER_DEF</read>
+		</transition>
+		<transition>
+			<from>17</from>
+			<to>20</to>
+			<read>FRIENDS</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>6</to>
+			<read>WANT_TALK</read>
+		</transition>
+		<transition>
+			<from>28</from>
+			<to>22</to>
+			<read>BEST_STRAT</read>
+		</transition>
+		<transition>
+			<from>16</from>
+			<to>28</to>
+			<read>COMMAND_ATK</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>5</to>
+			<read>NOT_REFUSE</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>12</to>
+			<read>NO_COMMANDS</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>7</to>
+			<read>PLAYER_GIVE_DECISION</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>15</to>
+			<read>REFUSE_COMMAND</read>
+		</transition>
+		<transition>
+			<from>29</from>
+			<to>13</to>
+			<read>NEAR_DAMAGED</read>
+		</transition>
+		<transition>
+			<from>30</from>
+			<to>25</to>
+			<read>CAN_COUNTER</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>CLOSE_TO_PLAYER</read>
+		</transition>
+		<transition>
+			<from>30</from>
+			<to>27</to>
+			<read>CANNOT_COUNTER</read>
+		</transition>
+		<transition>
+			<from>16</from>
+			<to>30</to>
+			<read>TAKE_POS</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>1</to>
+			<read>PLAYER_DEAD</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>15</to>
+			<read>REFUSE</read>
+		</transition>
+		<transition>
+			<from>28</from>
+			<to>26</to>
+			<read>BEST_STRAT</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>PLAYER_NEAR</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>2</to>
+			<read>NOT_</read>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>6</to>
+			<read>TELL_OTHER</read>
+		</transition>
+		<transition>
+			<from>16</from>
+			<to>29</to>
+			<read>NOTHING</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>1</to>
+			<read>PLAYER_DEAD</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>8</to>
+			<read>AI_OR_PLAYER_COMMAND</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>17</to>
+			<read>NOT_LIKE_COMMANDER</read>
+		</transition>
+	</automaton>
+</structure>

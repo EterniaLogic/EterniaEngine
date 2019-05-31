@@ -1,0 +1,9 @@
+Networking ideas:
+
+    Eternia Engine Editor:
+        - MPI Cross-Computer support (Editing the same world)
+        - Central Editing Server (Build multi-platform support)
+    Game:
+        - P2p support
+    Server:
+        - Cloud MPI support (p2p servers)

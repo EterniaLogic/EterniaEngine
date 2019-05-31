@@ -1,0 +1,21 @@
+Editor:
+    -
+Game:
+    - Persistent world generator
+    - Persistent cloud generator
+    - Persistent universe generator
+    - Terrain Gen
+Server:
+    - Use modified Data.dat file (removed images)
+
+Export:
+    - Export all data to one single file
+    - Generate all executables for each platform:
+    -   [Server/Game]  Win, Linux, OSX (32, x86_64, ia64)
+    
+
+Star Skybox:
+    - Based on the procedurally generated engine
+    - Draws each star
+    - Players can zoom in with interstellar telescopes and see what went on based on gamelogs
+        - Players can sit outside a solar system and see what went on an hour ago.
